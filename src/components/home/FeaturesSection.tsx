@@ -7,7 +7,7 @@ export default function FeaturesSection() {
     {
       icon: Monitor,
       title: "4K ULTRA HD STREAMING",
-      desc: "Enjoy every channel and live event in stunning 4K, Full HD, and HD. RealMIPTV anti-freeze technology ensures smooth IPTV streaming on any compatible device.",
+      desc: "Enjoy every channel and live event in stunning 4K, Full HD, and HD. SMARTSGI anti-freeze technology ensures smooth IPTV streaming on any compatible device.",
     },
     {
       icon: Layers,
@@ -17,7 +17,7 @@ export default function FeaturesSection() {
     {
       icon: Film,
       title: "200,000+ MOVIES & SERIES",
-      desc: "Explore a massive VOD library featuring the latest movies, hit series, and documentaries—available on demand with your RealMIPTV subscription.",
+      desc: "Explore a massive VOD library featuring the latest movies, hit series, and documentaries—available on demand with your SMARTSGI subscription.",
     },
   ];
 
@@ -35,7 +35,7 @@ export default function FeaturesSection() {
     {
       icon: Globe,
       title: "Works Worldwide",
-      desc: "Enjoy the RealMIPTV service wherever you are, on any stable internet connection.",
+      desc: "Enjoy the SMARTSGI service wherever you are, on any stable internet connection.",
     },
     {
       icon: ShieldCheck,
@@ -55,7 +55,7 @@ export default function FeaturesSection() {
           </span>
           <h2 className="text-3xl md:text-5xl font-extrabold text-black leading-tight">
             Everything You Need for the{" "}
-            <span className="block text-[#36a9ff]">Ultimate RealMIPTV Experience.</span>
+            <span className="block text-[#36a9ff]">Ultimate SMARTSGI Experience.</span>
           </h2>
         </div>
 
@@ -109,3 +109,4 @@ export default function FeaturesSection() {
     </section>
   );
 }
+

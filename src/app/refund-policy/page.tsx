@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Sparkles, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Refund Policy | Realm IPTV",
-  description: "Learn about the refund policy, eligibility, and process for Realm IPTV.",
+  title: "Refund Policy | SMARTSGI",
+  description: "Review the transparent refund policy and satisfaction process for SMARTSGI IPTV subscriptions.",
   alternates: {
     canonical: "/refund-policy",
   },
@@ -11,114 +12,76 @@ export const metadata: Metadata = {
 
 const sections = [
   {
-    title: "Our Commitment to You",
+    title: "1. Satisfaction Commitment",
     content: [
-      "At Realm IPTV, we uphold the standard of our IPTV subscription service. This policy specifies when refunds may be applicable, ensuring that we maintain a transparent and just process for every customer.",
+      "At SMARTSGI, we strive to deliver consistent, high-performance streaming services. We encourage all prospective clients to test their setup using our 24-hour trial prior to committing to extended multi-month plans.",
     ],
   },
   {
-    title: "Refund Eligibility",
-    content: ["You could be entitled to a total or partial refund in the following cases:"],
-    items: [
-      "Technical Failures: Service is completely non-functional on your compatible device for 72+ consecutive hours due to a fault on our side.",
-      "Duplicate Payments: Accidental duplicate charge for the same subscription period.",
-      "Initial 7 Day Window for new customers: Request within 7 days of first purchase after attempting support-led troubleshooting.",
-    ],
-  },
-  {
-    title: "How to Request a Refund",
-    content: ["To seek a refund, kindly follow these steps:"],
-    items: [
-      <>Connect with our support team using our <Link className="font-semibold text-[#36a9ff] hover:text-[#36a9ff]" href="/contact">Contact page</Link>.</>,
-      "Please use the subject: 'Refund Request'.",
-      "Please provide your complete name, the email linked to your subscription, and the purpose of your inquiry.",
-    ],
-  },
-  {
-    title: "Sample Refund Request Message",
+    title: "2. Refund Eligibility",
     content: [
-      <>Contact: Send a message via our <Link className="font-semibold text-[#36a9ff] hover:text-[#36a9ff]" href="/contact">Contact page</Link></>,
-      "Message Title: Refund Request",
-      "Hello,",
-      "I am writing to ask for a refund regarding my IPTV subscription.",
-      "My Name: [Your Full Name]",
-      "My Email: [Your Subscription Email]",
-      "Reason for Refund: [Concise explanation of your concern, for example, technical errors, billing duplicates, etc.]",
-      "Thank you.",
+      "Refund requests are evaluated under the following standard criteria:",
+    ],
+    items: [
+      "Technical Outages: Confirmed server-side outages exceeding 72 consecutive hours that prevent access across all compatible devices.",
+      "Duplicate Charges: Accidental duplicate billing for the same plan period.",
+      "First 7 Days: New subscribers who experience verified incompatibility issues after working with technical support.",
     ],
   },
   {
-    title: "What We Need to Process Your Refund",
-    content: [],
-    items: [
-      "Account email used at checkout",
-      "Order/transaction ID from {Payment Gateway Name}",
-      "Brief reason and steps already tried with support",
-      "Device/app details (e.g., Firestick + IPTV Smarters)",
+    title: "3. How to Submit a Refund Inquiry",
+    content: [
+      "To request a refund review, please contact our team within 7 days of purchase via our Contact page or WhatsApp with your order email and description of the technical issue.",
     ],
   },
   {
-    title: "Processing Timeline",
-    content: [],
-    items: [
-      "0-3 business days: Analysis executed by support team",
-      "Same day after approval: The refund has been initiated, returning funds to your original method ({Payment Gateway 1} / {Payment Gateway 2}).",
-      "5-10 business days: Funds manifest according to bank/card issuer.",
-    ],
-    after: "Expect to receive an email update at every step. Response times may increase on weekends or holidays.",
-  },
-  {
-    title: "Exceptions (When Refunds Are Not Provided)",
-    content: ["Refunds will be denied in these outlined cases:"],
-    items: [
-      <>You are discontent with the <Link className="font-semibold text-[#36a9ff] hover:text-[#36a9ff]" href="/channels">channel list</Link> or provided content.</>,
-      "Your connection speed is too slow or unstable to stream effectively.",
-      "Your actions have breached our Terms of Service, including account sharing.",
-      "Geo-blocking problems in your region are unfortunately outside of our influence and control.",
-    ],
-  },
-  {
-    title: "How to Avoid Refund Requests",
-    content: [],
-    items: [
-      "Check Compatibility: Confirm your device/app supports M3U/Portal before purchase.",
-      "Stable Internet: Use 30 Mbps+ and 5GHz Wi-Fi or Ethernet for 4K.",
-      <>Use Setup Guides: Follow our step by step <Link className="font-semibold text-[#36a9ff] hover:text-[#36a9ff]" href="/installation">Installation page</Link>.</>,
-      <>Ask Support First: Most issues are solved in minutes-please <Link className="font-semibold text-[#36a9ff] hover:text-[#36a9ff]" href="/contact">contact support</Link>.</>,
+    title: "4. Processing Timeline",
+    content: [
+      "Approved refunds are credited to the original payment method within 5 to 10 business days, depending on your bank or payment provider.",
     ],
   },
 ];
 
 export default function RefundPolicyPage() {
-  const currentDate = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-  
   return (
-    <main className="flex-grow px-5 pb-20 pt-12 sm:px-8 md:pt-16 text-format-legal">
-      <article className="mx-auto max-w-4xl">
-        <header className="border-b border-black/10 pb-10 text-center mx-auto max-w-3xl">
-          <span className="inline-flex rounded-full border border-[#36a9ff]/35 bg-[#36a9ff]/[0.06] px-4 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#36a9ff]">Legal information</span>
-          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.05] tracking-tight">
-            <span className="block text-black">Refund &amp; Money-Back</span>
-            <span className="mt-1 block text-[#36a9ff]">Official Policy.</span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-gray-600">Last adjusted: {currentDate}</p>
-        </header>
-
-        <div className="mt-10 space-y-10 text-base leading-7 text-on-surface-variant">
-          {sections.map((section, index) => (
-            <section key={section.title}>
-              <h2 className="text-2xl font-bold text-black">{index + 1}. {section.title}</h2>
-              {section.content.map((paragraph, i) => <p className="mt-4" key={i}>{paragraph}</p>)}
-              {section.items && section.items.length > 0 && <ul className="mt-4 list-disc space-y-2 pl-6 marker:text-[#36a9ff]">{section.items.map((item, i) => <li key={i}>{item}</li>)}</ul>}
-              {section.after && <p className="mt-4">{section.after}</p>}
-            </section>
-          ))}
-          <section>
-            <h2 className="text-2xl font-bold text-black">9. Contact Us</h2>
-            <p className="mt-4">If you have any questions regarding our Refund Policy, please contact our <Link className="font-semibold text-[#36a9ff] hover:text-[#36a9ff]" href="/contact">support team</Link>.</p>
-          </section>
+    <main className="min-h-screen bg-[#05030B] text-[#F8FAFC] pt-36 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+      <header className="mb-14 text-center">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#9B3FF2]/30 bg-[#9B3FF2]/10 mb-6">
+          <ShieldCheck className="w-3.5 h-3.5 text-[#FF7A00]" />
+          <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#C084FC]">
+            Customer Guarantee
+          </span>
         </div>
-      </article>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tight">
+          Refund Policy
+        </h1>
+        <p className="text-sm text-[#A8A0B8] mt-3">
+          Last updated: {new Date().getFullYear()} · SMARTSGI
+        </p>
+      </header>
+
+      <div className="space-y-8">
+        {sections.map((sec, idx) => (
+          <article key={idx} className="glass-card rounded-3xl p-8 border-white/[0.08]">
+            <h2 className="text-xl font-black text-white mb-4">{sec.title}</h2>
+            {sec.content.map((p, pIdx) => (
+              <p key={pIdx} className="text-sm text-[#A8A0B8] leading-relaxed">
+                {p}
+              </p>
+            ))}
+            {sec.items && (
+              <ul className="mt-4 space-y-2.5">
+                {sec.items.map((item, iIdx) => (
+                  <li key={iIdx} className="flex items-start gap-2.5 text-sm text-[#A8A0B8]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#9B3FF2] mt-2 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </article>
+        ))}
+      </div>
     </main>
   );
 }

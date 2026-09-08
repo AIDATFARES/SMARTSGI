@@ -1,50 +1,69 @@
-"use client";
-
 import Link from "next/link";
 import { blogPosts } from "@/data/blog";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog & Streaming Tutorials | SMARTSGI",
+  description: "Stay updated with the latest in IPTV streaming guides, player optimization tutorials, and industry insights with SMARTSGI.",
+  alternates: {
+    canonical: "/blog",
+  },
+};
 
 export default function Blog() {
   const featuredPost = blogPosts[0];
   const gridPosts = blogPosts.slice(1);
 
   return (
-    <main className="flex-grow pt-32 pb-24 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto w-full relative z-10">
+    <main className="min-h-screen bg-[#05030B] text-[#F8FAFC] pt-36 pb-24 px-4 sm:px-6 lg:px-8 max-w-[1360px] mx-auto w-full relative z-10">
       {/* Header */}
-      <header className="mb-16 text-center md:text-left">
-        <h1 className="font-display-lg text-display-lg text-slate-900 mb-4 font-bold tracking-tight">Latest News &amp; Streaming Tips</h1>
-        <p className="font-body-lg text-body-lg text-slate-600 max-w-2xl mx-auto md:mx-0">
-          Stay updated with the latest in 4K streaming technology, new channel additions, and guides to optimize your realmiptv experience.
+      <header className="mb-16 text-center max-w-3xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#9B3FF2]/30 bg-[#9B3FF2]/10 mb-6">
+          <Sparkles className="w-3.5 h-3.5 text-[#C084FC]" />
+          <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#C084FC]">
+            Tutorials &amp; Guides
+          </span>
+        </div>
+
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.08] tracking-tight uppercase">
+          <span className="text-white block sm:inline">Streaming Insights &amp; </span>
+          <span className="text-gradient-hero block sm:inline">Tutorials</span>
+        </h1>
+
+        <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-[#A8A0B8] leading-relaxed">
+          Explore comprehensive tutorials, player configurations, and streaming guides to get the most out of your SMARTSGI subscription.
         </p>
       </header>
 
       {/* Featured Post */}
       {featuredPost && (
-        <section className="mb-24">
+        <section className="mb-20">
           <Link href={`/blog/${featuredPost.slug}`}>
-            <div className="bg-[#051f33] border border-[#36a9ff]/20 rounded-2xl overflow-hidden flex flex-col md:flex-row group cursor-pointer transition-all duration-500 shadow-2xl hover:shadow-[#36a9ff]/20 hover:border-[#36a9ff]/50">
-              <div className="md:w-3/5 h-64 md:h-[450px] relative overflow-hidden">
+            <div className="glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row group cursor-pointer transition-all duration-300 hover:border-[#9B3FF2]/50 hover:shadow-[0_0_35px_rgba(155,63,242,0.25)]">
+              <div className="md:w-3/5 h-64 md:h-[420px] relative overflow-hidden bg-[#10091B]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
                   alt={featuredPost.title}
                   src={featuredPost.coverImage || ""}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#051f33] to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#051f33] opacity-90 md:opacity-100"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05030B] to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#05030B]/90"></div>
               </div>
-              <div className="md:w-2/5 p-8 md:p-12 flex flex-col justify-center z-10 relative bg-[#051f33] md:bg-transparent">
-                <span className="inline-block px-3 py-1 bg-[#36a9ff]/10 text-[#36a9ff] rounded-full font-label-caps text-[12px] font-bold tracking-widest uppercase mb-6 w-max border border-[#36a9ff]/30">
+
+              <div className="md:w-2/5 p-8 md:p-10 flex flex-col justify-center z-10 relative">
+                <span className="inline-block px-3 py-1 bg-[#9B3FF2]/20 text-[#C084FC] rounded-full text-[11px] font-bold tracking-widest uppercase mb-4 w-max border border-[#9B3FF2]/30">
                   {featuredPost.category}
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 group-hover:text-[#36a9ff] transition-colors leading-tight">
+                <h2 className="text-2xl md:text-3xl font-black text-white mb-4 group-hover:text-[#C084FC] transition-colors leading-tight">
                   {featuredPost.title}
                 </h2>
-                <p className="text-gray-300 text-lg mb-8 line-clamp-3 leading-relaxed">
+                <p className="text-[#A8A0B8] text-sm md:text-base mb-6 line-clamp-3 leading-relaxed">
                   {featuredPost.description}
                 </p>
-                <div className="flex items-center gap-4 mt-auto">
-                  <span className="text-white font-bold text-base uppercase tracking-wider">Read Article</span>
-                  <ArrowRight className="text-[#36a9ff] w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                <div className="flex items-center gap-3 mt-auto text-xs font-black uppercase tracking-wider text-white">
+                  <span>Read Article</span>
+                  <ArrowRight className="text-[#FF7A00] w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                 </div>
               </div>
             </div>
@@ -53,64 +72,36 @@ export default function Blog() {
       )}
 
       {/* Blog Grid */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {gridPosts.map((post) => (
           <Link href={`/blog/${post.slug}`} key={post.id}>
-            <article className="bg-[#051f33] border border-[#36a9ff]/20 rounded-xl overflow-hidden flex flex-col group cursor-pointer hover:-translate-y-2 transition-transform duration-300 h-full shadow-lg hover:shadow-[#36a9ff]/20 hover:border-[#36a9ff]/50">
-              <div className="h-56 relative overflow-hidden shrink-0">
+            <article className="glass-card rounded-3xl overflow-hidden flex flex-col group cursor-pointer hover:border-[#9B3FF2]/50 hover:-translate-y-1 transition-all duration-300 h-full">
+              <div className="h-52 relative overflow-hidden shrink-0 bg-[#10091B]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
                   alt={post.title}
                   src={post.coverImage || ""}
                 />
-                <div className="absolute bottom-0 w-full h-2/3 bg-gradient-to-t from-[#051f33] to-transparent"></div>
-                <span className="absolute top-4 left-4 px-3 py-1 bg-black/60 backdrop-blur-md text-white rounded-md font-bold text-[10px] tracking-widest uppercase border border-white/10">
+              </div>
+              <div className="p-6 sm:p-8 flex flex-col flex-grow">
+                <span className="text-[10px] font-bold text-[#C084FC] uppercase tracking-wider mb-2 block">
                   {post.category}
                 </span>
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <p className="text-xl font-bold text-white mb-3 group-hover:text-[#36a9ff] transition-colors leading-snug">
+                <h3 className="text-lg font-black text-white mb-3 group-hover:text-[#C084FC] transition-colors line-clamp-2">
                   {post.title}
-                </p>
-                <p className="text-sm text-gray-400 mb-6 line-clamp-2 leading-relaxed">
+                </h3>
+                <p className="text-xs sm:text-sm text-[#A8A0B8] line-clamp-3 mb-6 leading-relaxed flex-grow">
                   {post.description}
                 </p>
-                <div className="mt-auto flex items-center justify-between text-gray-500 text-xs font-semibold tracking-wider uppercase">
-                  <span>{post.date}</span>
-                  <span className="text-[#36a9ff] flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Read <ArrowRight className="w-3 h-3" />
-                  </span>
+                <div className="flex items-center justify-between text-xs font-bold text-white pt-4 border-t border-white/[0.06] mt-auto">
+                  <span>Read Guide</span>
+                  <ArrowRight className="text-[#FF7A00] w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
             </article>
           </Link>
         ))}
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="bg-[#051f33] border border-[#36a9ff]/20 rounded-2xl p-8 md:p-16 text-center relative overflow-hidden shadow-2xl">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#36a9ff]/10 to-transparent opacity-50 pointer-events-none"></div>
-        <div className="relative z-10 max-w-2xl mx-auto">
-          <Mail className="w-12 h-12 text-[#36a9ff] mb-6 mx-auto" />
-          <h2 className="text-3xl font-bold text-white mb-4">Never Miss an Update</h2>
-          <p className="text-gray-300 text-lg mb-8">
-            Subscribe to our newsletter for the latest streaming tips, platform updates, and exclusive reseller offers delivered straight to your inbox.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-4 justify-center" onSubmit={(e) => e.preventDefault()}>
-            <input
-              className="bg-[#031726] border border-[#36a9ff]/30 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-[#36a9ff] focus:ring-1 focus:ring-[#36a9ff] w-full sm:w-96 transition-all shadow-inner"
-              placeholder="Enter your email address"
-              type="email"
-            />
-            <button
-              className="bg-[#36a9ff] hover:bg-[#2196f3] text-white font-bold text-base tracking-wider uppercase px-8 py-4 rounded-lg whitespace-nowrap transition-colors shadow-lg shadow-[#36a9ff]/20"
-              type="submit"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
       </section>
     </main>
   );

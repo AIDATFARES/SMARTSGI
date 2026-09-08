@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ShieldAlert, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Legal Disclaimer & DMCA | Realm IPTV",
-  description: "Legal Disclaimer and DMCA policy for Realm IPTV.",
+  title: "Legal Disclaimer & DMCA Policy | SMARTSGI",
+  description: "Legal Disclaimer and DMCA policy for SMARTSGI IPTV services.",
   alternates: {
     canonical: "/dmca",
   },
@@ -11,114 +12,67 @@ export const metadata: Metadata = {
 
 const sections = [
   {
-    title: "No Legal Advice",
+    title: "1. No Legal Advice",
     content: [
-      "Nothing presented on this website or in our communications serves as legal or compliance counsel. If you have questions about IPTV legality in your jurisdiction, consult a qualified attorney.",
+      "Nothing presented on this website or in our direct communications constitutes legal or compliance counsel. If you have questions regarding digital streaming regulations in your jurisdiction, consult a qualified attorney.",
     ],
   },
   {
-    title: "Content Ownership and Hosting",
+    title: "2. Content Ownership and Hosting",
     content: [
-      "Realm IPTV does not possess, manage, upload, store, or distribute copyrighted materials. All streams available via your account are sourced from external parties on the public internet. Mentions of channels, logos, or trademarks are solely for identification purposes and are owned by their respective entities.",
+      "SMARTSGI does not host, manage, upload, store, or distribute copyrighted media streams. All streams accessed via customer playlists are sourced from independent third parties across the public web. All channel trademarks, logos, and brand identities belong exclusively to their respective owners and are referenced solely for identification purposes.",
     ],
   },
   {
-    title: "Availability and Service Changes",
+    title: "3. Service Availability",
     content: [
-      <>Channel and VOD options may vary in availability, quality (including 4K/FHD/HD), features, plans, and <Link className="font-semibold text-[#36a9ff] hover:text-[#36a9ff]" href="/pricing">pricing</Link>, and can be modified or removed by region without prior notification. We do not assure the availability of any particular <Link className="font-semibold text-[#36a9ff] hover:text-[#36a9ff]" href="/channels">channel</Link>, event, or title.</>,
+      "Channel selections and on-demand catalogs can vary in availability, resolution, and regional accessibility without prior notice. SMARTSGI does not warrant the permanent uninterrupted availability of any single specific broadcast feed or event.",
     ],
   },
   {
-    title: "User Responsibility and Compliance",
+    title: "4. User Compliance",
     content: [
-      "You are entirely accountable for your account usage and for following all relevant local laws and regulations. Avoid any actions with the service that could infringe on third-party rights. If you are uncertain about the legality of your usage, obtain independent legal counsel prior to proceeding.",
+      "Users are solely responsible for ensuring their usage conforms with local regulations in their respective territory. Ensure you have the legal right to view public broadcasts in your area prior to connecting your player.",
     ],
   },
   {
-    title: "Third-Party Links and Services",
+    title: "5. DMCA Takedown Notices",
     content: [
-      "Our site could have links to third-party websites, applications, or services. We do not oversee and are not responsible for the content, policies, or practices of these third-party entities. Utilizing third-party services is at your own risk.",
-    ],
-  },
-  {
-    title: "No Warranties",
-    content: [
-      "THE SERVICE AND WEBSITE ARE OFFERED ON AN -AS IS- AND -AS AVAILABLE- BASIS WITHOUT ANY WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. THIS INCLUDES, BUT IS NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. We do not guarantee uninterrupted, error-free, or secure operation.",
-    ],
-  },
-  {
-    title: "Limitation of Liability",
-    content: [
-      "Realm IPTV, its owners, affiliates, employees, and agents shall not be liable to the fullest extent permitted by law for any indirect, incidental, special, consequential, exemplary, or punitive damages, or for loss of data, profits, or goodwill connected to your use of the site or service.",
-    ],
-  },
-  {
-    title: "Indemnification",
-    content: [
-      "You agree to defend, indemnify, and shield Realm IPTV from any claims, liabilities, damages, losses, and expenses (including reasonable attorney fees) related to your use of the service or any infringement of this disclaimer or applicable law.",
-    ],
-  },
-  {
-    title: "DMCA Takedown",
-    content: [
-      "In the event that you are a copyright owner or an agent and believe that content reachable through our service infringes your copyright, send a notice with the following information:",
-    ],
-    items: [
-      "Identification of the work claimed to be infringed.",
-      "Specify the exact location, like a URL or channel name, of the material you assert is infringing.",
-      "We need your name, organization (if relevant), address, phone number, and email.",
-      "You need to provide a statement affirming your honest belief that the disputed usage is not sanctioned by the copyright holder, their agent, or legal regulations.",
-      "A perjury-penalized statement indicating that the information in the notice is accurate and that you are either the copyright owner or are authorized to represent the owner's interests.",
-      "A valid copyright claim necessitates a physical or electronic signature from the owner or their representative.",
-    ],
-    after: "Submit DMCA notices: Access our Contact form. Valid notifications will be examined, and actions executed quickly.",
-  },
-  {
-    title: "Changes to This Disclaimer",
-    content: [
-      "This disclaimer might be updated from time to time. The 'Last updated' date above shows the most recent change. Continued use of this site or service after changes indicates your acceptance of the revised terms.",
+      "SMARTSGI respects intellectual property rights. If you are a copyright owner or authorized agent and believe that content indexed via our directory infringes your rights, please submit a detailed takedown notice with proof of authorization to our compliance desk at legal@smartsgi.net.",
     ],
   },
 ];
 
 export default function DmcaPage() {
-  const currentDate = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-  
   return (
-    <main className="flex-grow px-5 pb-20 pt-12 sm:px-8 md:pt-16">
-      <article className="mx-auto max-w-4xl">
-        <header className="border-b border-black/10 pb-10 text-center mx-auto max-w-3xl">
-          <span className="inline-flex rounded-full border border-[#36a9ff]/35 bg-[#36a9ff]/[0.06] px-4 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#36a9ff]">Legal information</span>
-          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.05] tracking-tight">
-            <span className="block text-black">Legal Disclaimer</span>
-            <span className="mt-1 block text-[#36a9ff]">&amp; DMCA Notice.</span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-gray-600">Last updated: {currentDate}</p>
-        </header>
-
-        <div className="mt-10 space-y-10 text-base leading-7 text-on-surface-variant">
-          <div className="space-y-4">
-            <p>Content featured on this website is meant for general informational use and does not serve as legal advice. By engaging with our site or services, you agree to this disclaimer.</p>
-            <div className="rounded-xl border border-accent-500/20 bg-accent-500/10 p-5 text-sm">
-              <strong className="text-black">Important:</strong> Realm IPTV delivers an intuitive IPTV service interface alongside account provisioning. We do not host, upload, store, or archive any audiovisual content. The details on this site are provided 'as is' for general guidance, not legal counsel.
-            </div>
-          </div>
-
-          {sections.map((section, index) => (
-            <section key={section.title}>
-              <h2 className="text-2xl font-bold text-black">{index + 1}. {section.title}</h2>
-              {section.content.map((paragraph, i) => <p className="mt-4" key={i}>{paragraph}</p>)}
-              {section.items && section.items.length > 0 && <ul className="mt-4 list-disc space-y-2 pl-6 marker:text-[#36a9ff]">{section.items.map((item, i) => <li key={i}>{item}</li>)}</ul>}
-              {section.after && <p className="mt-4">{section.after}</p>}
-            </section>
-          ))}
-          
-          <section>
-            <h2 className="text-2xl font-bold text-black">11. Contact</h2>
-            <p className="mt-4">For any inquiries, refer to our Terms of Service and <Link className="font-semibold text-[#36a9ff] hover:text-[#36a9ff]" href="/privacy-policy">Privacy Policy</Link>, or contact <Link className="font-semibold text-[#36a9ff] hover:text-[#36a9ff]" href="/contact">support</Link>.</p>
-          </section>
+    <main className="min-h-screen bg-[#05030B] text-[#F8FAFC] pt-36 pb-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+      <header className="mb-14 text-center">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#9B3FF2]/30 bg-[#9B3FF2]/10 mb-6">
+          <ShieldAlert className="w-3.5 h-3.5 text-[#FF7A00]" />
+          <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#C084FC]">
+            Legal Information
+          </span>
         </div>
-      </article>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-tight">
+          DMCA &amp; Legal Disclaimer
+        </h1>
+        <p className="text-sm text-[#A8A0B8] mt-3">
+          Last updated: {new Date().getFullYear()} · SMARTSGI Compliance
+        </p>
+      </header>
+
+      <div className="space-y-8">
+        {sections.map((sec, idx) => (
+          <article key={idx} className="glass-card rounded-3xl p-8 border-white/[0.08]">
+            <h2 className="text-xl font-black text-white mb-4">{sec.title}</h2>
+            {sec.content.map((p, pIdx) => (
+              <p key={pIdx} className="text-sm text-[#A8A0B8] leading-relaxed">
+                {p}
+              </p>
+            ))}
+          </article>
+        ))}
+      </div>
     </main>
   );
 }

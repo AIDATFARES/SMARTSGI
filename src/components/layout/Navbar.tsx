@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 import BrandLogo from "@/components/ui/BrandLogo";
 
 export default function Navbar() {
@@ -12,7 +12,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -27,120 +27,120 @@ export default function Navbar() {
     }
   };
 
-  const getLinkClass = (path: string) => {
-    const isActive = pathname === path;
-    return isActive 
-      ? "text-[#36a9ff] border-b-2 border-[#36a9ff] pb-1 transition-colors duration-200" 
-      : "text-gray-600 hover:text-[#36a9ff] pb-1 transition-colors duration-200 whitespace-nowrap";
-  };
-
-  const getMobileLinkClass = (path: string) => {
-    const isActive = pathname === path;
-    return isActive
-      ? "text-[#36a9ff] py-1 font-bold"
-      : "hover:text-[#36a9ff] py-1 transition-colors text-gray-700";
-  };
+  const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "IPTV Subscription", href: "/pricing" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "Channel List", href: "/channels" },
+    { label: "Tutorials", href: "/installation" },
+  ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 flex flex-col ${
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-xl border-b border-black/10 shadow-2xl"
-          : "bg-white/80 backdrop-blur-md"
+          ? "bg-[#05030B]/90 backdrop-blur-xl border-b border-white/[0.08] shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
+          : "bg-[#05030B]/60 backdrop-blur-md border-b border-white/[0.04]"
       }`}
     >
-
-      <div className="w-full max-w-[1480px] mx-auto px-4 sm:px-8 h-20 flex items-center justify-between relative">
+      <div className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* LOGO */}
-        <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2.5 group shrink-0 z-20">
+        {/* Left: Brand Logo */}
+        <Link href="/" onClick={handleLogoClick} className="flex items-center shrink-0 z-20">
           <BrandLogo />
         </Link>
 
-        {/* Nav Links Container */}
-        <nav className="hidden xl:flex relative z-10 items-center justify-center p-1 border border-[#36a9ff] rounded-full bg-transparent text-[13px] font-bold tracking-wide">
-          <Link 
-            href="/" 
-            onClick={handleLogoClick} 
-            className={`px-4 py-2 rounded-full uppercase ${pathname === '/' ? 'bg-[#36a9ff] text-white shadow-[0_0_15px_rgba(54,169,255,0.4)]' : 'text-black hover:text-[#36a9ff] transition-colors'}`}
-          >
-            Home
-          </Link>
-          <Link 
-            href="/channels" 
-            className={`px-4 py-2 rounded-full uppercase ${pathname === '/channels' ? 'bg-[#36a9ff] text-white shadow-[0_0_15px_rgba(54,169,255,0.4)]' : 'text-black hover:text-[#36a9ff] transition-colors'}`}
-          >
-            Channels
-          </Link>
-          <Link 
-            href="/pricing" 
-            className={`px-4 py-2 rounded-full uppercase ${pathname === '/pricing' ? 'bg-[#36a9ff] text-white shadow-[0_0_15px_rgba(54,169,255,0.4)]' : 'text-black hover:text-[#36a9ff] transition-colors'}`}
-          >
-            Pricing
-          </Link>
-          <Link 
-            href="/installation" 
-            className={`px-4 py-2 rounded-full uppercase ${pathname === '/installation' ? 'bg-[#36a9ff] text-white shadow-[0_0_15px_rgba(54,169,255,0.4)]' : 'text-black hover:text-[#36a9ff] transition-colors'}`}
-          >
-            Setup
-          </Link>
-          <Link 
-            href="/reseller" 
-            className={`px-4 py-2 rounded-full uppercase ${pathname === '/reseller' ? 'bg-[#36a9ff] text-white shadow-[0_0_15px_rgba(54,169,255,0.4)]' : 'text-black hover:text-[#36a9ff] transition-colors'}`}
-          >
-            Reseller
-          </Link>
-          <Link 
-            href="/blog" 
-            className={`px-4 py-2 rounded-full uppercase ${pathname === '/blog' ? 'bg-[#36a9ff] text-white shadow-[0_0_15px_rgba(54,169,255,0.4)]' : 'text-black hover:text-[#36a9ff] transition-colors'}`}
-          >
-            Blog
-          </Link>
+        {/* Center: Desktop Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-1 xl:gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-[#10091B]/60 backdrop-blur-md">
+          {navLinks.map((link) => {
+            const isPricingHash = link.href === "#pricing";
+            const isActive = isPricingHash ? false : pathname === link.href;
+
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`px-4 py-2 rounded-full text-xs xl:text-sm font-semibold tracking-wide transition-all duration-200 ${
+                  isActive
+                    ? "bg-gradient-to-r from-[#9B3FF2] to-[#9333EA] text-white shadow-[0_0_15px_rgba(155,63,242,0.4)]"
+                    : "text-[#A8A0B8] hover:text-white hover:bg-white/[0.05]"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* RIGHT ACTIONS */}
-        <div className="hidden lg:flex items-center gap-4 shrink-0 z-20">
+        {/* Right: CTA Button */}
+        <div className="hidden sm:flex items-center gap-3 shrink-0">
           <a
-            href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20free%20trial%20for%20realmiptv%20IPTV."
+            href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20trial%20for%20SMARTSGI."
             target="_blank"
             rel="noreferrer"
-            className="group bg-[#00e5ff] text-black font-extrabold px-6 py-2.5 text-sm transition-all duration-300 shadow-[0_0_15px_rgba(0,229,255,0.4)] hover:shadow-[0_0_25px_rgba(0,229,255,0.6)] rounded-full uppercase hover:scale-105"
+            className="btn-primary-purple px-6 py-2.5 text-xs sm:text-sm font-bold tracking-wider uppercase gap-2 hover:shadow-[0_0_25px_rgba(155,63,242,0.6)]"
           >
-            GET STARTED
+            <Sparkles className="w-3.5 h-3.5 text-[#FF8A1F]" />
+            Try Now
           </a>
         </div>
 
-        {/* MOBILE MENU BUTTON */}
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden text-black p-2 rounded-lg bg-black/5 hover:bg-black/10 transition-colors z-20"
+          className="lg:hidden text-white p-2 rounded-xl border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.08] transition-colors"
           aria-label="Toggle navigation menu"
         >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {mobileMenuOpen ? <X className="w-6 h-6 text-[#C084FC]" /> : <Menu className="w-6 h-6 text-white" />}
         </button>
       </div>
 
-      {/* MOBILE DROPDOWN MENU */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-black/10 px-6 py-6 space-y-4 animate-in slide-in-from-top duration-300">
-          <nav className="flex flex-col space-y-3 font-semibold">
-            <Link href="/" onClick={handleLogoClick} className={getMobileLinkClass("/")}>Home</Link>
-            <Link href="/channels" onClick={() => setMobileMenuOpen(false)} className={getMobileLinkClass("/channels")}>Channels</Link>
-            <Link href="/pricing" onClick={() => setMobileMenuOpen(false)} className={getMobileLinkClass("/pricing")}>Pricing</Link>
-            <Link href="/installation" onClick={() => setMobileMenuOpen(false)} className={getMobileLinkClass("/installation")}>Setup</Link>
-            <Link href="/reseller" onClick={() => setMobileMenuOpen(false)} className={getMobileLinkClass("/reseller")}>Reseller</Link>
-            <Link href="/blog" onClick={() => setMobileMenuOpen(false)} className={getMobileLinkClass("/blog")}>Blog</Link>
-            <Link href="/how-it-works" onClick={() => setMobileMenuOpen(false)} className={getMobileLinkClass("/how-it-works")}>How It Works</Link>
-            <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className={getMobileLinkClass("/contact")}>Contact Support</Link>
+        <div className="lg:hidden bg-[#080511]/98 backdrop-blur-2xl border-b border-white/[0.08] px-6 py-6 space-y-4 animate-in slide-in-from-top-4 duration-300 shadow-2xl">
+          <nav className="flex flex-col space-y-2">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-colors ${
+                    isActive
+                      ? "bg-[#9B3FF2]/20 text-[#C084FC] border border-[#9B3FF2]/30"
+                      : "text-[#A8A0B8] hover:text-white hover:bg-white/[0.04]"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+            <Link
+              href="/reseller"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-4 py-2.5 rounded-xl text-sm font-semibold text-[#A8A0B8] hover:text-white hover:bg-white/[0.04] transition-colors"
+            >
+              Reseller Program
+            </Link>
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-4 py-2.5 rounded-xl text-sm font-semibold text-[#A8A0B8] hover:text-white hover:bg-white/[0.04] transition-colors"
+            >
+              Contact Support
+            </Link>
           </nav>
-          <div className="pt-4 border-t border-black/10 flex flex-col gap-3">
+
+          <div className="pt-4 border-t border-white/[0.08]">
             <a
-              href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20free%20trial%20for%20realmiptv%20IPTV."
+              href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20trial%20for%20SMARTSGI."
               target="_blank"
               rel="noreferrer"
-              className="w-full text-center py-3 btn-primary-voltra text-sm"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full btn-primary-purple py-3 text-sm font-bold tracking-wider uppercase text-center"
             >
-              Get Started
+              Try Now
             </a>
           </div>
         </div>

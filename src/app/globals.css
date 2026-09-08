@@ -1,415 +1,227 @@
 @import "tailwindcss";
 
 @theme {
-  --color-surface: #ffffff;
-  --color-surface-dim: #082a45;
-  --color-surface-bright: #0c395c;
-  --color-surface-container-lowest: #031726;
-  --color-surface-container-low: #051f33;
-  --color-surface-container: #082a45;
-  --color-surface-container-high: #0c395c;
-  --color-surface-container-highest: #114c77;
-  --color-on-surface: #f8fafc;
-  --color-on-surface-variant: #94a3b8;
-  --color-inverse-surface: #f1f5f9;
-  --color-inverse-on-surface: #051f33;
-  --color-outline: #114c77;
-  --color-outline-variant: #0c395c;
-  --color-surface-tint: #36a9ff;
-  --color-primary: #36a9ff;
-  --color-on-primary: #ffffff;
-  --color-primary-container: #082a45;
-  --color-on-primary-container: #e0f2fe;
-  --color-inverse-primary: #bae6fd;
-  --color-secondary: #f9ebc7;
-  --color-on-secondary: #051f33;
-  --color-secondary-container: #082a45;
-  --color-on-secondary-container: #fdf1c3;
-  --color-tertiary: #14b8a6;
-  --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #0f766e;
-  --color-on-tertiary-container: #ccfbf1;
-  --color-error: #ef4444;
-  --color-on-error: #ffffff;
-  --color-error-container: #991b1b;
-  --color-on-error-container: #fecaca;
-  --color-primary-fixed: #e0f2fe;
-  --color-primary-fixed-dim: #bae6fd;
-  --color-on-primary-fixed: #082f49;
-  --color-on-primary-fixed-variant: #075985;
-  --color-secondary-fixed: #fdf1c3;
-  --color-secondary-fixed-dim: #f9ebc7;
-  --color-on-secondary-fixed: #051f33;
-  --color-on-secondary-fixed-variant: #082a45;
-  --color-tertiary-fixed: #ccfbf1;
-  --color-tertiary-fixed-dim: #99f6e4;
-  --color-on-tertiary-fixed: #042f2e;
-  --color-on-tertiary-fixed-variant: #115e59;
-  --color-background: #ffffff;
-  --color-on-background: #0f172a;
-  --color-surface-variant: #f1f5f9;
+  --color-background: #05030B;
+  --color-background-subtle: #080511;
+  --color-background-elevated: #10091B;
+  
+  --color-surface: #080511;
+  --color-on-surface: #F8FAFC;
+  --color-on-surface-variant: #A8A0B8;
+  
+  --color-primary-purple: #9B3FF2;
+  --color-purple-glow: #A855F7;
+  --color-deep-purple: #9333EA;
+  --color-bright-violet: #B86CFF;
+  --color-light-violet: #C084FC;
 
-  /* Brand Colors Override - Realmiptv Purple/Violet Palette */
-  --color-primary-300: #f0abfc;
-  --color-primary-400: #e879f9;
-  --color-primary-500: #d946ef;
-  --color-primary-600: #c026d3;
+  --color-orange-primary: #FF7A00;
+  --color-orange-glow: #FF8A1F;
+  --color-orange-secondary: #F97316;
 
-  --color-secondary-400: #a78bfa;
-  --color-secondary-500: #8b5cf6;
-  --color-secondary-600: #7c3aed;
+  --color-pink-accent: #EC4899;
+  --color-magenta-accent: #D946EF;
 
-  --color-accent-400: #34d399;
-  --color-accent-500: #10b981;
-  --color-accent-600: #059669;
+  --color-main-text: #F8FAFC;
+  --color-secondary-text: #A8A0B8;
+  --color-muted-text: #777083;
 
-  --radius: 0.25rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-full: 9999px;
-
-  --spacing-margin-desktop: 64px;
-  --spacing-unit: 4px;
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-lg: 24px;
-  --spacing-md: 16px;
-  --spacing-xl: 32px;
-  --spacing-gutter: 24px;
-  --spacing-margin-mobile: 16px;
-
-  --font-title-md: var(--font-inter);
-  --font-headline-lg-mobile: var(--font-inter);
-  --font-body-lg: var(--font-inter);
-  --font-headline-lg: var(--font-inter);
-  --font-label-caps: var(--font-geist);
-  --font-body-sm: var(--font-inter);
-  --font-display-lg: var(--font-inter);
-
-  /* Note: FontSize configuration inside Tailwind CSS v4 */
-  --text-title-md: 20px;
-  --text-title-md--line-height: 28px;
-  --text-title-md--font-weight: 500;
-
-  --text-headline-lg-mobile: 24px;
-  --text-headline-lg-mobile--line-height: 32px;
-  --text-headline-lg-mobile--font-weight: 600;
-
-  --text-body-lg: 16px;
-  --text-body-lg--line-height: 24px;
-  --text-body-lg--font-weight: 400;
-
-  --text-headline-lg: 32px;
-  --text-headline-lg--line-height: 40px;
-  --text-headline-lg--letter-spacing: -0.01em;
-  --text-headline-lg--font-weight: 600;
-
-  --text-label-caps: 12px;
-  --text-label-caps--line-height: 16px;
-  --text-label-caps--letter-spacing: 0.05em;
-  --text-label-caps--font-weight: 600;
-
-  --text-body-sm: 14px;
-  --text-body-sm--line-height: 20px;
-  --text-body-sm--font-weight: 400;
-
-  --text-display-lg: 48px;
-  --text-display-lg--line-height: 56px;
-  --text-display-lg--letter-spacing: -0.02em;
-  --text-display-lg--font-weight: 700;
+  --font-inter: var(--font-inter);
 }
 
 @layer base {
+  :root {
+    color-scheme: dark;
+  }
+
   body {
-    @apply bg-background text-on-background font-body-lg min-h-screen flex flex-col antialiased;
+    background-color: #05030B;
+    color: #F8FAFC;
+    font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #9B3FF2;
+    color: #ffffff;
   }
 }
 
-@layer components {
-  .glass-panel {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .text-glow {
-    text-shadow: 0 0 20px rgba(217, 70, 239, 0.4);
-  }
-
-  .btn-glow:hover {
-    box-shadow: 0 0 30px rgba(217, 70, 239, 0.6);
-  }
-
-  .btn-primary-voltra {
-    background: linear-gradient(135deg, #d946ef 0%, #8b5cf6 100%);
-    color: #ffffff;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    border-radius: var(--radius-xl);
-    /* Softer, consistent rounded buttons */
-    box-shadow: 0 4px 20px rgba(217, 70, 239, 0.4);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: buttonPulseScale 2s infinite ease-in-out;
-  }
-
-  .btn-primary-voltra:hover {
-    box-shadow: 0 6px 30px rgba(217, 70, 239, 0.6);
-    transform: translateY(-2px);
-    animation-play-state: paused;
-  }
-
-  .btn-primary-voltra:active {
-    transform: translateY(0);
-  }
-
-  .btn-secondary-voltra {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(217, 70, 239, 0.2);
-    color: #d946ef;
-    font-weight: 600;
-    border-radius: var(--radius-xl);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .btn-secondary-voltra:hover {
-    border-color: rgba(255, 255, 255, 0.35);
-    color: #ffffff;
-    transform: translateY(-2px);
-  }
-
-  /* -------------------------------------------------------------
-     Page-Type Specific Typography & Text Formatting System
-     ------------------------------------------------------------- */
-
-  /* 1. MARKETING / SALES PAGES (Home, Pricing, Reseller, Channels) */
-  .text-format-marketing h1 {
-    @apply font-black uppercase tracking-tight text-black leading-tight text-3xl sm:text-5xl lg:text-6xl;
-  }
-
-  .text-format-marketing h2 {
-    @apply font-black uppercase tracking-tight text-black text-2xl sm:text-4xl;
-  }
-
-  .text-format-marketing h3 {
-    @apply font-extrabold uppercase tracking-wide text-black text-lg sm:text-xl;
-  }
-
-  .text-format-marketing p {
-    @apply text-gray-600 leading-relaxed text-sm sm:text-base font-normal;
-  }
-
-  .text-format-marketing strong,
-  .text-format-marketing b {
-    @apply font-bold text-black;
-  }
-
-  .text-format-marketing mark,
-  .text-format-marketing .text-highlight {
-    @apply bg-transparent text-primary-500 font-extrabold;
-  }
-
-  .text-format-marketing .badge-text {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-primary-500/30 bg-primary-500/10 px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-primary-600;
-  }
-
-  /* 2. BLOG & EDITORIAL PAGES (Blog listing, Article detail) */
-  .text-format-blog h1 {
-    @apply font-bold tracking-tight text-black leading-snug text-3xl sm:text-4xl md:text-5xl capitalize;
-  }
-
-  .text-format-blog h2 {
-    @apply font-bold text-black tracking-normal mt-10 mb-4 text-xl sm:text-2xl border-b border-white/10 pb-2.5;
-  }
-
-  .text-format-blog h3 {
-    @apply font-semibold text-black tracking-normal mt-7 mb-3 text-lg sm:text-xl;
-  }
-
-  .text-format-blog p {
-    @apply text-gray-700 leading-8 text-base sm:text-lg mb-6 font-normal tracking-wide;
-  }
-
-  .text-format-blog strong,
-  .text-format-blog b {
-    @apply font-bold text-black bg-black/[0.04] px-1 py-0.5 rounded;
-  }
-
-  .text-format-blog em,
-  .text-format-blog i {
-    @apply italic text-gray-600;
-  }
-
-  .text-format-blog a {
-    @apply text-primary-500 font-medium underline underline-offset-4 decoration-primary-500/40 hover:text-primary-600 hover:decoration-primary-500 transition-colors;
-  }
-
-  /* 3. TECHNICAL GUIDES & INSTALLATION PAGES */
-  .text-format-technical h1 {
-    @apply font-black uppercase tracking-tight text-black text-3xl sm:text-5xl;
-  }
-
-  .text-format-technical h2 {
-    @apply font-extrabold tracking-tight text-black text-xl sm:text-3xl mt-8 mb-4 flex items-center gap-3;
-  }
-
-  .text-format-technical h3 {
-    @apply font-bold text-black text-lg sm:text-xl mt-6 mb-2;
-  }
-
-  .text-format-technical p {
-    @apply text-gray-600 leading-7 text-sm sm:text-base mb-4 font-normal;
-  }
-
-  .text-format-technical code,
-  .text-format-technical pre {
-    @apply font-mono text-primary-600 bg-[#1a1a1a] px-2.5 py-1 rounded-md border border-white/10 text-xs sm:text-sm font-medium tracking-wide shadow-inner;
-  }
-
-  .text-format-technical strong,
-  .text-format-technical b {
-    @apply font-bold text-black underline decoration-secondary-500/50 decoration-2 underline-offset-2;
-  }
-
-  /* 4. LEGAL & POLICY DOCUMENTS */
-  .text-format-legal h1 {
-    @apply font-black uppercase tracking-tight text-black text-3xl sm:text-4xl lg:text-5xl;
-  }
-
-  .text-format-legal h2 {
-    @apply font-bold text-black text-xl sm:text-2xl tracking-normal mt-8 mb-3 border-l-4 border-primary-500 pl-3;
-  }
-
-  .text-format-legal p {
-    @apply text-gray-600 leading-7 font-normal text-sm sm:text-base mb-4 tracking-normal;
-  }
-
-  .text-format-legal strong,
-  .text-format-legal b {
-    @apply font-semibold text-black;
-  }
-
-  .text-format-legal a {
-    @apply font-semibold text-primary-500 hover:text-primary-600 transition-colors underline underline-offset-2;
-  }
+/* -------------------------------------------------------------
+   Background Grid & Atmosphere
+   ------------------------------------------------------------- */
+.bg-grid-pattern {
+  background-color: #05030B;
+  background-image:
+    linear-gradient(rgba(168, 85, 247, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
 }
 
+.glow-purple {
+  background: radial-gradient(circle, rgba(155, 63, 242, 0.25) 0%, rgba(147, 51, 234, 0.08) 45%, transparent 70%);
+}
+
+.glow-violet {
+  background: radial-gradient(circle, rgba(184, 108, 255, 0.22) 0%, rgba(192, 132, 252, 0.06) 50%, transparent 70%);
+}
+
+.glow-orange {
+  background: radial-gradient(circle, rgba(255, 122, 0, 0.20) 0%, rgba(249, 115, 22, 0.05) 50%, transparent 70%);
+}
+
+.glow-magenta {
+  background: radial-gradient(circle, rgba(217, 70, 239, 0.18) 0%, rgba(236, 72, 153, 0.05) 50%, transparent 70%);
+}
+
+/* -------------------------------------------------------------
+   Glass Panels & Cards
+   ------------------------------------------------------------- */
+.glass-card {
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 30px rgba(155, 63, 242, 0.18);
+  transform: translateY(-2px);
+}
+
+.glass-card-featured {
+  background: rgba(155, 63, 242, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 40px rgba(155, 63, 242, 0.25);
+}
+
+.glass-header {
+  background: rgba(5, 3, 11, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* -------------------------------------------------------------
+   Gradient Text & Accents
+   ------------------------------------------------------------- */
+.text-gradient-hero {
+  background: linear-gradient(135deg, #9B3FF2 0%, #B86CFF 35%, #EC4899 70%, #FF7A00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-purple {
+  background: linear-gradient(135deg, #C084FC 0%, #9B3FF2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-orange {
+  background: linear-gradient(135deg, #FF8A1F 0%, #FF7A00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* -------------------------------------------------------------
+   Buttons
+   ------------------------------------------------------------- */
+.btn-primary-purple {
+  background: linear-gradient(135deg, #9B3FF2 0%, #9333EA 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px rgba(155, 63, 242, 0.35);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary-purple:hover {
+  background: linear-gradient(135deg, #A855F7 0%, #9B3FF2 100%);
+  box-shadow: 0 6px 30px rgba(168, 85, 247, 0.55);
+  transform: translateY(-2px);
+}
+
+.btn-secondary-orange {
+  background: linear-gradient(135deg, #FF8A1F 0%, #FF7A00 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px rgba(255, 122, 0, 0.35);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-secondary-orange:hover {
+  background: linear-gradient(135deg, #FFA043 0%, #FF8A1F 100%);
+  box-shadow: 0 6px 30px rgba(255, 122, 0, 0.55);
+  transform: translateY(-2px);
+}
+
+.btn-outline-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #F8FAFC;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outline-glass:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(168, 85, 247, 0.5);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* -------------------------------------------------------------
+   Animations
+   ------------------------------------------------------------- */
 @keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 
 @keyframes marquee-reverse {
-  0% {
-    transform: translateX(-50%);
-  }
-
-  100% {
-    transform: translateX(0%);
-  }
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
 }
 
 .animate-marquee {
-  animation: marquee 35s linear infinite;
-}
-
-.animate-marquee-fast {
-  animation: marquee 24s linear infinite;
+  animation: marquee 40s linear infinite;
 }
 
 .animate-marquee-reverse {
-  animation: marquee-reverse 26s linear infinite;
+  animation: marquee-reverse 40s linear infinite;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.05); }
 }
 
-@keyframes gentle-bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
 }
 
-.animate-gentle-bounce {
-  animation: gentle-bounce 3s ease-in-out infinite;
-}
-
-.animate-fade-up {
-  animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0);
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-
-  50% {
-    transform: translateY(-16px);
-  }
-}
-
-.animate-float {
-  animation: float 5.5s ease-in-out infinite;
-}
-
-@keyframes buttonPulseScale {
-  0% {
-    box-shadow: 0 0 0 0 rgba(217, 70, 239, 0.7);
-  }
-
-  70% {
-    box-shadow: 0 0 0 10px rgba(217, 70, 239, 0);
-  }
-
-  100% {
-    box-shadow: 0 0 0 0 rgba(217, 70, 239, 0);
-  }
-}
-
-.animate-button-pulse {
-  animation: buttonPulseScale 2s infinite cubic-bezier(0.66, 0, 0, 1);
-}
-
-@keyframes buttonPulseWhite {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
-  }
-
-  70% {
-    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
-  }
-
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-  }
-}
-
-.animate-button-pulse-white {
-  animation: buttonPulseWhite 2s infinite cubic-bezier(0.66, 0, 0, 1);
-}
-
-.animate-button-pulse:hover,
-.animate-button-pulse-white:hover {
-  animation-play-state: paused;
 }

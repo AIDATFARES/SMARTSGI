@@ -1,240 +1,176 @@
 "use client";
 
 import { useState } from "react";
+import { ChevronDown, HelpCircle, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
 
-type FAQ = {
+interface FAQItem {
   id: number;
-  category: string;
   question: string;
   answer: React.ReactNode;
-};
+}
 
-const faqs: FAQ[] = [
+const faqs: FAQItem[] = [
   {
     id: 1,
-    category: "General",
-    question: "What is RealMIPTV?",
+    question: "What is IPTV?",
     answer: (
-      <>
-        RealMIPTV is a premium IPTV service providing live TV channels, VOD movies, TV series, and sports in stunning 4K streaming quality. Explore our{" "}
-        <Link
-          href="/channels-list"
-          className="text-[#36a9ff] font-semibold hover:text-[#2196f3] transition-colors"
-        >
-          live TV channels
-        </Link>{" "}
-        and{" "}
-        <a
-          href="#pricing"
-          className="text-[#36a9ff] font-semibold hover:text-[#2196f3] transition-colors"
-        >
-          IPTV subscription plans
-        </a>
-        .
-      </>
+      <p>
+        IPTV stands for Internet Protocol Television. Instead of delivering content through traditional terrestrial antennas, satellite dishes, or cable cables, IPTV streams television programming directly over your internet connection. With SMARTSGI, this allows you to access live broadcasts and on-demand entertainment anywhere with a broadband network.
+      </p>
     ),
   },
   {
     id: 2,
-    category: "General",
-    question: "Do I need a subscription to use RealMIPTV?",
+    question: "How do I receive my IPTV credentials?",
     answer: (
-      <>
-        Yes, a subscription is required. However, we offer a{" "}
-        <a
-          href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20free%20trial%20for%20realmiptv%20IPTV."
-          target="_blank"
-          rel="noreferrer"
-          className="text-[#36a9ff] font-semibold hover:text-[#2196f3] transition-colors"
-        >
-          free trial
-        </a>{" "}
-        so you can test the service before committing to our{" "}
-        <a
-          href="#pricing"
-          className="text-[#36a9ff] font-semibold hover:text-[#2196f3] transition-colors"
-        >
-          subscription plans
-        </a>
-        .
-      </>
+      <p>
+        Once your subscription is processed, your personalized access parameters (including your M3U playlist URL, Xtream Codes API server address, username, and password) are sent promptly via email or direct message. You can paste these details directly into any compatible IPTV application.
+      </p>
     ),
   },
   {
     id: 3,
-    category: "Technical",
-    question: "What devices are compatible with RealMIPTV?",
+    question: "Which devices are supported?",
     answer: (
-      <>
-        RealMIPTV works seamlessly on Android TV, Firestick, Smart TVs, smartphones, tablets, and apps like Tivimate. Check our{" "}
-        <Link
-          href="/installation"
-          className="text-[#36a9ff] font-semibold hover:text-[#2196f3] transition-colors"
-        >
-          installation guides
-        </Link>{" "}
-        to get started.
-      </>
+      <p>
+        SMARTSGI is compatible across all major hardware and operating systems, including Smart TVs (Samsung Tizen, LG webOS), Amazon Fire TV Stick, Android TV boxes, NVIDIA Shield, Apple TV, iPhone, iPad, Android mobile devices, Windows PCs, and macOS computers.
+      </p>
     ),
   },
   {
     id: 4,
-    category: "Technical",
-    question: "Can I watch on multiple devices at the same time?",
+    question: "How many devices can I use?",
     answer: (
-      <>
-        Yes, we offer multi-device support. You can choose an{" "}
-        <a
-          href="#pricing"
-          className="text-[#36a9ff] font-semibold hover:text-[#2196f3] transition-colors"
-        >
-          IPTV subscription plan
-        </a>{" "}
-        that allows streaming on more than one device simultaneously. Perfect for families or shared accounts.
-      </>
+      <p>
+        You can configure your subscription across multiple devices. Simultaneous streaming depends on the active connection plan you choose (1, 2, or 3 concurrent devices). If you require simultaneous viewing in multiple rooms, simply choose a multi-device plan during checkout.
+      </p>
     ),
   },
   {
     id: 5,
-    category: "General",
-    question: "Can I watch live sports on RealMIPTV?",
+    question: "How do I set up SMARTSGI?",
     answer: (
-      <>
-        Absolutely. We offer a wide selection of live sports channels, including major leagues and international events. Explore our full{" "}
-        <Link
-          href="/channels-list"
-          className="text-[#36a9ff] font-semibold hover:text-[#2196f3] transition-colors"
-        >
-          channels catalog
+      <p>
+        Setting up is straightforward: download a popular IPTV player app (such as TiviMate, IPTV Smarters Pro, IBO Player, or XCIPTV) on your device, choose login via Xtream Codes or M3U Playlist, enter the details provided in your welcome message, and begin watching. For detailed walkthroughs, consult our{" "}
+        <Link href="/installation" className="text-[#C084FC] underline hover:text-white transition-colors">
+          Setup Guides
         </Link>
         .
-      </>
+      </p>
     ),
   },
   {
     id: 6,
-    category: "Billing",
-    question: "What payment methods do you accept?",
+    question: "How long does activation take?",
     answer: (
-      <>
-        We accept PayPal, cryptocurrency (such as Bitcoin), credit cards, and instant bank transfers for quick and secure payments. Contact our{" "}
-        <Link
-          href="/contact"
-          className="text-[#36a9ff] font-semibold hover:text-[#2196f3] transition-colors"
-        >
-          support team
-        </Link>{" "}
-        for any payment inquiries.
-      </>
+      <p>
+        Activation is handled rapidly. In most cases, account details and playlist URLs are generated and sent within 5 to 30 minutes following confirmed payment.
+      </p>
     ),
   },
   {
     id: 7,
-    category: "General",
-    question: "What kind of content is included?",
+    question: "What payment methods are supported?",
     answer: (
-      <>
-        The service includes live TV channels, sports, movies, TV series, kids&apos; content, international channels, and more – all in HD or 4K quality. Learn more in our{" "}
-        <Link
-          href="/channels"
-          className="text-[#36a9ff] font-semibold hover:text-[#2196f3] transition-colors"
-        >
-          channels catalog
-        </Link>
-        .
-      </>
+      <p>
+        We support safe and recognized payment options including major credit/debit cards, PayPal, and leading cryptocurrencies (Bitcoin, USDT). Payment instructions are confirmed when selecting your preferred plan.
+      </p>
     ),
   },
   {
     id: 8,
-    category: "Technical",
-    question: "Do I need a VPN?",
+    question: "What is the refund policy?",
     answer: (
-      <>
-        A VPN is not required but is recommended in some regions to ensure unrestricted access and added privacy. Read our{" "}
-        <Link
-          href="/faq"
-          className="text-[#36a9ff] font-semibold hover:text-[#2196f3] transition-colors"
-        >
-          FAQ knowledge base
-        </Link>{" "}
-        for further setup details.
-      </>
+      <p>
+        We want you to be completely confident in your subscription. We encourage all new customers to test our service with a 24-hour trial prior to long-term purchase. For full details on cancellation and refund windows, please review our official{" "}
+        <Link href="/refund-policy" className="text-[#C084FC] underline hover:text-white transition-colors">
+          Refund Policy
+        </Link>
+        .
+      </p>
+    ),
+  },
+  {
+    id: 9,
+    question: "How can I contact support?",
+    answer: (
+      <p>
+        Our customer support team is available 24/7 to assist with playlist setup, troubleshooting, or account inquiries. You can connect with us directly via WhatsApp or by emailing support through our{" "}
+        <Link href="/contact" className="text-[#C084FC] underline hover:text-white transition-colors">
+          Contact Page
+        </Link>
+        .
+      </p>
     ),
   },
 ];
 
-const categories = ["General", "Technical", "Billing"];
-
 export default function FAQSection() {
-  const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const toggleFaq = (id: number) => {
-    setExpandedId(expandedId === id ? null : id);
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className="py-20 bg-transparent text-black relative z-10 overflow-hidden">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+    <section id="faq" className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-t border-white/[0.06]">
+      {/* Ambient Glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[400px] glow-purple blur-[160px] pointer-events-none rounded-full opacity-20" />
+
+      <div className="relative z-10 max-w-4xl mx-auto">
+        
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="inline-block py-1.5 px-4 rounded-full bg-[#36a9ff]/10 text-[#36a9ff] font-bold text-xs tracking-widest uppercase mb-6 border border-[#36a9ff]/20 animate-fade-up">
-            SUPPORT & HELP
-          </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black tracking-tight leading-[1.1] animate-fade-up">
-            Frequently Asked <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#36a9ff] to-[#2196f3]">
-              Questions (FAQ)
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#9B3FF2]/30 bg-[#9B3FF2]/10 mb-4">
+            <HelpCircle className="w-3.5 h-3.5 text-[#C084FC]" />
+            <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#C084FC]">
+              Got Questions?
             </span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+            Frequently Asked Questions
           </h2>
+          <p className="text-[#A8A0B8] text-base sm:text-lg">
+            Everything you need to know about SMARTSGI subscriptions, device setup, and streaming access.
+          </p>
         </div>
 
-        {/* 2-Column FAQ Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-up" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
-          {faqs.map((faq) => {
-            const isExpanded = expandedId === faq.id;
-            
+        {/* Accordion List */}
+        <div className="space-y-4">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
             return (
-              <div 
-                key={faq.id} 
-                className="bg-gradient-to-b from-[#497598] to-[#8fb0c9] rounded-xl overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
+              <div
+                key={faq.id}
+                className={`rounded-2xl glass-card transition-all duration-300 overflow-hidden ${
+                  isOpen ? "border-[#9B3FF2]/50 shadow-[0_0_25px_rgba(155,63,242,0.15)] bg-white/[0.04]" : ""
+                }`}
               >
                 <button
-                  onClick={() => toggleFaq(faq.id)}
-                  className="w-full flex justify-between items-center p-5 text-left font-bold text-white focus:outline-none"
+                  type="button"
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left focus:outline-none cursor-pointer"
+                  aria-expanded={isOpen}
                 >
-                  <span className="text-sm md:text-base">{faq.question}</span>
-                  <span className={`text-white shrink-0 ml-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
-                    <ChevronDown className="w-5 h-5" />
+                  <span className="text-base sm:text-lg font-bold text-white pr-4">
+                    {faq.question}
                   </span>
+                  <div className={`w-8 h-8 rounded-full bg-white/[0.05] flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 bg-[#9B3FF2]/20 text-[#C084FC]" : "text-[#A8A0B8]"}`}>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
                 </button>
-                
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isExpanded ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <div className="p-5 pt-0 text-sm leading-relaxed text-white/90 border-t border-white/20">
+
+                {isOpen && (
+                  <div className="px-6 pb-6 pt-2 text-sm sm:text-base text-[#A8A0B8] leading-relaxed border-t border-white/[0.04] animate-in fade-in duration-200">
                     {faq.answer}
                   </div>
-                </div>
+                )}
               </div>
             );
           })}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center animate-fade-up" style={{ animationDelay: '0.6s', animationFillMode: 'both' }}>
-          <Link
-            href="/faq"
-            className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-[#36a9ff] text-white font-bold text-xs sm:text-sm hover:bg-[#2196f3] transition-all duration-300 shadow-lg"
-          >
-            <span>View Complete FAQ Knowledge Base</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
       </div>
     </section>
   );

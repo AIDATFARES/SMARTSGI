@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   Check,
   ChevronDown,
-  ChevronUp,
   Headphones,
   MonitorSmartphone,
   Server,
@@ -18,7 +17,6 @@ type CreditPlan = {
   id: string;
   credits: number;
   price: number;
-  oldPrice?: number;
   popular?: boolean;
   bestValue?: boolean;
 };
@@ -54,97 +52,67 @@ const creditPlans: CreditPlan[] = [
 ];
 
 const planFeatures = [
-  "Each credit hour equals 1 month",
-  "Free Trial Everyday",
-  "Customize groups",
-  "Pay As You Go!",
-  "Credits Not Expire",
-  "24/7 support",
-  "Create Sub-Resellers",
+  "Each credit equals 1 month line",
+  "Free trial creation in panel",
+  "Custom channel group selection",
+  "Pay as you grow model",
+  "Credits never expire",
+  "24/7 dedicated support",
+  "Sub-reseller account management",
 ];
 
 const advantages = [
   {
-    icon: ShoppingCart,
-    title: "COMPATIBLE WITH ALL DEVICES",
+    icon: MonitorSmartphone,
+    title: "COMPATIBLE ACROSS ALL DEVICES",
     description:
-      "Our IPTV service is compatible with all devices: Smart TV, Android devices, MAG, Apple TV, Firestick & more.",
+      "Your clients can connect using any device: Smart TVs, Android boxes, Firestick, Apple TV, iOS, and PC.",
   },
   {
     icon: Server,
-    title: "EFFICIENT SERVERS",
+    title: "HIGH-PERFORMANCE SERVERS",
     description:
-      "We have large, high-capacity servers equipped with anti-freeze technology to provide you with the best quality of service.",
+      "Reliable streaming infrastructure equipped with anti-freeze routing technology to keep client playback stable.",
   },
   {
     icon: Headphones,
-    title: "EXPERT SUPPORT",
+    title: "EXPERT RESELLER SUPPORT",
     description:
-      "Our dedicated technical support team is available 7 days a week to help you and your reseller business whenever needed.",
+      "Our technical team is available 24/7 on WhatsApp to assist with reseller queries, line setup, and panel management.",
   },
   {
     icon: Zap,
-    title: "FULL CONTROL PANEL",
+    title: "INTUITIVE CONTROL PANEL",
     description:
-      "Manage customer lines, edit channels, generate unlimited free test accounts, and create sub-resellers effortlessly.",
+      "Manage customer accounts, extend lines, create test accounts, and set up sub-reseller balances with ease.",
   },
 ];
 
 const resellerFaqs = [
   {
-    question: "DOES THE CONTROL PANEL EXPIRE?",
+    question: "DOES THE RESELLER PANEL EXPIRE?",
     answer:
-      "No, your reseller control panel does not expire. Once activated, your panel remains active permanently, and your credits never expire.",
+      "No. Your SMARTSGI reseller management panel remains active permanently, and your purchased credit balance does not expire.",
   },
   {
-    question: "CAN I RENEW A SUBSCRIPTION?",
+    question: "CAN I RENEW A CLIENT SUBSCRIPTION?",
     answer:
-      "Yes! You can easily extend or renew any client subscription directly from your Xtream reseller panel with a single click.",
+      "Yes! You can renew or extend any client line directly with a single click inside your reseller dashboard.",
   },
   {
-    question: "CAN I CHANGE A SUBSCRIPTION FROM ONE DEVICE TO ANOTHER?",
+    question: "CAN I CHANGE A CLIENT'S DEVICE TYPE?",
     answer:
-      "Absolutely. You can modify lines, switch device types, or update M3U playlists and Xtream Codes parameters at any time inside your dashboard.",
+      "Yes. You can switch line formats, update M3U URLs, or adjust Xtream Codes credentials at any time in the panel.",
   },
   {
-    question: "WHAT IF THE SUBSCRIPTION DOES NOT WORK FOR MY CLIENT?",
+    question: "HOW DO I SELL SUBSCRIPTIONS?",
     answer:
-      "Our expert support team is available 7 days a week to assist you with fast client setup, line diagnostics, and troubleshooting.",
+      "You can sell subscriptions through your own website, online channels, or local customer base. You establish your own retail pricing and keep 100% of your profit.",
   },
   {
-    question: "HOW TO SELL IPTV SUBSCRIPTIONS?",
+    question: "CAN I CREATE SUB-RESELLERS?",
     answer:
-      "You can sell IPTV subscriptions through your website, social media channels, local network, or direct clients. You set your own pricing and keep 100% of your profit margin.",
-  },
-  {
-    question: "DOES YOUR IPTV SERVER SUPPORT ALL DEVICES?",
-    answer:
-      "Yes! Our servers support Smart TVs (Samsung, LG), Android TV/Boxes, Amazon Firestick, MAG boxes, Formuler, Enigma2, iOS, Windows, Mac, and Apple TV.",
-  },
-  {
-    question: "HOW CAN I ACTIVATE A MAG BOX?",
-    answer:
-      "Inside your reseller panel, select 'Add MAG Device', enter the client's MAC address (00:1A:79:XX:XX:XX), and assign their subscription package instantly.",
-  },
-  {
-    question: "CAN I STOP A SUBSCRIPTION?",
-    answer:
-      "Yes, you have complete authority to disable, pause, modify, or extend customer lines whenever necessary directly from your control panel.",
-  },
-  {
-    question: "WHAT IF A STREAM STARTS BUFFERING?",
-    answer:
-      "Our servers feature automatic load balancing and anti-freeze technology with 99.9% uptime. If a client experiences buffering, you can switch line servers or adjust stream codecs in the panel.",
-  },
-  {
-    question: "WHAT IF THE SERVER STOPS WORKING FOREVER?",
-    answer:
-      "We operate redundant multi-location server clusters across Europe and North America to guarantee continuous reliability, zero downtime, and backup streaming nodes.",
-  },
-  {
-    question: "HOW TO CREATE A PANEL FOR A SUB RESELLER?",
-    answer:
-      "Inside your master panel, navigate to 'Sub-Reseller Management', create a new account username/password, and assign credit balance from your account.",
+      "Yes. From your master control panel, you can create sub-reseller logins and distribute credits from your own account balance.",
   },
 ];
 
@@ -157,17 +125,8 @@ export default function ResellerPageContent() {
 
   const handleOrderPanel = (plan?: CreditPlan) => {
     const message = plan
-      ? `Hello! I would like to order the IPTV Reseller Panel with ${plan.credits} Credits for $${plan.price}.`
-      : `Hello! I am interested in becoming an IPTV Reseller and would like to request panel access.`;
-    window.open(
-      `https://wa.me/213552069874?text=${encodeURIComponent(message)}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
-  };
-
-  const handleFreeTrial = () => {
-    const message = `Hello! I am interested in testing an IPTV Reseller Panel free trial account.`;
+      ? `Hello! I would like to order the SMARTSGI Reseller Panel with ${plan.credits} Credits for $${plan.price}.`
+      : `Hello! I am interested in becoming a SMARTSGI Reseller and would like to request panel access.`;
     window.open(
       `https://wa.me/213552069874?text=${encodeURIComponent(message)}`,
       "_blank",
@@ -176,199 +135,173 @@ export default function ResellerPageContent() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24 text-format-marketing">
-      {/* Background radial gradient */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[800px] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-950/25 via-white to-transparent" />
+    <div className="relative overflow-hidden bg-[#05030B] text-[#F8FAFC] py-20 sm:py-28">
+      {/* Background Glow */}
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[800px] h-[400px] glow-purple blur-[160px] pointer-events-none rounded-full opacity-35" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
-        {/* HERO SECTION */}
-        <header className="relative mx-auto max-w-4xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#36a9ff]/30 bg-[#145082]/10 px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#36a9ff]">
-            <Sparkles className="h-3.5 w-3.5" />
-            IPTV Reseller Program
-          </span>
-
-          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.05] tracking-tight text-black">
-            REALM IPTV <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-emerald-200">
-              RESELLER PROGRAM
+        {/* Header */}
+        <header className="relative mx-auto max-w-4xl text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#9B3FF2]/30 bg-[#9B3FF2]/10 mb-6">
+            <Sparkles className="w-3.5 h-3.5 text-[#C084FC]" />
+            <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#C084FC]">
+              Reseller Program
             </span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.08] tracking-tight uppercase">
+            <span className="text-white block sm:inline">SMARTSGI </span>
+            <span className="text-gradient-hero block sm:inline">Reseller Program</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-3xl text-sm leading-7 text-gray-700 sm:text-base sm:leading-8">
-            Our IPTV reseller program helps you meet the expectations of your customers, enabling you to provide them with the best possible solutions. Join us and enjoy dozens of benefits with our program now.
+          <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-[#A8A0B8] leading-relaxed">
+            Start your own branded IPTV business with SMARTSGI. High-capacity streaming infrastructure, flexible credit tiers, and comprehensive panel management.
           </p>
-
-          <div className="mt-8 flex items-center justify-center gap-4">
-            <button
-              onClick={handleFreeTrial}
-              className="rounded-full bg-[#36a9ff] px-8 py-3.5 text-base font-bold text-white shadow-[0_0_25px_rgba(255,107,0,0.4)] transition-all duration-300 hover:bg-orange-700 hover:shadow-[0_0_35px_rgba(255,107,0,0.6)] active:scale-[0.98]"
-            >
-              Free Trial
-            </button>
-          </div>
         </header>
 
-        {/* OUR RESELLER PLANS */}
-        <div className="mt-24">
-          <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-black leading-tight tracking-tight">
-              <span className="block text-black">Our Exclusive</span>
-              <span className="mt-1 block text-[#36a9ff]">IPTV Reseller Plans.</span>
-            </h2>
-            <p className="mt-3 text-base font-bold text-gray-700">
-              We provide you with the best servers at the right price
-            </p>
-          </div>
+        {/* 5-Card Reseller Credit Plans */}
+        <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch mb-20">
+          {creditPlans.map((plan) => {
+            const isFeatured = plan.popular;
+            const isValue = plan.bestValue;
 
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 items-stretch">
-            {creditPlans.map((plan) => (
-              <article
+            return (
+              <div
                 key={plan.id}
-                className={`relative flex flex-col rounded-3xl bg-white p-6 shadow-2xl transition-all duration-300 hover:-translate-y-2 ${
-                  plan.popular
-                    ? "border-4 border-[#36a9ff] shadow-[0_10px_40px_rgba(255,107,0,0.25)] scale-102 z-10"
-                    : plan.bestValue
-                    ? "border-4 border-secondary-500 shadow-[0_10px_40px_rgba(16,185,129,0.2)] z-10"
-                    : "border-2 border-black/5"
+                className={`relative flex flex-col rounded-3xl p-6 sm:p-7 transition-all duration-300 ${
+                  isFeatured
+                    ? "glass-card-featured border-[#9B3FF2] md:-translate-y-2"
+                    : isValue
+                    ? "glass-card border-[#FF7A00]/40 shadow-[0_0_25px_rgba(255,122,0,0.15)]"
+                    : "glass-card"
                 }`}
               >
-                {plan.popular && (
-                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-[#36a9ff] px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md">
-                    Most Popular
-                  </span>
-                )}
-                {plan.bestValue && (
-                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-secondary-600 px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-black shadow-md">
-                    Best Value
-                  </span>
+                {/* Badge if available */}
+                {(isFeatured || isValue) && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span
+                      className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider text-white shadow-md ${
+                        isFeatured
+                          ? "bg-gradient-to-r from-[#9B3FF2] to-[#EC4899]"
+                          : "bg-gradient-to-r from-[#FF7A00] to-[#FF8A1F]"
+                      }`}
+                    >
+                      {isFeatured ? "MOST POPULAR" : "BEST VALUE"}
+                    </span>
+                  </div>
                 )}
 
-                <div className="text-center">
-                  <span className="text-xs font-black uppercase tracking-widest text-[#36a9ff]">
-                    PREMIUM IPTV
-                  </span>
-                  <h3 className="mt-1 text-2xl font-black text-black">
-                    {plan.credits} Credit
+                <div className="text-center pt-2 pb-5 border-b border-white/[0.08]">
+                  <h3 className="text-xl font-black text-white tracking-wide uppercase mb-1">
+                    {plan.credits} CREDITS
                   </h3>
-                </div>
-
-                <div className="my-5 rounded-2xl bg-white border border-black/5 py-4 text-center">
-                  <span className="text-4xl font-black text-[#36a9ff]">
-                    ${plan.price}
+                  <span className="text-xs text-[#A8A0B8]">
+                    ${(plan.price / plan.credits).toFixed(2)} per credit
                   </span>
+
+                  <div className="mt-4 flex items-baseline justify-center gap-1">
+                    <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                      ${plan.price}
+                    </span>
+                  </div>
                 </div>
 
-                <ul className="flex-grow space-y-3 border-t border-black/5 pt-4 text-xs font-semibold text-gray-600">
-                  {planFeatures.map((feature) => (
-                    <li className="flex items-center gap-2" key={feature}>
-                      <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-orange-100 text-[#36a9ff]">
-                        <Check className="h-3 w-3 stroke-[3]" />
-                      </span>
+                <ul className="py-6 space-y-3 flex-grow text-left">
+                  {planFeatures.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-xs text-white/85">
+                      <Check className="w-4 h-4 shrink-0 text-[#C084FC] mt-0.5" />
                       <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
 
-                <button
-                  type="button"
-                  onClick={() => handleOrderPanel(plan)}
-                  className="mt-6 w-full rounded-2xl bg-[#36a9ff] py-3.5 text-sm font-extrabold text-white shadow-[0_4px_15px_rgba(255,107,0,0.3)] transition-all duration-300 hover:bg-orange-700 hover:shadow-[0_6px_20px_rgba(255,107,0,0.4)] active:scale-[0.98]"
-                >
-                  Get A Panel
-                </button>
-              </article>
-            ))}
-          </div>
+                <div className="pt-4 mt-auto">
+                  <button
+                    type="button"
+                    onClick={() => handleOrderPanel(plan)}
+                    className={`w-full py-3.5 rounded-full text-xs font-black uppercase tracking-wider transition-all duration-300 shadow-md ${
+                      isFeatured
+                        ? "btn-primary-purple hover:scale-105"
+                        : isValue
+                        ? "btn-secondary-orange hover:scale-105"
+                        : "btn-outline-glass hover:border-[#9B3FF2]/50 hover:bg-[#9B3FF2]/20 text-white"
+                    }`}
+                  >
+                    Order Panel
+                  </button>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* ADVANTAGES OF IPTV RESELLER */}
-        <div className="mt-28">
-          <h2 className="text-center text-3xl sm:text-4xl font-black leading-tight tracking-tight">
-            <span className="block text-black">Advantages of</span>
-            <span className="mt-1 block text-[#36a9ff]">IPTV Reseller Program.</span>
-          </h2>
+        {/* Advantages Grid */}
+        <div className="mt-20 pt-16 border-t border-white/[0.08]">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <h2 className="text-3xl font-black text-white uppercase tracking-tight mb-4">
+              Reseller Platform Advantages
+            </h2>
+            <p className="text-[#A8A0B8] text-sm sm:text-base">
+              Everything you need to operate and grow an independent IPTV streaming business.
+            </p>
+          </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {advantages.map((item) => {
-              const Icon = item.icon;
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {advantages.map((adv) => {
+              const Icon = adv.icon;
               return (
-                <div
-                  key={item.title}
-                  className="flex flex-col items-center text-center p-6 rounded-2xl border border-black/10 bg-white/90 backdrop-blur-md shadow-xl hover:border-[#36a9ff]/40 transition-colors"
-                >
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#145082]/15 text-[#36a9ff] mb-5">
-                    <Icon className="h-8 w-8" />
+                <div key={adv.title} className="p-7 rounded-3xl glass-card flex items-start gap-5">
+                  <div className="w-12 h-12 rounded-2xl bg-[#9B3FF2]/10 border border-[#9B3FF2]/30 flex items-center justify-center shrink-0">
+                    <Icon className="w-6 h-6 text-[#C084FC]" />
                   </div>
-                  <span className="block text-sm font-extrabold uppercase tracking-wider text-black">
-                    {item.title}
-                  </span>
-                  <p className="mt-3 text-xs leading-5 text-gray-600">
-                    {item.description}
-                  </p>
+                  <div>
+                    <h3 className="text-base font-black text-white tracking-wide uppercase mb-2">
+                      {adv.title}
+                    </h3>
+                    <p className="text-sm text-[#A8A0B8] leading-relaxed">
+                      {adv.description}
+                    </p>
+                  </div>
                 </div>
               );
             })}
           </div>
         </div>
 
-        {/* FREQUENTLY ASKED QUESTIONS */}
-        <div className="mx-auto mt-28 max-w-4xl">
-          <h2 className="text-center text-3xl sm:text-4xl font-black leading-tight tracking-tight">
-            <span className="block text-black">Frequently Asked</span>
-            <span className="mt-1 block text-[#36a9ff]">Questions & Answers.</span>
-          </h2>
+        {/* Reseller FAQs */}
+        <div className="mt-24 max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+              Reseller Questions &amp; Answers
+            </h2>
+          </div>
 
-          <div className="mt-10 space-y-3">
-            {resellerFaqs.map((faq, index) => {
-              const isOpen = openFaq === index;
+          <div className="space-y-4">
+            {resellerFaqs.map((item, idx) => {
+              const isOpen = openFaq === idx;
               return (
-                <div
-                  key={faq.question}
-                  className="overflow-hidden rounded-xl border border-black/10 bg-white/90 shadow-md transition-colors hover:border-[#36a9ff]/30"
-                >
+                <div key={idx} className="rounded-2xl glass-card overflow-hidden">
                   <button
-                    onClick={() => toggleFaq(index)}
-                    className="flex w-full items-center justify-between px-6 py-4 text-left font-bold text-black transition-colors hover:bg-white/[0.03]"
+                    type="button"
+                    onClick={() => toggleFaq(idx)}
+                    className="w-full px-6 py-4 flex items-center justify-between gap-4 text-left cursor-pointer"
                   >
-                    <span className="text-sm sm:text-base tracking-wide uppercase font-extrabold flex items-center gap-3">
-                      <span className="text-[#36a9ff]">?</span>
-                      {faq.question}
-                    </span>
-                    {isOpen ? (
-                      <ChevronUp className="h-5 w-5 shrink-0 text-[#36a9ff]" />
-                    ) : (
-                      <ChevronDown className="h-5 w-5 shrink-0 text-gray-600" />
-                    )}
+                    <span className="text-sm sm:text-base font-bold text-white">{item.question}</span>
+                    <ChevronDown className={`w-4 h-4 text-[#A8A0B8] transition-transform ${isOpen ? "rotate-180 text-[#C084FC]" : ""}`} />
                   </button>
-
                   {isOpen && (
-                    <div className="border-t border-black/10 bg-white px-6 py-4 text-sm text-gray-700 leading-relaxed">
-                      {faq.answer}
+                    <div className="px-6 pb-5 text-sm text-[#A8A0B8] leading-relaxed border-t border-white/[0.04]">
+                      {item.answer}
                     </div>
                   )}
                 </div>
               );
             })}
           </div>
-
-          <div className="mt-12 flex justify-center">
-            <button
-              onClick={() => handleOrderPanel()}
-              className="rounded-full bg-[#051f33] px-10 py-4 text-base font-extrabold uppercase tracking-wider text-white shadow-[0_0_30px_rgba(255,107,0,0.5)] transition-all duration-300 hover:bg-[#145082] hover:shadow-[0_0_40px_rgba(255,107,0,0.7)] active:scale-[0.98]"
-            >
-              Become Reseller
-            </button>
-          </div>
         </div>
 
-        {/* TRUST BADGE */}
-        <div className="mt-16 flex items-center justify-center gap-2 text-xs font-semibold text-gray-600">
-          <ShieldCheck className="h-4 w-4 text-[#36a9ff]" />
-          <span>Official Xtream Codes Reseller Panel - 99.9% Uptime Guarantee</span>
-        </div>
       </div>
-    </section>
+    </div>
   );
 }

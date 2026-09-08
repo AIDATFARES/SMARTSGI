@@ -1,223 +1,256 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, Gift, Tv } from "lucide-react";
-import Image from "next/image";
+import { Check, Sparkles, Tv, ShieldCheck, Zap } from "lucide-react";
 
-type PlanFeature = {
-  text: string;
-  included: boolean;
-};
-
-type Plan = {
+interface Plan {
   id: string;
   name: string;
-  badge: string;
-  price: number;
   durationLabel: string;
   months: number;
+  basePrice: number;
   popular?: boolean;
-  buttonText: string;
-};
-
-const commonFeatures: PlanFeature[] = [
-  { text: "RealMIPTV for {devices} Device{s}", included: true },
-  { text: "Uncompressed Ultra HD & 4K", included: true },
-  { text: "25,000+ Premium Channels", included: true },
-  { text: "100,000+ VODs (Daily Update)", included: true },
-  { text: "Premium Sports & PPV Pass", included: true },
-  { text: "Full EPG & 7-Day Catch-up", included: true },
-  { text: "Advanced Anti-Freeze VIP", included: true },
-  { text: "VPN Included Free", included: true },
-  { text: "Direct WhatsApp VIP Support", included: true },
-];
+  bestValue?: boolean;
+  discountBadge?: string;
+}
 
 const plans: Plan[] = [
   {
-    id: "3-months",
-    name: "3 MONTHS",
-    badge: "STARTER",
-    price: 35,
-    durationLabel: "3 Months",
-    months: 3,
-    buttonText: "SELECT 3 MONTHS",
+    id: "1-month",
+    name: "1 MONTH",
+    durationLabel: "1 Month Access",
+    months: 1,
+    basePrice: 14.99,
   },
   {
-    id: "12-months",
-    name: "12 MONTHS",
-    badge: "ULTIMATE",
-    price: 69.99,
-    durationLabel: "12 Months",
-    months: 12,
-    popular: true,
-    buttonText: "GET 12 MONTHS",
+    id: "3-months",
+    name: "3 MONTHS",
+    durationLabel: "3 Months Access",
+    months: 3,
+    basePrice: 35.00,
+    discountBadge: "SAVE 22%",
   },
   {
     id: "6-months",
     name: "6 MONTHS",
-    badge: "VALUE",
-    price: 49.99,
-    durationLabel: "6 Months",
+    durationLabel: "6 Months Access",
     months: 6,
-    buttonText: "SELECT 6 MONTHS",
+    basePrice: 49.99,
+    discountBadge: "SAVE 44%",
+  },
+  {
+    id: "1-year",
+    name: "1 YEAR",
+    durationLabel: "12 Months Access",
+    months: 12,
+    basePrice: 69.99,
+    popular: true,
+    discountBadge: "MOST POPULAR",
+  },
+  {
+    id: "2-years",
+    name: "2 YEARS",
+    durationLabel: "24 Months Access",
+    months: 24,
+    basePrice: 119.99,
+    bestValue: true,
+    discountBadge: "BEST VALUE",
   },
 ];
 
+const planFeatures = [
+  "Live TV channels worldwide",
+  "Movies & Series library on demand",
+  "Ultra HD, Full HD & HD streams",
+  "Electronic Program Guide (EPG)",
+  "Multi-device compatibility",
+  "Regular playlist updates",
+  "24/7 dedicated customer support",
+  "Optimized anti-freeze streaming",
+];
+
 export default function PricingSection() {
-  const [devices, setDevices] = useState(1);
+  const [devices, setDevices] = useState<number>(1);
 
-  const priceFor = (plan: Plan) => (plan.price * devices).toFixed(2);
-  const monthlyPrice = (plan: Plan) => ((plan.price * devices) / plan.months).toFixed(2);
+  const calculateTotalPrice = (plan: Plan) => {
+    return (plan.basePrice * devices).toFixed(2);
+  };
 
-  function handleOrder(plan: Plan) {
-    const text = encodeURIComponent(
-      `Hello! I would like to purchase the ${plan.name} plan with ${devices} device connection${devices > 1 ? "s" : ""} for $${priceFor(plan)}.`
+  const calculateMonthlyRate = (plan: Plan) => {
+    return ((plan.basePrice * devices) / plan.months).toFixed(2);
+  };
+
+  const handleSubscribe = (plan: Plan) => {
+    const message = encodeURIComponent(
+      `Hello! I would like to subscribe to the SMARTSGI ${plan.name} plan for ${devices} device connection${devices > 1 ? "s" : ""} ($${calculateTotalPrice(plan)}).`
     );
-    window.open(`https://wa.me/213552069874?text=${text}`, "_blank", "noopener,noreferrer");
-  }
+    window.open(`https://wa.me/213552069874?text=${message}`, "_blank", "noopener,noreferrer");
+  };
 
   return (
-    <section id="pricing" className="relative bg-transparent py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+    <section id="pricing" className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[500px] glow-purple blur-[160px] pointer-events-none rounded-full opacity-35" />
 
+      <div className="relative z-10 max-w-7xl mx-auto">
+        
         {/* Header */}
-        <header className="mx-auto max-w-3xl text-center mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#36a9ff] px-4 py-1 mb-6">
-            <Gift className="h-4 w-4 text-black" />
-            <span className="text-[10px] font-bold text-black tracking-widest uppercase">
-              BEST VALUE PLANS
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#9B3FF2]/30 bg-[#9B3FF2]/10 mb-4">
+            <Sparkles className="w-3.5 h-3.5 text-[#C084FC]" />
+            <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#C084FC]">
+              Transparent Pricing
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-[54px] font-black tracking-tight leading-[1.1] uppercase drop-shadow-lg">
-            <span className="text-black">CHOOSE YOUR </span>
-            <span className="text-[#36a9ff]">REALMIPTV PLAN</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+            Choose Your Best IPTV Subscription Plan
           </h2>
-          <p className="mt-6 text-base sm:text-lg text-black/90 font-medium leading-relaxed max-w-2xl mx-auto">
-            Select your RealMIPTV subscription duration. Enjoy larger discounts on longer plans, and share the ultimate premium IPTV streaming experience across multiple devices simultaneously.
+          <p className="text-[#A8A0B8] text-base sm:text-lg">
+            Explore SMARTSGI plans and choose the option that fits your streaming needs.
           </p>
-        </header>
+        </div>
 
-        {/* Device Selector */}
-        <div className="mx-auto mb-16 flex flex-col items-center">
-          <div className="flex items-center gap-2 mb-4">
-            <Tv className="h-4 w-4 text-[#36a9ff]" />
-            <p className="text-[11px] font-bold uppercase tracking-widest text-black">Select Number of Devices</p>
+        {/* Device Switcher Toggle */}
+        <div className="flex flex-col items-center justify-center mb-16">
+          <div className="flex items-center gap-2 mb-3 text-xs font-bold uppercase tracking-widest text-[#A8A0B8]">
+            <Tv className="w-4 h-4 text-[#C084FC]" />
+            <span>Select Active Connections</span>
           </div>
-          <div className="inline-flex rounded-full border border-[#36a9ff] p-1.5 bg-transparent shadow-[0_0_15px_rgba(54,169,255,0.2)]">
-            {[1, 2, 3].map((count) => {
-              const selected = devices === count;
+
+          <div className="inline-flex p-1.5 rounded-full border border-white/[0.08] bg-[#080511]/80 backdrop-blur-md">
+            {[1, 2, 3].map((num) => {
+              const active = devices === num;
               return (
                 <button
-                  key={count}
-                  onClick={() => setDevices(count)}
-                  className={`rounded-full px-6 py-2.5 text-xs sm:text-sm font-bold transition-all uppercase tracking-wide ${
-                    selected
-                      ? "bg-[#36a9ff] text-white shadow-md"
-                      : "text-black hover:text-[#36a9ff]"
+                  key={num}
+                  type="button"
+                  onClick={() => setDevices(num)}
+                  className={`px-5 sm:px-7 py-2.5 rounded-full text-xs sm:text-sm font-extrabold tracking-wider transition-all duration-300 uppercase ${
+                    active
+                      ? "bg-gradient-to-r from-[#9B3FF2] to-[#9333EA] text-white shadow-[0_0_20px_rgba(155,63,242,0.5)]"
+                      : "text-[#A8A0B8] hover:text-white"
                   }`}
                 >
-                  {count} Device{count > 1 ? "S" : ""}
+                  {num} Device{num > 1 ? "s" : ""}
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 items-stretch">
-          {plans.map((plan) => (
-            <article
-              key={plan.id}
-              className={`relative flex flex-col rounded-2xl bg-[#fdf1c3] p-8 text-left transition-transform duration-300 border-[6px] border-[#36a9ff] ${
-                plan.popular ? "md:scale-105 z-10 shadow-[0_0_40px_rgba(54,169,255,0.6)]" : "hover:-translate-y-2 shadow-xl"
-              }`}
-            >
-              {/* Card Header Row */}
-              <div className="flex items-center justify-between mb-4">
-                <span className="block text-[#36a9ff] font-black uppercase tracking-widest text-sm">
-                  {plan.badge}
-                </span>
-                <div className="flex items-center gap-2">
-                  {plan.popular && (
-                    <span className="bg-[#36a9ff] text-white text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
-                      MOST POPULAR
+        {/* 5-Card Pricing Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch">
+          {plans.map((plan) => {
+            const isFeatured = plan.popular;
+            const isValue = plan.bestValue;
+
+            return (
+              <div
+                key={plan.id}
+                className={`relative flex flex-col rounded-3xl p-6 sm:p-7 transition-all duration-300 ${
+                  isFeatured
+                    ? "glass-card-featured border-[#9B3FF2] md:-translate-y-2"
+                    : isValue
+                    ? "glass-card border-[#FF7A00]/40 shadow-[0_0_25px_rgba(255,122,0,0.15)]"
+                    : "glass-card"
+                }`}
+              >
+                {/* Badge if available */}
+                {plan.discountBadge && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span
+                      className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider text-white shadow-md ${
+                        isFeatured
+                          ? "bg-gradient-to-r from-[#9B3FF2] to-[#EC4899]"
+                          : isValue
+                          ? "bg-gradient-to-r from-[#FF7A00] to-[#FF8A1F]"
+                          : "bg-white/10 border border-white/20"
+                      }`}
+                    >
+                      {plan.discountBadge}
                     </span>
-                  )}
-                  <Tv className="h-5 w-5 text-[#36a9ff]" />
-                </div>
-              </div>
+                  </div>
+                )}
 
-              <div className="pb-6">
-                <h3 className="text-[28px] font-black text-[#051f33] uppercase leading-none mb-4">{plan.name}</h3>
-                
-                <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-[46px] font-black tracking-tighter text-[#051f33] leading-none">${priceFor(plan)}</span>
-                </div>
-
-                <div className="inline-flex rounded-full bg-[#36a9ff] px-4 py-1.5">
-                  <span className="text-[10px] font-bold text-black uppercase tracking-wider">
-                    JUST ${monthlyPrice(plan)} / MONTH
+                {/* Plan Title & Duration */}
+                <div className="text-center pt-2 pb-5 border-b border-white/[0.08]">
+                  <h3 className="text-lg font-black text-white tracking-wide uppercase mb-1">
+                    {plan.name}
+                  </h3>
+                  <span className="text-xs font-semibold text-[#A8A0B8]">
+                    {devices} Connection{devices > 1 ? "s" : ""}
                   </span>
+
+                  {/* Price Display */}
+                  <div className="mt-4 flex items-baseline justify-center gap-1">
+                    <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                      ${calculateTotalPrice(plan)}
+                    </span>
+                  </div>
+
+                  {/* Monthly rate pill */}
+                  <div className="mt-2.5 inline-block">
+                    <span className="text-[11px] font-bold text-[#C084FC] bg-[#9B3FF2]/10 border border-[#9B3FF2]/20 px-3 py-1 rounded-full">
+                      ${calculateMonthlyRate(plan)} / month
+                    </span>
+                  </div>
+                </div>
+
+                {/* Features List */}
+                <ul className="py-6 space-y-3 flex-grow text-left">
+                  {planFeatures.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-xs text-white/85">
+                      <Check className="w-4 h-4 shrink-0 text-[#C084FC] mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA Button */}
+                <div className="pt-4 mt-auto">
+                  <button
+                    type="button"
+                    onClick={() => handleSubscribe(plan)}
+                    className={`w-full py-3.5 rounded-full text-xs font-black uppercase tracking-wider transition-all duration-300 shadow-md ${
+                      isFeatured
+                        ? "btn-primary-purple hover:scale-105"
+                        : isValue
+                        ? "btn-secondary-orange hover:scale-105"
+                        : "btn-outline-glass hover:border-[#9B3FF2]/50 hover:bg-[#9B3FF2]/20 text-white"
+                    }`}
+                  >
+                    Subscribe Now
+                  </button>
                 </div>
               </div>
-
-              <ul className="mt-6 mb-8 flex-grow space-y-3.5">
-                {commonFeatures.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5">
-                    <CheckCircle2 className="h-[18px] w-[18px] shrink-0 text-[#36a9ff] fill-white" />
-                    <span className="text-xs sm:text-[13px] font-bold text-[#051f33]">
-                      {feature.text.replace('{devices}', devices.toString()).replace('{s}', devices > 1 ? 's' : '')}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-auto pt-4">
-                <button
-                  type="button"
-                  onClick={() => handleOrder(plan)}
-                  className={`w-full py-4 text-sm font-black uppercase tracking-wide transition-all duration-300 rounded-full transform hover:scale-105 shadow-md ${
-                    plan.popular
-                      ? "bg-[#051f33] text-white hover:bg-[#0a365e] hover:shadow-xl"
-                      : "bg-[#36a9ff] text-white hover:bg-[#2196f3] hover:shadow-[#36a9ff]/50"
-                  }`}
-                >
-                  {plan.buttonText}
-                </button>
-              </div>
-            </article>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Free Trial Banner */}
-        <div className="mx-auto mt-16 max-w-2xl flex flex-col sm:flex-row items-center justify-between gap-4 rounded-full bg-[#fdf1c3] p-2 pl-6 sm:pl-8 shadow-xl border-4 border-[#36a9ff]/30">
-          <div className="flex items-center gap-3">
-            <div className="bg-[#36a9ff] p-2 rounded-full">
-              <Gift className="h-5 w-5 text-black" />
+        {/* Free 24H Trial Banner */}
+        <div className="mt-16 max-w-3xl mx-auto rounded-2xl glass-card p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 border-l-4 border-l-[#FF7A00]">
+          <div className="flex items-center gap-4 text-left">
+            <div className="w-12 h-12 rounded-xl bg-[#FF7A00]/10 border border-[#FF7A00]/30 flex items-center justify-center shrink-0">
+              <Zap className="w-6 h-6 text-[#FF8A1F]" />
             </div>
-            <h3 className="text-sm sm:text-base font-black text-[#051f33] uppercase">
-              NEED FREE TRIAL 24H?
-            </h3>
+            <div>
+              <h4 className="text-lg font-black text-white uppercase tracking-wide">
+                Want to test before subscribing?
+              </h4>
+              <p className="text-xs sm:text-sm text-[#A8A0B8]">
+                Request a 24-hour test line to verify stream stability on your favorite device.
+              </p>
+            </div>
           </div>
+
           <a
-            href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20free%2024H%20trial."
+            href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20free%2024H%20trial%20for%20SMARTSGI."
             target="_blank"
             rel="noreferrer"
-            className="bg-[#36a9ff] hover:bg-[#2196f3] text-white text-sm font-black px-10 py-3.5 rounded-full uppercase transition-all shadow-md hover:scale-105 whitespace-nowrap"
+            className="btn-secondary-orange px-7 py-3 text-xs font-black tracking-wider uppercase shrink-0"
           >
-            TRY NOW
+            Get Free Trial
           </a>
-        </div>
-
-        {/* Added Image Banner */}
-        <div className="mx-auto mt-12 max-w-5xl flex justify-center px-4">
-          <Image 
-            src="/imggt1_3.webp" 
-            alt="Supported Apps and Devices" 
-            width={1200} 
-            height={300} 
-            className="w-full h-auto object-contain drop-shadow-md rounded-xl"
-          />
         </div>
 
       </div>

@@ -1,182 +1,99 @@
-﻿import Image from "next/image";
-import Link from "next/link";
+import { CreditCard, MailCheck, PlayCircle, ArrowRight } from "lucide-react";
 
 export default function HowItWorksSection() {
-  return (
-    <section className="py-20 bg-transparent text-black relative z-10 border-b border-black/10 overflow-hidden">
-      <div className="max-w-[1240px] mx-auto px-6">
+  const steps = [
+    {
+      num: "01",
+      title: "Choose Your Plan",
+      subtitle: "Flexible Durations",
+      description: "Select the subscription duration and number of device connections that match your household streaming habits.",
+      icon: CreditCard,
+      color: "from-[#9B3FF2] to-[#9333EA]",
+      border: "border-[#9B3FF2]/40",
+      accent: "#C084FC",
+    },
+    {
+      num: "02",
+      title: "Receive Your Account",
+      subtitle: "Fast Activation",
+      description: "Your login credentials (M3U playlist, Xtream Codes API URL, username and password) are sent promptly upon order confirmation.",
+      icon: MailCheck,
+      color: "from-[#EC4899] to-[#9B3FF2]",
+      border: "border-[#EC4899]/40",
+      accent: "#EC4899",
+    },
+    {
+      num: "03",
+      title: "Start Streaming",
+      subtitle: "Instant Playback",
+      description: "Enter your credentials into your preferred IPTV player on your Smart TV, Firestick, Android box, or phone and enjoy immediate entertainment.",
+      icon: PlayCircle,
+      color: "from-[#FF7A00] to-[#FF8A1F]",
+      border: "border-[#FF7A00]/40",
+      accent: "#FF8A1F",
+    },
+  ];
 
-        {/* ========================================================================= */}
-        {/* PART 1: How does it work? Realm IPTV Timeline */}
-        {/* ========================================================================= */}
+  return (
+    <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-t border-white/[0.06]">
+      <div className="relative z-10 max-w-7xl mx-auto">
+        
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block py-1.5 px-4 rounded-full bg-[#36a9ff]/10 text-[#36a9ff] font-bold text-xs tracking-widest uppercase mb-6 border border-[#36a9ff]/20">
-            EASY IPTV SETUP
+          <span className="inline-block py-1 px-3.5 rounded-full border border-white/10 bg-white/[0.03] text-xs font-extrabold uppercase tracking-[0.2em] text-[#C084FC] mb-4">
+            Quick Setup
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-black tracking-tight leading-[1.1]">
-            How to Start Your <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#36a9ff] to-[#2196f3]">
-              Realm IPTV Subscription
-            </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+            How To Get Started With SMARTSGI
           </h2>
-          <p className="text-gray-700 text-sm sm:text-base mt-4 leading-relaxed max-w-2xl mx-auto">
-            Getting started with Realm IPTV is quick and simple. Follow this 3-step process to unlock instant access to premium <Link href="/channels" className="font-semibold text-[#36a9ff] hover:text-[#2196f3] transition-colors">live TV, movies, and series</Link>.
+          <p className="text-[#A8A0B8] text-base sm:text-lg">
+            Follow three straightforward steps to unlock seamless television on all your devices.
           </p>
         </div>
 
-        {/* Timeline Steps Container */}
-        <div className="relative max-w-[960px] mx-auto mb-28">
-          {/* Vertical Dashed Center Line */}
-          <div className="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-0.5 border-l-2 border-dashed border-[#36a9ff]/20 hidden md:block" />
+        {/* 3 Modern Steps */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          
+          {/* Connector Line on Desktop */}
+          <div className="hidden md:block absolute top-1/2 left-[18%] right-[18%] -translate-y-1/2 h-[2px] bg-gradient-to-r from-[#9B3FF2]/40 via-[#EC4899]/40 to-[#FF7A00]/40 z-0" />
 
-          {/* STEP 1 */}
-          <div className="relative mb-16 md:mb-20">
-            {/* Step Badge */}
-            <div className="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-4 z-20 flex justify-center mb-6 md:mb-0">
-              <span className="bg-[#36a9ff] text-white font-extrabold text-xs uppercase tracking-wider px-5 py-1.5 rounded-full shadow-[0_0_15px_rgba(54,169,255,0.6)]">
-                Step One
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pt-6">
-              {/* Left Card */}
-              <div className="bg-[#145082] p-8 rounded-2xl shadow-lg relative transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+          {steps.map((step, idx) => {
+            const Icon = step.icon;
+            return (
+              <div
+                key={step.num}
+                className="relative z-10 flex flex-col items-center text-center p-8 rounded-3xl glass-card hover:border-[#9B3FF2]/50 hover:shadow-[0_0_35px_rgba(155,63,242,0.2)] transition-all duration-300"
               >
-                <h3 className="text-xl font-black text-white mb-3">
-                  <a
-                    href="#pricing"
-                    className="hover:text-[#00e5ff] transition-colors"
-                  >
-                    1. Choose Your Realm IPTV Plan
-                  </a>
+                {/* Number Indicator Pill */}
+                <div className="mb-6 relative">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} p-[1.5px] shadow-[0_0_25px_rgba(155,63,242,0.35)] flex items-center justify-center`}>
+                    <div className="w-full h-full bg-[#080511] rounded-[14px] flex items-center justify-center">
+                      <Icon className="w-7 h-7" style={{ color: step.accent }} />
+                    </div>
+                  </div>
+                  
+                  {/* Floating Number Badge */}
+                  <span className="absolute -bottom-2 -right-2 px-2 py-0.5 rounded-md bg-[#05030B] border border-white/20 text-[10px] font-black text-white tracking-wider">
+                    {step.num}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-black text-white tracking-wide mb-1">
+                  {step.title}
                 </h3>
-                <p className="text-white/90 text-[15px] leading-relaxed">
-                  Select the best IPTV subscription package for your entertainment needs from our{" "}
-                  <a
-                    href="#pricing"
-                    className="text-[#00e5ff] font-bold hover:text-white transition-colors"
-                  >
-                    pricing plans
-                  </a>
-                  . Once checkout is complete, we will email or{" "}
-                  <Link
-                    href="/contact"
-                    className="text-[#00e5ff] font-bold hover:text-white transition-colors"
-                  >
-                    WhatsApp
-                  </Link>{" "}
-                  your secure login details instantly.
+                
+                <span className="text-[11px] font-bold text-[#A8A0B8] uppercase tracking-wider mb-4">
+                  {step.subtitle}
+                </span>
+
+                <p className="text-sm text-[#A8A0B8] leading-relaxed">
+                  {step.description}
                 </p>
               </div>
-
-              {/* Right Image */}
-              <div className="overflow-hidden rounded-2xl bg-gray-50/50 border border-[#36a9ff]/20 shadow-xl transition-all hover:border-[#36a9ff]/50 hover:shadow-[0_0_20px_rgba(54,169,255,0.3)]"
-              >
-                <Image
-                  src="/step_1_generated.png"
-                  alt="Place your order online"
-                  width={600}
-                  height={380}
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* STEP 2 */}
-          <div className="relative mb-16 md:mb-20">
-            {/* Step Badge */}
-            <div className="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-4 z-20 flex justify-center mb-6 md:mb-0">
-              <span className="bg-[#36a9ff] text-white font-extrabold text-xs uppercase tracking-wider px-5 py-1.5 rounded-full shadow-[0_0_15px_rgba(54,169,255,0.6)]">
-                Step Two
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pt-6">
-              {/* Left Image */}
-              <div className="overflow-hidden rounded-2xl bg-gray-50/50 border border-[#36a9ff]/20 shadow-xl order-2 md:order-1 transition-all hover:border-[#36a9ff]/50 hover:shadow-[0_0_20px_rgba(54,169,255,0.3)]"
-              >
-                <Image
-                  src="/step_2_generated.png"
-                  alt="Instant installation"
-                  width={600}
-                  height={380}
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Right Card */}
-              <div className="bg-[#145082] p-8 rounded-2xl shadow-lg relative order-1 md:order-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-              >
-                <h3 className="text-xl font-black text-white mb-3">
-                  <Link
-                    href="/installation"
-                    className="hover:text-[#00e5ff] transition-colors"
-                  >
-                    2. Install Your Streaming App
-                  </Link>
-                </h3>
-                <p className="text-white/90 text-[15px] leading-relaxed">
-                  Use our step-by-step{" "}
-                  <Link
-                    href="/installation"
-                    className="text-[#00e5ff] font-bold hover:text-white transition-colors"
-                  >
-                    IPTV installation guides
-                  </Link>{" "}
-                  to easily set up Realm on your Smart TV, Firestick, Android Box, or Apple device using top-rated apps like IPTV Smarters or Tivimate.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* STEP 3 */}
-          <div className="relative">
-            {/* Step Badge */}
-            <div className="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-4 z-20 flex justify-center mb-6 md:mb-0">
-              <span className="bg-[#36a9ff] text-white font-extrabold text-xs uppercase tracking-wider px-5 py-1.5 rounded-full shadow-[0_0_15px_rgba(54,169,255,0.6)]">
-                Step Three
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pt-6">
-              {/* Left Card */}
-              <div className="bg-[#145082] p-8 rounded-2xl shadow-lg relative transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
-              >
-                <h3 className="text-xl font-black text-white mb-3">
-                  <Link
-                    href="/channels"
-                    className="hover:text-[#00e5ff] transition-colors"
-                  >
-                    3. Enjoy Premium IPTV Streaming
-                  </Link>
-                </h3>
-                <p className="text-white/90 text-[15px] leading-relaxed">
-                  Start watching instantly! Dive into our massive Realm IPTV{" "}
-                  <Link
-                    href="/channels"
-                    className="text-[#00e5ff] font-bold hover:text-white transition-colors"
-                  >
-                    channels catalog
-                  </Link>
-                  {" "}featuring over 50,000 live broadcasts and a huge Video on Demand library, all delivered without buffering.
-                </p>
-              </div>
-
-              {/* Right Image */}
-              <div className="overflow-hidden rounded-2xl bg-gray-50/50 border border-[#36a9ff]/20 shadow-xl transition-all hover:border-[#36a9ff]/50 hover:shadow-[0_0_20px_rgba(54,169,255,0.3)]"
-              >
-                <Image
-                  src="/step_3_generated.png"
-                  alt="Watch and enjoy live TV"
-                  width={600}
-                  height={380}
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

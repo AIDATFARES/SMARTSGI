@@ -9,204 +9,188 @@ import {
   Monitor, 
   Newspaper, 
   Trophy, 
-  Tv, 
-  Zap, 
-  CirclePlay,
-  Radio
+  Radio,
+  Sparkles,
+  ArrowRight
 } from "lucide-react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import BrandMarquee from "@/components/home/BrandMarquee";
 
-// Category Overview Cards (matching reference image)
 const categoryCards = [
   {
     icon: Trophy,
     title: "Sports Channels",
     items: [
       "Football, basketball, UFC, boxing, F1, and more",
-      "HD/FHD and 4K 60FPS streams available",
-      "Sky Sports, TNT, BeIN, ESPN, DAZN & PPV"
+      "High definition and 60 FPS streams available",
+      "Major global sports broadcasting networks & PPV"
     ],
-    count: "12,500+ Channels",
-    tag: "MOST POPULAR"
+    highlight: "Live Competitions",
+    tag: "POPULAR"
   },
   {
     icon: Film,
-    title: "Movie & VOD Content",
+    title: "Movies & Cinema",
     items: [
-      "Premium movie networks & cinema channels",
-      "Curated 4K VOD library updated daily",
-      "HBO, Cinemax, Sky Cinema, Starz & VOD"
+      "Premium movie networks & dedicated cinema feeds",
+      "Curated on-demand library with ongoing updates",
+      "Major studio blockbusters, timeless classics & VOD"
     ],
-    count: "200,000+ VODs"
+    highlight: "Curated VOD",
   },
   {
     icon: Newspaper,
     title: "News Channels",
     items: [
-      "Global, national and regional news networks",
-      "24/7 breaking news and special live coverage",
-      "BBC News, CNN, Sky News, Fox, CNBC, Bloomberg"
+      "Global, national, and regional news networks",
+      "24/7 breaking news and special live reporting",
+      "Financial markets, political coverage & weather"
     ],
-    count: "3,200+ Channels"
+    highlight: "Continuous Coverage",
   },
   {
     icon: Baby,
     title: "Kids & Family",
     items: [
       "Cartoons, learning & family entertainment",
-      "Dedicated child-friendly programming",
-      "Disney, Cartoon Network, Nickelodeon, Boomerang"
+      "Child-friendly programming and animations",
+      "Educational broadcasts and youth series"
     ],
-    count: "2,800+ Channels"
+    highlight: "Family Friendly",
   },
   {
     icon: Monitor,
-    title: "Entertainment",
+    title: "Entertainment & Lifestyle",
     items: [
-      "Reality TV, variety, music, lifestyle & drama",
-      "Popular everyday cable and satellite networks",
+      "Reality TV, music networks, lifestyle & drama",
+      "Popular cable, satellite, and regional networks",
       "US, UK, Canadian & European top entertainment"
     ],
-    count: "15,000+ Channels"
+    highlight: "Daily Broadcasts",
   },
   {
     icon: Globe2,
-    title: "International",
+    title: "International Feeds",
     items: [
-      "150+ country packages & regional channels",
-      "Local sports, news, culture & native audio",
-      "Europe, Americas, MENA, Asia & Africa"
+      "Multi-country packages & localized regional feeds",
+      "Local sports, cultural shows & native language audio",
+      "Europe, Americas, MENA, Asia & Africa channels"
     ],
-    count: "+50,000 Channels"
+    highlight: "Global Reach",
   },
   {
     icon: Layers3,
     title: "Series & Shows",
     items: [
-      "Latest released seasons with daily updates",
-      "Complete boxsets, timeless classics & VOD",
-      "Netflix, Amazon, Apple TV+, HBO Max & Disney+"
+      "Episodic series with on-demand boxsets",
+      "Popular television dramas, comedies & docuseries",
+      "Regularly refreshed catalogs across genres"
     ],
-    count: "+120,000 Films & Series"
+    highlight: "On Demand",
   }
 ];
 
 export default function ChannelsPage() {
   return (
-    <main className="min-h-screen bg-white text-black pt-24 pb-24 relative overflow-hidden">
-      {/* Background Decorative Glow */}
-      <div className="absolute top-[10%] left-[5%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(112,0,255,0.06)_0%,transparent_65%)] rounded-full pointer-events-none z-0" />
-      <div className="absolute top-[40%] right-[5%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(255,0,189,0.04)_0%,transparent_65%)] rounded-full pointer-events-none z-0" />
+    <main className="min-h-screen bg-[#05030B] text-[#F8FAFC] pt-28 pb-24 relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-[10%] left-[5%] w-[600px] h-[500px] glow-purple blur-[160px] pointer-events-none rounded-full opacity-25" />
+      <div className="absolute top-[45%] right-[5%] w-[500px] h-[450px] glow-orange blur-[150px] pointer-events-none rounded-full opacity-20" />
 
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-10 relative z-10">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header Banner */}
         <div className="mx-auto mb-16 max-w-3xl text-center">
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex rounded-full border border-[#36a9ff]/30 bg-[#36a9ff]/5 px-4 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#36a9ff] mb-6"
-          >
-            <Radio className="w-3.5 h-3.5 mr-2 text-[#36a9ff] animate-pulse inline" />
-            <span>+50,000 CHANNELS · +120,000 FILMS &amp; SERIES · 200,000+ VODS</span>
-          </motion.div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#9B3FF2]/30 bg-[#9B3FF2]/10 px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.2em] text-[#C084FC] mb-6">
+            <Radio className="w-3.5 h-3.5 text-[#FF7A00] animate-pulse" />
+            <span>Extensive Channel Lineup &amp; VOD</span>
+          </div>
 
-          <motion.h1 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mt-2 text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.05] tracking-tight"
-          >
-            <span className="block text-black">Popular Realm IPTV</span>
-            <span className="mt-1 block text-[#36a9ff]">Live Channels &amp; VOD.</span>
-          </motion.h1>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.08] tracking-tight">
+            <span className="text-white block sm:inline">SMARTSGI </span>
+            <span className="text-gradient-hero block sm:inline">Live Channels &amp; VOD</span>
+          </h1>
 
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mx-auto mt-5 max-w-2xl text-base sm:text-lg text-gray-700 leading-relaxed"
-          >
-            Browse our full channel lineup featuring live sports, movies, news, entertainment, and on-demand series in 4K &amp; HD quality from over 150+ countries.
-          </motion.p>
+          <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-[#A8A0B8] leading-relaxed">
+            Browse our comprehensive selection of live sports, cinema networks, global news, and on-demand series in HD and 4K quality across supported regions.
+          </p>
         </div>
 
-        {/* SECTION 1: Category Cards Grid (Matching User Reference Image) */}
+        {/* Category Cards Grid */}
         <section className="mb-20">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {categoryCards.map((category, index) => {
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {categoryCards.map((category) => {
               const Icon = category.icon;
 
               return (
-                <motion.article
+                <article
                   key={category.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.35, delay: index * 0.05 }}
-                  className="relative flex flex-col items-center min-h-[240px] rounded-xl bg-[#145082] p-8 shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+                  className="relative flex flex-col p-8 rounded-3xl glass-card hover:border-[#9B3FF2]/50 hover:shadow-[0_0_30px_rgba(155,63,242,0.25)] transition-all duration-300 group"
                 >
-                  <Icon className="h-10 w-10 text-white mb-4" strokeWidth={2} />
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-[#10091B] border border-white/[0.08] flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
+                      <Icon className="h-6 w-6 text-[#C084FC] group-hover:text-[#FF8A1F] transition-colors" />
+                    </div>
 
-                  {/* Optional Popular Tag */}
-                  {category.tag && (
-                    <span className="absolute right-3 top-3 rounded-full bg-[#36a9ff] px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-white shadow-sm">
-                      {category.tag}
-                    </span>
-                  )}
+                    {category.tag && (
+                      <span className="rounded-full bg-gradient-to-r from-[#9B3FF2] to-[#FF7A00] px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white shadow-md">
+                        {category.tag}
+                      </span>
+                    )}
+                  </div>
 
-                  <h2 className="text-center text-xl font-extrabold text-white tracking-wide mb-4">
+                  <h2 className="text-xl font-black text-white tracking-wide mb-4">
                     {category.title}
                   </h2>
 
-                  <ul className="w-full space-y-2.5 mb-6 text-left">
+                  <ul className="w-full space-y-2.5 mb-6 text-left flex-grow">
                     {category.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-200 leading-tight">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#36a9ff]" strokeWidth={2.5} />
+                      <li key={item} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#A8A0B8] leading-snug">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#C084FC]" strokeWidth={2.5} />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <div className="w-full mt-auto pt-4 border-t border-white/10 flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">Total Available</span>
-                    <span className="text-xs font-black text-white">{category.count}</span>
+                  <div className="w-full mt-auto pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#777083]">Availability</span>
+                    <span className="font-bold text-white/90">{category.highlight}</span>
                   </div>
-                </motion.article>
+                </article>
               );
             })}
           </div>
         </section>
 
-        {/* SECTION: Channel Brand Marquee Strip */}
-        <section className="mb-16 rounded-2xl overflow-hidden border border-black/5 shadow-sm">
+        {/* Marquee Strip */}
+        <section className="mb-20 rounded-3xl overflow-hidden glass-card p-6">
           <BrandMarquee />
         </section>
 
+        {/* Bottom CTA Box */}
+        <section className="rounded-3xl glass-card p-8 sm:p-12 text-center border-[#9B3FF2]/30 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#9B3FF2]/10 via-transparent to-[#FF7A00]/10 pointer-events-none" />
 
-
-        {/* SECTION 3: CTA Bottom Box */}
-        <section className="mt-16 bg-[#36a9ff]/5 rounded-3xl border-2 border-[#36a9ff]/20 p-8 sm:p-12 text-center shadow-lg relative overflow-hidden">
           <div className="relative z-10 max-w-2xl mx-auto">
-            <CirclePlay className="w-10 h-10 text-[#36a9ff] mx-auto mb-4 animate-bounce" />
-            <h2 className="text-3xl font-black uppercase text-black">Ready to start watching?</h2>
-            <p className="mt-3 text-gray-600 text-sm sm:text-base leading-relaxed">
-              Choose your subscription plan to receive instant access credentials on WhatsApp within minutes.
+            <h2 className="text-3xl sm:text-4xl font-black uppercase text-white mb-4">
+              Ready to start watching?
+            </h2>
+            <p className="text-[#A8A0B8] text-sm sm:text-base leading-relaxed mb-8">
+              Choose your subscription plan to receive your SMARTSGI access credentials and begin streaming on all your devices.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/pricing"
-                className="px-8 py-4 rounded-full bg-black text-white font-black text-sm uppercase tracking-wider hover:bg-[#36a9ff] transition-colors"
+                className="btn-primary-purple px-8 py-4 text-xs font-black uppercase tracking-wider gap-2 hover:scale-105 group"
               >
-                View IPTV Subscription Plans
+                <span>View Subscription Plans</span>
+                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20free%20trial%20for%20realmiptv%20IPTV."
+                href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20free%20trial%20for%20SMARTSGI."
                 target="_blank"
                 rel="noreferrer"
-                className="px-8 py-4 rounded-full bg-white border-2 border-black/10 text-black font-black text-sm uppercase tracking-wider hover:border-[#36a9ff] transition-colors"
+                className="btn-outline-glass px-8 py-4 text-xs font-black uppercase tracking-wider hover:border-[#FF7A00]/60 hover:text-[#FF8A1F]"
               >
                 Get Free Trial via WhatsApp
               </a>

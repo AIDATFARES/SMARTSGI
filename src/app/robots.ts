@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://www.realmiptv4k.shop/sitemap.xml',
+    sitemap: 'https://smartsgi.net/sitemap.xml',
   };
 }

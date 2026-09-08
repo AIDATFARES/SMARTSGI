@@ -2,278 +2,201 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronDown, CircleHelp, Clock3, CreditCard, HelpCircle, Mail, MessageCircle, MonitorPlay, Send, Settings2, UserRound } from "lucide-react";
-
-type Category = "About realmiptv" | "Setup & streaming" | "Plans & access" | "Payments & support";
+import { ChevronDown, HelpCircle, Sparkles, Mail, MessageCircle, Clock3 } from "lucide-react";
 
 type FAQItem = {
-  category: Category;
   question: string;
   answer: React.ReactNode;
 };
 
-const categories: { label: Category; icon: typeof CircleHelp }[] = [
-  { label: "About realmiptv", icon: CircleHelp },
-  { label: "Setup & streaming", icon: Settings2 },
-  { label: "Plans & access", icon: UserRound },
-  { label: "Payments & support", icon: CreditCard },
-];
-
 const faqs: FAQItem[] = [
   {
-    category: "About realmiptv",
-    question: "1. What is Realm IPTV?",
+    question: "What is IPTV?",
     answer: (
-      <>
-        Realm IPTV is a premium IPTV service that offers live TV, VOD movies, TV series, and sports channels in high-quality streaming, including 4K. Check out our{" "}
-        <Link href="/channels" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">live TV channels</Link> and{" "}
-        <Link href="/pricing" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">IPTV subscription plans</Link>.
-      </>
+      <p>
+        IPTV (Internet Protocol Television) delivers television programming and video content through your high-speed internet connection rather than traditional cables or satellite dishes. With SMARTSGI, this gives you access to live TV and video on demand across any compatible screen in your home or while traveling.
+      </p>
     ),
   },
   {
-    category: "About realmiptv",
-    question: "2. Is Realm IPTV authorized?",
+    question: "How do I receive my IPTV credentials?",
     answer: (
-      <>
-        Realm IPTV is intended to be used in accordance with applicable laws, local regulations, and our service terms. Please ensure that the content you access and the way you use the service are permitted in your location.
-      </>
+      <p>
+        Once your order is processed, your activation details are sent immediately via email or WhatsApp. Your credentials include an M3U playlist link and Xtream Codes API parameters (Server URL, Username, Password) that can be plugged into your chosen player.
+      </p>
     ),
   },
   {
-    category: "About realmiptv",
-    question: "3. What channels and content are included with Realm IPTV?",
+    question: "Which devices are supported by SMARTSGI?",
     answer: (
-      <>
-        Realm IPTV includes a broad selection of live channels covering sports, news, and entertainment, along with a regularly updated on-demand library of movies and TV series. Check our <Link href="/channels" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">full channels catalog</Link>.
-      </>
+      <p>
+        SMARTSGI is compatible with all major devices including Smart TVs (Samsung, LG, Sony), Amazon Fire TV Stick, Android TV boxes, Apple TV, iPhone, iPad, Android phones, Windows PCs, and Mac computers.
+      </p>
     ),
   },
   {
-    category: "About realmiptv",
-    question: "4. Can I watch live sports and PPV events on Realm IPTV?",
+    question: "How many devices can I use simultaneously?",
     answer: (
-      <>
-        Realm IPTV includes a range of live sports channels and events. Coverage can include football, NFL, NBA, UFC, and pay-per-view events. Explore our <Link href="/channels" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">live sports section</Link>.
-      </>
+      <p>
+        Simultaneous streaming depends on the active connection tier you choose (1, 2, or 3 devices). You can install your playlist across multiple devices and watch concurrently according to your selected plan limit.
+      </p>
     ),
   },
   {
-    category: "About realmiptv",
-    question: "5. Which devices can I use?",
+    question: "How do I set up SMARTSGI on my device?",
     answer: (
-      <>
-        Realm IPTV works with compatible IPTV apps on Smart TVs, Android TV, Firestick, Apple TV, smartphones, tablets, and computers. Follow our <Link href="/installation" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">installation guides</Link> to get started.
-      </>
+      <p>
+        Simply install a recognized IPTV player app (such as TiviMate, IPTV Smarters Pro, or IBO Player), select Xtream Codes or M3U Login, enter your SMARTSGI details, and start watching. Follow our detailed{" "}
+        <Link href="/installation" className="text-[#C084FC] underline hover:text-white transition-colors">
+          Installation Guides
+        </Link>{" "}
+        for step-by-step instructions for each platform.
+      </p>
     ),
   },
   {
-    category: "Setup & streaming",
-    question: "1. How do I install Realm IPTV on my device?",
+    question: "How long does account activation take?",
     answer: (
-      <>
-        Start by installing a compatible IPTV player on your device. Enter the Realm IPTV credentials from your email. View our step-by-step <Link href="/installation" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">installation guides</Link> for detailed instructions.
-      </>
+      <p>
+        Activation is fast. In most cases, your connection parameters are generated and sent within 5 to 30 minutes following confirmed payment.
+      </p>
     ),
   },
   {
-    category: "Setup & streaming",
-    question: "2. Can I use Realm IPTV on a Smart TV?",
+    question: "What payment methods are supported?",
     answer: (
-      <>
-        Yes, Realm IPTV can be used on Smart TVs including Samsung, LG, and Android TV models using compatible IPTV players like Tivimate or Smarters.
-      </>
+      <p>
+        We accept standard payment options including major credit/debit cards, PayPal, and leading cryptocurrencies (Bitcoin, USDT). Payment guidance is provided during checkout.
+      </p>
     ),
   },
   {
-    category: "Setup & streaming",
-    question: "3. What internet speed do I need for smooth Realm IPTV streaming?",
+    question: "What is the refund policy?",
     answer: (
-      <>
-        For reliable playback, allow at least 10 Mbps per stream for HD and 25 Mbps per stream for 4K. Ethernet or 5 GHz Wi-Fi is recommended.
-      </>
+      <p>
+        We want you to be completely satisfied with your streaming experience. We recommend requesting a 24-hour trial to test device compatibility before purchasing extended plans. Review our full{" "}
+        <Link href="/refund-policy" className="text-[#C084FC] underline hover:text-white transition-colors">
+          Refund Policy
+        </Link>{" "}
+        for details.
+      </p>
     ),
   },
   {
-    category: "Setup & streaming",
-    question: "4. Why is Realm IPTV buffering or freezing?",
+    question: "How can I contact technical support?",
     answer: (
-      <>
-        Restart your IPTV app and router. If buffering persists, check your Wi-Fi signal or <Link href="/contact" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">contact support</Link> for quick assistance.
-      </>
-    ),
-  },
-  {
-    category: "Setup & streaming",
-    question: "5. Do I need a VPN to use Realm IPTV?",
-    answer: (
-      <>
-        A VPN is not required but is recommended in some regions to ensure unrestricted access and added privacy. Contact our <Link href="/contact" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">support team</Link> for VPN setup recommendations.
-      </>
-    ),
-  },
-  {
-    category: "Plans & access",
-    question: "1. Are there any hidden fees or contracts with Realm IPTV?",
-    answer: (
-      <>
-        No contracts and no hidden fees. Choose an <Link href="/pricing" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">IPTV subscription plan</Link> with transparent pricing and instant delivery.
-      </>
-    ),
-  },
-  {
-    category: "Plans & access",
-    question: "2. Can I use Realm IPTV on multiple devices?",
-    answer: (
-      <>
-        Yes! We offer multi-device subscription plans. Select the 1, 2, or 3 device option on our <Link href="/pricing" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">pricing page</Link>.
-      </>
-    ),
-  },
-  {
-    category: "Plans & access",
-    question: "3. What are Realm IPTV M3U and Xtream Codes details?",
-    answer: (
-      <>
-        Your welcome email includes both M3U playlist URLs and Xtream Codes credentials for fast setup in any IPTV app.
-      </>
-    ),
-  },
-  {
-    category: "Payments & support",
-    question: "1. Does Realm IPTV offer a free trial?",
-    answer: (
-      <>
-        Yes, we offer a <a href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20free%20trial%20for%20realmiptv%20IPTV." target="_blank" rel="noreferrer" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">free trial</a> so you can test our service before subscribing.
-      </>
-    ),
-  },
-  {
-    category: "Payments & support",
-    question: "2. Which payment methods does Realm IPTV accept?",
-    answer: (
-      <>
-        We accept PayPal, Crypto (Bitcoin), Credit Cards, and Instant Bank Transfers. For help with payments, reach out to our <Link href="/contact" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">support team</Link>.
-      </>
-    ),
-  },
-  {
-    category: "Payments & support",
-    question: "3. How long does activation take after I purchase a plan?",
-    answer: (
-      <>
-        Activation is instant! Your login details are generated and sent straight to your email immediately after payment confirmation.
-      </>
+      <p>
+        Our support team is available 24/7 on WhatsApp and through our{" "}
+        <Link href="/contact" className="text-[#C084FC] underline hover:text-white transition-colors">
+          Contact Form
+        </Link>
+        . Real human assistance is available around the clock to help with playlist setup or troubleshooting.
+      </p>
     ),
   },
 ];
 
 export default function FAQ() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-  function sendSupportMessage(formData: FormData) {
-    const name = String(formData.get("name") || "").trim();
-    const email = String(formData.get("email") || "").trim();
-    const subject = String(formData.get("subject") || "General support").trim();
-    const message = String(formData.get("message") || "").trim();
-    const text = encodeURIComponent(`Hello Realm IPTV support,\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${message}`);
-    window.open(`https://wa.me/213552069874?text=${text}`, "_blank", "noopener,noreferrer");
-  }
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   return (
-    <main className="flex-grow px-4 sm:px-6 pb-20 pt-12 md:pt-16 bg-white text-black">
-      <div className="mx-auto max-w-[1140px]">
-        <header className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[#36a9ff]">Help center</p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-black tracking-tight leading-tight">
-            Frequently Asked Questions<br />(FAQ)
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-sm sm:text-base leading-relaxed text-gray-700">
-            Find answers to common questions about our IPTV service, including{" "}
-            <Link href="/pricing" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">subscriptions</Link>,{" "}
-            <Link href="/installation" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">devices</Link>, streaming quality, payments, and more. If you need further help, our{" "}
-            <Link href="/contact" className="text-[#36a9ff] font-semibold hover:text-[#36a9ff] transition-colors">support team</Link> is here for you.
-          </p>
-        </header>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-up mt-8">
-          {faqs.map((faq, index) => {
-            const isOpen = activeIndex === index;
-            const contentId = `faq-item-${index}`;
-
-            return (
-              <div 
-                key={index} 
-                className="bg-gradient-to-b from-[#497598] to-[#8fb0c9] rounded-xl overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg"
-              >
-                <button
-                  aria-controls={contentId}
-                  aria-expanded={isOpen}
-                  onClick={() => setActiveIndex(isOpen ? null : index)}
-                  className="w-full flex justify-between items-center p-5 text-left font-bold text-white focus:outline-none"
-                >
-                  <span className="text-sm md:text-base">{faq.question.replace(/^\d+\.\s*/, '')}</span>
-                  <span className={`text-white shrink-0 ml-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-                    <ChevronDown className="w-5 h-5" />
-                  </span>
-                </button>
-                
-                <div 
-                  id={contentId}
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <div className="p-5 pt-0 text-sm leading-relaxed text-white/90 border-t border-white/20">
-                    {faq.answer}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+    <main className="min-h-screen bg-[#05030B] text-[#F8FAFC] pt-36 pb-24 px-4 sm:px-6 lg:px-8 max-w-[1280px] mx-auto w-full relative z-10">
+      
+      {/* Header */}
+      <header className="mx-auto mb-16 max-w-3xl text-center">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#9B3FF2]/30 bg-[#9B3FF2]/10 mb-6">
+          <Sparkles className="w-3.5 h-3.5 text-[#C084FC]" />
+          <span className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#C084FC]">
+            Help Center
+          </span>
         </div>
 
-        <section className="mt-20 border-t border-black/10 pt-16 sm:pt-20">
-          <header className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-black">Get in Touch with Our Support Team</h2>
-            <p className="mt-3 text-sm leading-6 text-gray-600">We&apos;re here to help you get the best streaming experience. Send us a message and we&apos;ll get back to you quickly.</p>
-          </header>
-          <div className="mt-10 grid gap-8 xl:grid-cols-[278px_minmax(0,1fr)] xl:gap-10">
-            <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
-              <a className="flex min-h-40 flex-col items-center justify-center rounded-2xl border border-black/10 bg-white p-5 text-center transition-colors hover:border-[#36a9ff]/50" href="mailto:support@realmiptv4k.shop">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#145082]/20 text-[#36a9ff]"><Mail className="h-5 w-5" /></span>
-                <span className="mt-4 block text-base font-bold text-black">Email Us</span>
-                <span className="mt-2 block text-xs leading-5 text-gray-600">For general inquiries and support.</span>
-                <span className="mt-3 block text-xs font-semibold text-[#36a9ff]">support@realmiptv4k.shop</span>
-              </a>
-              <a className="flex min-h-40 flex-col items-center justify-center rounded-2xl border border-black/10 bg-white p-5 text-center transition-colors hover:border-[#36a9ff]/50" href="https://wa.me/213552069874?text=Hello%20realmiptv%20IPTV%20support%2C%20I%20need%20help." rel="noreferrer" target="_blank">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366]/20 text-[#25D366]"><MessageCircle className="h-5 w-5" /></span>
-                <span className="mt-4 block text-base font-bold text-black">WhatsApp Support</span>
-                <span className="mt-2 block text-xs leading-5 text-gray-600">Fastest way to reach us for technical issues.</span>
-                <span className="mt-3 block text-xs font-semibold text-[#25D366]">Start Chat ?</span>
-              </a>
-              <div className="flex min-h-40 flex-col items-center justify-center rounded-2xl border border-black/10 bg-white p-5 text-center">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-black/10 text-gray-700"><Clock3 className="h-5 w-5" /></span>
-                <span className="mt-4 block text-base font-bold text-black">Response Time</span>
-                <span className="mt-2 block text-xs leading-5 text-gray-600">We typically reply within <strong className="text-black">2 hours</strong> during standard business hours.</span>
-              </div>
-            </div>
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.08] tracking-tight uppercase">
+          <span className="text-white block sm:inline">Frequently Asked </span>
+          <span className="text-gradient-hero block sm:inline">Questions</span>
+        </h1>
 
-            <div className="rounded-2xl border border-black/10 bg-white p-6 sm:p-8">
-              <h3 className="text-xl font-bold text-black">Send us a message</h3>
-              <form action={sendSupportMessage} className="mt-6 space-y-4">
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <label className="block text-xs font-semibold text-gray-600">Name<input className="mt-2 w-full rounded-xl border border-black/10 bg-white px-3.5 py-3 text-sm text-black outline-none transition-colors placeholder:text-gray-600 focus:border-[#36a9ff]" name="name" placeholder="John Doe" required /></label>
-                  <label className="block text-xs font-semibold text-gray-600">Email address<input className="mt-2 w-full rounded-xl border border-black/10 bg-white px-3.5 py-3 text-sm text-black outline-none transition-colors placeholder:text-gray-600 focus:border-[#36a9ff]" name="email" placeholder="john@example.com" required type="email" /></label>
+        <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-[#A8A0B8] leading-relaxed">
+          Find straightforward answers regarding SMARTSGI subscriptions, device compatibility, streaming quality, and activation.
+        </p>
+      </header>
+
+      {/* Accordion List */}
+      <div className="max-w-4xl mx-auto space-y-4 mb-24">
+        {faqs.map((faq, index) => {
+          const isOpen = activeIndex === index;
+
+          return (
+            <div
+              key={index}
+              className={`rounded-2xl glass-card transition-all duration-300 overflow-hidden ${
+                isOpen ? "border-[#9B3FF2]/50 shadow-[0_0_25px_rgba(155,63,242,0.15)] bg-white/[0.04]" : ""
+              }`}
+            >
+              <button
+                type="button"
+                onClick={() => setActiveIndex(isOpen ? null : index)}
+                className="w-full px-6 py-5 flex items-center justify-between gap-4 text-left cursor-pointer focus:outline-none"
+              >
+                <span className="text-base sm:text-lg font-bold text-white pr-4">
+                  {faq.question}
+                </span>
+                <div className={`w-8 h-8 rounded-full bg-white/[0.05] flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 bg-[#9B3FF2]/20 text-[#C084FC]" : "text-[#A8A0B8]"}`}>
+                  <ChevronDown className="w-4 h-4" />
                 </div>
-                <label className="block text-xs font-semibold text-gray-600">Subject<input className="mt-2 w-full rounded-xl border border-black/10 bg-white px-3.5 py-3 text-sm text-black outline-none transition-colors placeholder:text-gray-600 focus:border-[#36a9ff]" name="subject" placeholder="How can we help?" /></label>
-                <label className="block text-xs font-semibold text-gray-600">Message<textarea className="mt-2 min-h-32 w-full resize-y rounded-xl border border-black/10 bg-white px-3.5 py-3 text-sm text-black outline-none transition-colors placeholder:text-gray-600 focus:border-[#36a9ff]" name="message" placeholder="Describe your question or issue..." required /></label>
-                <button className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] py-3.5 text-sm font-bold text-white shadow-lg shadow-[#25D366]/30 transition-all hover:-translate-y-0.5 active:translate-y-0" type="submit"><Send className="h-4 w-4" />Send message via WhatsApp</button>
-              </form>
+              </button>
+
+              {isOpen && (
+                <div className="px-6 pb-6 pt-2 text-sm sm:text-base text-[#A8A0B8] leading-relaxed border-t border-white/[0.04] animate-in fade-in duration-200">
+                  {faq.answer}
+                </div>
+              )}
             </div>
-          </div>
-        </section>
+          );
+        })}
       </div>
+
+      {/* Support Cards */}
+      <section className="pt-16 border-t border-white/[0.08] max-w-4xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-wide">
+            Still Have Questions?
+          </h2>
+          <p className="mt-2 text-sm text-[#A8A0B8]">
+            Our support team is standing by 24/7 to help you get started.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="p-8 rounded-3xl glass-card text-center flex flex-col items-center">
+            <div className="w-12 h-12 rounded-2xl bg-[#9B3FF2]/15 border border-[#9B3FF2]/30 flex items-center justify-center mb-4">
+              <Mail className="w-6 h-6 text-[#C084FC]" />
+            </div>
+            <h3 className="text-lg font-black text-white mb-1">Email Support</h3>
+            <p className="text-xs text-[#A8A0B8] mb-4">Send us your question anytime.</p>
+            <a href="mailto:support@smartsgi.net" className="text-sm font-bold text-[#C084FC] hover:text-white transition-colors">
+              support@smartsgi.net
+            </a>
+          </div>
+
+          <div className="p-8 rounded-3xl glass-card text-center flex flex-col items-center">
+            <div className="w-12 h-12 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center mb-4">
+              <MessageCircle className="w-6 h-6 text-[#25D366]" />
+            </div>
+            <h3 className="text-lg font-black text-white mb-1">WhatsApp Live Chat</h3>
+            <p className="text-xs text-[#A8A0B8] mb-4">Immediate real-time technical help.</p>
+            <a 
+              href="https://wa.me/213552069874?text=Hello,%20I%20have%20a%20question%20about%20SMARTSGI."
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm font-bold text-[#25D366] hover:underline"
+            >
+              Chat on WhatsApp →
+            </a>
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }

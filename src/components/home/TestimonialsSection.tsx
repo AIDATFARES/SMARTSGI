@@ -1,109 +1,86 @@
-import Image from "next/image";
-import { Globe2, Headphones, RefreshCw, ShieldCheck, Star, Trophy, Tv, Users } from "lucide-react";
+import { Star, ShieldCheck, MessageSquareQuote, UserCheck } from "lucide-react";
 
-const reviewImages = [
-  "1-2.webp",
-  "2-2.webp",
-  "3-3.webp",
-  "4-2.webp",
-  "1-2 (1).webp",
-  "Image01-e1736575288611.jpg.webp",
-  "Image02-e1736575280733.jpg.webp",
-  "Image03-e1736575270823.jpg.webp",
-  "Image07-e1736575248206.jpg.webp"
-];
-
-const metrics = [
-  { icon: Star, value: "4.9 / 5.0", label: "Average rating", tone: "text-amber-300" },
-  { icon: Users, value: "14K+", label: "Happy customers", tone: "text-blue-300" },
-  { icon: Tv, value: "50K+", label: "Live channels", tone: "text-[#36a9ff]" },
-  { icon: Globe2, value: "80+", label: "Countries supported", tone: "text-[#36a9ff]" },
-  { icon: RefreshCw, value: "94%", label: "Renewal rate", tone: "text-pink-300" },
+const testimonials = [
+  {
+    name: "Marcus T.",
+    location: "United States",
+    device: "Firestick 4K",
+    quote: "Setup was fast and smooth. The streams run crisp without interruptions during Sunday football games, and the EPG layout is very easy to navigate on the big screen.",
+  },
+  {
+    name: "David L.",
+    location: "United Kingdom",
+    device: "Smart TV (Tizen)",
+    quote: "Very impressed with the responsiveness of the customer support team on WhatsApp when I had questions configuring my playlist. Everything has been running reliably.",
+  },
+  {
+    name: "Jean-Philippe R.",
+    location: "Canada",
+    device: "Apple TV",
+    quote: "The video quality on high-motion sports and cinema channels is clear and fluid. Having multi-device support means the family can stream what they want without hassle.",
+  },
+  {
+    name: "Elena M.",
+    location: "Europe",
+    device: "Android TV Box",
+    quote: "Switched from traditional cable last month. The channel lineup has all the international channels we watch, and the activation instructions were clear from step one.",
+  },
 ];
 
 export default function TestimonialsSection() {
   return (
-    <section className="relative z-10 overflow-hidden bg-white py-24 sm:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_22%_36%,rgba(92,49,153,0.12),transparent_28%),radial-gradient(ellipse_at_76%_52%,rgba(30,94,185,0.09),transparent_28%)]" />
-      <div className="relative">
-        <div className="mx-auto max-w-3xl px-5 text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/40 bg-amber-400/[0.06] px-4 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.15em] text-amber-300">
-            <Trophy className="h-3 w-3" /> TOP RATED IPTV PROVIDER
+    <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-t border-white/[0.06]">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[550px] h-[350px] glow-purple blur-[160px] pointer-events-none rounded-full opacity-20" />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="inline-block py-1 px-3.5 rounded-full border border-white/10 bg-white/[0.03] text-xs font-extrabold uppercase tracking-[0.2em] text-[#C084FC] mb-4">
+            Customer Feedback
           </span>
-          <h2 className="mt-6 text-4xl font-black uppercase leading-[0.98] tracking-tight text-black sm:text-5xl animate-fade-up">
-            <span className="block">Trusted by Thousands of</span>
-            <span className="mt-1 block bg-gradient-to-r from-[#36a9ff] via-[#36a9ff] to-[#36a9ff] bg-clip-text text-transparent">
-              Happy Cord-Cutters
-            </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+            What Our Customers Say
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-gray-600 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            Read real reviews from our global community. Discover why Realm IPTV is rated as the most reliable, buffer-free IPTV service for live sports, movies, and international channels.
+          <p className="text-[#A8A0B8] text-base sm:text-lg">
+            Hear from cord-cutters who stream with SMARTSGI every day.
           </p>
         </div>
 
-        <div className="mx-auto mt-10 grid max-w-[760px] grid-cols-2 gap-3 px-5 sm:grid-cols-5 sm:px-0">
-          {metrics.map((metric, index) => {
-            const Icon = metric.icon;
-            return (
-              <div
-                key={metric.label}
-                className="rounded-xl border border-black/10 bg-white/90 px-3 py-4 text-center shadow-[0_0_20px_rgba(0,0,0,0.18)] animate-fade-up"
-                style={{ animationDelay: `${0.2 + (index * 0.06)}s`, animationFillMode: 'both' }}
-              >
-                <Icon className={`mx-auto h-4 w-4 ${metric.tone}`} />
-                <span className="mt-2 block text-base font-bold text-black">{metric.value}</span>
-                <small className="mt-0.5 block text-[8px] font-bold uppercase tracking-wide text-gray-600">
-                  {metric.label}
-                </small>
+        {/* Testimonials Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {testimonials.map((t) => (
+            <div
+              key={t.name}
+              className="relative flex flex-col justify-between p-7 rounded-3xl glass-card hover:border-[#9B3FF2]/50 hover:shadow-[0_0_30px_rgba(155,63,242,0.2)] transition-all duration-300"
+            >
+              <div>
+                {/* 5-Star Row */}
+                <div className="flex items-center gap-1 text-[#FF8A1F] mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-current" />
+                  ))}
+                </div>
+
+                <p className="text-sm text-white/90 leading-relaxed italic mb-6">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
               </div>
-            );
-          })}
+
+              <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between">
+                <div>
+                  <h4 className="text-sm font-black text-white">{t.name}</h4>
+                  <p className="text-[11px] text-[#A8A0B8]">{t.location}</p>
+                </div>
+                <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-white/[0.05] text-[#C084FC]">
+                  {t.device}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Infinite Image Carousel of Real Reviews (Without background) */}
-        <div className="mt-11 flex overflow-hidden select-none [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] py-4">
-          <div
-            className="flex min-w-full gap-6 px-4 animate-marquee"
-            style={{ animationDuration: '40s' }}
-          >
-            {[...reviewImages, ...reviewImages, ...reviewImages].map((img, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 w-[220px] sm:w-[280px] h-[340px] sm:h-[420px] relative rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 group drop-shadow-2xl"
-              >
-                <Image
-                  src={`/reviews/${img}`}
-                  alt="Realm IPTV Customer Review"
-                  fill
-                  sizes="(max-width: 640px) 220px, 280px"
-                  className="object-contain group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-12 text-center animate-fade-up" style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
-          <a
-            href="https://wa.me/213552069874?text=Hello%2C%20I%20would%20like%20a%20free%20trial%20for%20realmiptv%20IPTV."
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#145082] hover:bg-[#1a6098] px-7 py-4 text-sm font-extrabold text-white shadow-[0_0_28px_rgba(54,169,255,0.35)] transition-all hover:-translate-y-0.5 hover:scale-105"
-          >
-            <Trophy className="h-4 w-4" /> Get Your Free Trial
-          </a>
-          <div className="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[10px] text-gray-600">
-            <span className="flex items-center gap-1.5">
-              <Headphones className="h-3 w-3 text-[#25D366]" /> Instant WhatsApp delivery
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Tv className="h-3 w-3 text-[#36a9ff]" /> Works on all devices
-            </span>
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="h-3 w-3 text-[#36a9ff]" /> 99.9% uptime guaranteed
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   );

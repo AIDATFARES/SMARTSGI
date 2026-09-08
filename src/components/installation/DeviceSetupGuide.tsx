@@ -1,24 +1,92 @@
 "use client";
 
-import { Apple, Box, ChevronDown, Download, HelpCircle, Monitor, Satellite, Smartphone, Tv } from "lucide-react";
+import { Apple, Box, ChevronDown, Download, HelpCircle, Monitor, Satellite, Smartphone, Tv, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
-import Image from "next/image";
 
 const devices = [
-  { id: "smart-tv", label: "Smart TV", icon: Monitor, title: "Smart TV Setup (Samsung, LG, Sony, etc.)", app: "Smart IPTV or IPTV Smarters", note: "Samsung TVs commonly use Smart IPTV, while LG TVs can use IPTV Smarters or SS IPTV." },
-  { id: "firestick", label: "Firestick", icon: Tv, title: "Firestick Setup", app: "IPTV Smarters Pro or TiviMate", note: "Install your preferred IPTV player from the Amazon Appstore, then sign in with the details from your welcome email." },
-  { id: "android", label: "Android", icon: Smartphone, title: "Android Setup", app: "IPTV Smarters Pro or TiviMate", note: "Download your player from Google Play and use your supplied playlist details to sign in." },
-  { id: "ios", label: "iOS", icon: Apple, title: "iPhone & iPad Setup", app: "IPTV Smarters Player", note: "Install a compatible player from the App Store and enter the credentials from your welcome email." },
-  { id: "mag", label: "MAG Box", icon: Box, title: "MAG Box Setup", app: "Portal URL", note: "Send your MAG device MAC address to support so we can activate your portal before setup." },
-  { id: "enigma", label: "Enigma2", icon: Satellite, title: "Enigma2 Setup", app: "XtreamTV or E-Channelizer", note: "Use a compatible Enigma2 plugin and add the playlist details supplied with your subscription." },
-];
-
-const faqs = [
-  { question: "1. How do I install IPTV on a Smart TV?", answer: "Install a compatible player such as Smart IPTV or IPTV Smarters from your TV's app store, then add the M3U URL or Xtream credentials from your welcome email." },
-  { question: "2. Where do I find my M3U URL?", answer: "Your M3U URL is included in the welcome email sent after activation. Contact support if you need it resent." },
-  { question: "3. How can I reduce buffering?", answer: "Use a stable internet connection, restart your device and router, and select an appropriate quality setting for your connection." },
-  { question: "4. How do I set up Realm IPTV using Xtream Codes API?", answer: "Choose Xtream Codes API in your player and enter the server URL, username, and password from your welcome email." },
-  { question: "5. Can I connect using a MAC address (Portal URL)?", answer: "Yes. MAG and compatible portal devices can be activated using their MAC address. Send it to our support team for assistance." },
+  { 
+    id: "smart-tv", 
+    label: "Smart TV", 
+    icon: Monitor, 
+    title: "Smart TV Setup (Samsung, LG, Sony)", 
+    app: "Smart IPTV, IPTV Smarters, or IBO Player", 
+    steps: [
+      "Open your TV app store (Samsung App Store or LG Content Store) and search for a player like IBO Player, IPTV Smarters, or Smart IPTV.",
+      "Install and launch the application on your TV.",
+      "Select 'Login with Xtream Codes API' or enter your M3U Playlist URL provided in your SMARTSGI activation details.",
+      "Enter your Server URL, Username, and Password, then click 'Add User' or 'Save'.",
+      "Allow the channels and EPG data to sync, and begin enjoying your live TV and movies."
+    ]
+  },
+  { 
+    id: "firestick", 
+    label: "Firestick", 
+    icon: Tv, 
+    title: "Amazon Fire TV Stick Setup", 
+    app: "TiviMate or IPTV Smarters Pro", 
+    steps: [
+      "From your Firestick home screen, navigate to 'Find' and search for the 'Downloader' app.",
+      "Enable Unknown Apps in your Firestick developer options for Downloader.",
+      "Install your preferred IPTV player (e.g., TiviMate or IPTV Smarters Pro).",
+      "Open the application and select 'Add Playlist' -> 'Xtream Codes API'.",
+      "Type the server connection URL, your username, and your password from your SMARTSGI welcome message.",
+      "Click connect to load your live channels, EPG guide, and video on demand."
+    ]
+  },
+  { 
+    id: "android", 
+    label: "Android TV / Phone", 
+    icon: Smartphone, 
+    title: "Android Device Setup", 
+    app: "TiviMate, IPTV Smarters Pro, or XCIPTV", 
+    steps: [
+      "Open Google Play Store on your Android TV box or smartphone.",
+      "Search for and install 'TiviMate IPTV Player' or 'IPTV Smarters Pro'.",
+      "Open the app and choose 'Add Playlist' -> 'Xtream Codes'.",
+      "Input your SMARTSGI login credentials (Server URL, Username, Password).",
+      "Confirm and let the channel lists and EPG schedules populate automatically."
+    ]
+  },
+  { 
+    id: "ios", 
+    label: "Apple iOS / iPadOS", 
+    icon: Apple, 
+    title: "Apple iPhone & iPad Setup", 
+    app: "IPTV Smarters Player or GSE Smart IPTV", 
+    steps: [
+      "Open the Apple App Store on your iPhone or iPad.",
+      "Search for and install 'Smarters Player Lite' or 'GSE Smart IPTV'.",
+      "Launch the app and tap 'Add Your Playlist (Xtream Codes API)'.",
+      "Fill in your SMARTSGI account credentials.",
+      "Save and immediately access your streams on mobile."
+    ]
+  },
+  { 
+    id: "apple-tv", 
+    label: "Apple TV 4K", 
+    icon: Box, 
+    title: "Apple TV 4K Setup", 
+    app: "iPlayTV, IPTVX, or Smarters", 
+    steps: [
+      "Open the tvOS App Store on your Apple TV.",
+      "Download a top-rated player such as iPlayTV or Smarters Player Lite.",
+      "Add a new Xtream Codes connection using your SMARTSGI server URL and login details.",
+      "Sync playlist data and start watching in fluid 60 FPS quality."
+    ]
+  },
+  { 
+    id: "windows-mac", 
+    label: "PC / Mac", 
+    icon: Monitor, 
+    title: "Windows & macOS Setup", 
+    app: "IPTV Smarters Pro or VLC Media Player", 
+    steps: [
+      "Download IPTV Smarters Pro for Windows/Mac or open VLC Media Player.",
+      "In Smarters: select 'Add New User', enter Xtream Codes info, and login.",
+      "In VLC: press Ctrl+N (Cmd+N on Mac) and paste your full SMARTSGI M3U playlist link.",
+      "Enjoy live TV streams directly from your desktop or laptop."
+    ]
+  },
 ];
 
 export default function DeviceSetupGuide() {
@@ -27,129 +95,61 @@ export default function DeviceSetupGuide() {
   const DeviceIcon = device.icon;
 
   return (
-    <section className="mb-16 md:mb-[100px]">
-      <header className="mx-auto mb-9 max-w-2xl text-center">
-        <h2 className="text-3xl font-extrabold tracking-tight text-black sm:text-4xl">Device Setup Instructions</h2>
-        <p className="mt-3 text-base text-gray-600">Select your device to receive clear setup instructions.</p>
-      </header>
-
-      <div className="mb-7 flex flex-wrap justify-center gap-2">
+    <section className="max-w-5xl mx-auto">
+      {/* Device Selector Tabs */}
+      <div className="mb-8 flex flex-wrap justify-center gap-2.5">
         {devices.map((item) => {
           const Icon = item.icon;
           const active = item.id === activeDevice;
           return (
             <button 
-              className={`inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition-colors ${active ? "border-[#36a9ff] bg-[#36a9ff] text-white shadow-lg shadow-[#36a9ff]/30" : "border-black/15 bg-white text-gray-600 hover:border-[#36a9ff] hover:text-[#36a9ff]"}`} 
               key={item.id} 
               onClick={() => setActiveDevice(item.id)} 
               type="button"
+              className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-extrabold transition-all uppercase tracking-wider ${
+                active 
+                  ? "btn-primary-purple shadow-[0_0_20px_rgba(155,63,242,0.4)]" 
+                  : "glass-card text-[#A8A0B8] hover:text-white hover:border-[#9B3FF2]/40"
+              }`} 
             >
-              <Icon className="h-4 w-4" />{item.label}
+              <Icon className="h-4 w-4" />
+              <span>{item.label}</span>
             </button>
           );
         })}
       </div>
 
-      <article className="mx-auto max-w-[1000px] rounded-3xl border-2 border-[#36a9ff] bg-white p-6 sm:p-10 shadow-2xl overflow-hidden">
-        
-        {/* Device Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 border-b border-black/5 pb-6 mb-8">
-          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#36a9ff]/10 shrink-0">
-            <DeviceIcon className="h-8 w-8 text-[#36a9ff]" />
-          </div>
-          <div>
-            <h3 className="text-2xl font-black text-black sm:text-3xl">{device.title}</h3>
-            <p className="mt-1 text-gray-600 font-medium">Follow these steps to configure your {device.label} for Realm IPTV.</p>
+      {/* Guide Content Card */}
+      <article className="rounded-3xl glass-card p-6 sm:p-10 border-[#9B3FF2]/30 shadow-2xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/[0.08] pb-6 mb-8">
+          <div className="flex items-center gap-4">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#9B3FF2]/15 border border-[#9B3FF2]/30 shrink-0">
+              <DeviceIcon className="h-7 w-7 text-[#C084FC]" />
+            </div>
+            <div>
+              <h2 className="text-xl sm:text-2xl font-black text-white">{device.title}</h2>
+              <p className="text-xs text-[#A8A0B8] mt-1">Recommended Apps: <span className="text-white font-semibold">{device.app}</span></p>
+            </div>
           </div>
         </div>
-        
-        {/* Important Note */}
-        {device.note && (
-          <div className="mb-8 rounded-2xl border border-[#36a9ff]/30 bg-[#36a9ff]/5 p-5 flex items-start gap-4">
-            <HelpCircle className="h-6 w-6 text-[#36a9ff] shrink-0" />
-            <div>
-              <h4 className="font-bold text-black mb-1">Important Note</h4>
-              <p className="text-sm leading-relaxed text-gray-700">{device.note}</p>
-            </div>
-          </div>
-        )}
 
-        {/* Steps Grid */}
-        <div className="space-y-6">
-          <SetupStep 
-            number="1" 
-            title="Install IPTV App"
-          >
-            Navigate to your device's app store, search for <strong>{device.app}</strong>, and install the application directly to your device.
-          </SetupStep>
-          
-          <SetupStep 
-            number="2" 
-            title="Configure your playlist"
-          >
-            Launch the IPTV app, open its settings menu, and enter the M3U playlist details or Xtream Codes credentials supplied in your welcome email.
-            <div className="mt-4">
-              <CodeLine label="M3U URL" text="Use the secure playlist URL from your welcome email" />
-            </div>
-          </SetupStep>
-          
-          <SetupStep 
-            number="3" 
-            title="Start Watching"
-          >
-            Save your settings and allow the app a few moments to load the channels. You now have immediate access to live channels, movies and TV shows in stunning 4K quality!
-          </SetupStep>
+        {/* Step-by-Step Instructions */}
+        <div className="space-y-4">
+          <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#FF7A00] mb-4">
+            Step-by-Step Instructions
+          </h3>
+          <ol className="space-y-3.5">
+            {device.steps.map((stepText, idx) => (
+              <li key={idx} className="flex items-start gap-3.5 text-sm text-[#A8A0B8] leading-relaxed">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#9B3FF2]/20 border border-[#9B3FF2]/40 text-xs font-bold text-[#C084FC] mt-0.5">
+                  {idx + 1}
+                </span>
+                <span>{stepText}</span>
+              </li>
+            ))}
+          </ol>
         </div>
       </article>
-
-      <div className="mx-auto mt-20 max-w-[1000px]">
-        <h2 className="mb-8 text-center text-3xl font-extrabold tracking-tight text-black sm:text-4xl">Installation FAQ</h2>
-        <div className="grid gap-5 md:grid-cols-2">
-          {faqs.map((faq) => (
-            <div className="flex flex-col rounded-2xl overflow-hidden border border-black/10 bg-white shadow-sm hover:border-[#36a9ff]/50 transition-colors" key={faq.question}>
-              <div className="bg-white border-b border-black/5 px-5 py-4 flex items-center gap-3">
-                <HelpCircle className="w-5 h-5 text-[#36a9ff] shrink-0" />
-                <h3 className="text-base sm:text-lg font-bold text-black leading-snug">
-                  {faq.question}
-                </h3>
-              </div>
-              <div className="p-5 text-sm text-gray-700 leading-relaxed bg-white flex-1">
-                <p>{faq.answer}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
-  );
-}
-
-function SetupStep({ children, number, title }: { children: React.ReactNode; number: string; title: string }) {
-  return (
-    <div className="flex flex-col sm:flex-row gap-6 bg-white border border-black/10 p-6 sm:p-8 rounded-2xl shadow-sm hover:border-[#36a9ff] transition-colors">
-      
-      {/* Content */}
-      <div className="flex flex-1 gap-5 items-start">
-         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#36a9ff] text-lg font-extrabold text-white shadow-md">
-           {number}
-         </span>
-         <div className="flex-1 mt-1">
-           <h4 className="text-lg font-bold text-black sm:text-xl">{title}</h4>
-           <div className="mt-3 text-sm leading-relaxed text-gray-600">
-             {children}
-           </div>
-         </div>
-      </div>
-      
-    </div>
-  );
-}
-
-function CodeLine({ label, text }: { label: string; text: string }) {
-  return (
-    <div className="rounded-xl bg-white border border-black/10 px-4 py-3 font-mono text-xs text-gray-700 break-all">
-      <span className="font-bold text-[#36a9ff] mr-2">{label}:</span> 
-      {text}
-    </div>
   );
 }

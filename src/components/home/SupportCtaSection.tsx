@@ -1,44 +1,66 @@
-import { Mail, MessageSquare } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, MessageSquare, Sparkles, ShieldCheck } from "lucide-react";
 
 export default function SupportCtaSection() {
   return (
-    <section className="border-t border-black/10 bg-transparent px-5 py-16 sm:py-20 relative overflow-hidden">
-      {/* Subtle glow background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#36a9ff]/5 rounded-full blur-[120px] pointer-events-none" />
+    <section className="relative py-28 px-4 sm:px-6 lg:px-8 overflow-hidden border-t border-white/[0.08]">
+      
+      {/* Massive Ambient Atmospheric Glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[900px] h-[450px] glow-purple blur-[160px] pointer-events-none rounded-full opacity-40" />
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[400px] h-[350px] glow-orange blur-[140px] pointer-events-none rounded-full opacity-30" />
 
-      <div
-        className="relative z-10 mx-auto flex max-w-[565px] flex-col gap-8 rounded-[22px] border border-[#36a9ff]/20 bg-gray-50/80 backdrop-blur-sm p-8 shadow-2xl sm:flex-row sm:items-center sm:justify-between sm:p-8 hover:border-[#36a9ff]/50 hover:shadow-[0_0_30px_rgba(54,169,255,0.15)] transition-all duration-300"
-      >
-        <div className="max-w-[310px]">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#36a9ff]/35 bg-[#36a9ff]/10 text-[#36a9ff]">
-            <MessageSquare className="h-5 w-5" />
+      <div className="relative z-10 max-w-5xl mx-auto text-center">
+        
+        {/* Glow Pill */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#9B3FF2]/40 bg-[#9B3FF2]/10 backdrop-blur-md mb-8">
+          <Sparkles className="w-3.5 h-3.5 text-[#FF8A1F]" />
+          <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#C084FC]">
+            Instant Access
           </span>
-          <h2 className="mt-5 text-3xl font-black uppercase italic leading-[0.9] tracking-tight text-black sm:text-4xl">
-            <span className="block">Still have a</span>
-            <span className="block text-[#36a9ff]">question?</span>
-          </h2>
-          <p className="mt-4 text-sm leading-5 text-gray-600">
-            The RealMIPTV support team is online 24/7 and responds in under 5 minutes on WhatsApp. No bots — just real humans ready to help you set up your IPTV service right now.
-          </p>
         </div>
-        <div className="flex shrink-0 flex-col gap-2.5 sm:w-40">
+
+        {/* Heading */}
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.1] mb-6 max-w-3xl mx-auto">
+          Ready to Upgrade Your Entertainment?
+        </h2>
+
+        {/* Subheading */}
+        <p className="text-base sm:text-xl text-[#A8A0B8] max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+          Choose your SMARTSGI plan and start enjoying your entertainment experience.
+        </p>
+
+        {/* Dual CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-10">
           <a
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-4 py-2.5 text-[10px] font-extrabold uppercase tracking-wide text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] transition-all hover:bg-[#20bd5a] hover:scale-105"
-            href="https://wa.me/213552069874?text=Hello%2C%20I%20have%20a%20question%20about%20realmiptv%20IPTV."
-            rel="noreferrer"
+            href="#pricing"
+            className="btn-primary-purple w-full sm:w-auto px-10 py-4 text-sm sm:text-base font-extrabold tracking-wider uppercase gap-2 hover:shadow-[0_0_40px_rgba(155,63,242,0.7)] group"
+          >
+            <span>Subscribe Now</span>
+            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+          </a>
+
+          <a
+            href="https://wa.me/213552069874?text=Hello,%20I%20have%20a%20question%20about%20SMARTSGI."
             target="_blank"
+            rel="noreferrer"
+            className="btn-secondary-orange w-full sm:w-auto px-10 py-4 text-sm sm:text-base font-extrabold tracking-wider uppercase gap-2 hover:shadow-[0_0_40px_rgba(255,122,0,0.7)]"
           >
-            <MessageSquare className="h-3.5 w-3.5" />
-            Ask on WhatsApp
-          </a>
-          <a
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-black/10 px-4 py-2.5 text-[10px] font-extrabold uppercase tracking-wide text-gray-700 transition-all hover:border-[#36a9ff]/50 hover:bg-[#36a9ff]/10 hover:text-[#36a9ff] hover:scale-105"
-            href="mailto:support@realmiptv4k.shop"
-          >
-            <Mail className="h-3.5 w-3.5" />
-            Send email
+            <MessageSquare className="w-4 h-4" />
+            <span>Contact Support</span>
           </a>
         </div>
+
+        {/* Reassurance pills */}
+        <div className="flex flex-wrap justify-center items-center gap-6 text-xs text-[#777083] font-semibold">
+          <span className="flex items-center gap-1.5">
+            <ShieldCheck className="w-4 h-4 text-[#FF7A00]" /> Instant Delivery
+          </span>
+          <span>•</span>
+          <span>Works on All Devices</span>
+          <span>•</span>
+          <span>24/7 Live Assistance</span>
+        </div>
+
       </div>
     </section>
   );
