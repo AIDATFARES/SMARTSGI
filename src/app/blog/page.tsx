@@ -32,7 +32,7 @@ export default function Blog() {
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-[#A8A0B8] leading-relaxed">
-          Explore comprehensive tutorials, player configurations, and streaming guides to get the most out of your SMARTSGI subscription.
+          Explore comprehensive tutorials, player configurations, and streaming guides to get the most out of your SMARTSGI <Link href="/pricing" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">subscription</Link>. Configure your device with our <Link href="/installation" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">installation guides</Link> or discover our full <Link href="/channels" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">channel lineup</Link>.
         </p>
       </header>
 

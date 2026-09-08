@@ -165,7 +165,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
           {faqs.length > 0 && (
             <div className="mt-12 mb-8">
-              <h2 className="text-2xl font-black mb-6 text-white uppercase tracking-tight">Frequently Asked Questions</h2>
+              <h2 className="text-2xl font-black mb-6 text-white uppercase tracking-tight">
+                <Link href="/faq" className="hover:text-[#C084FC] transition-colors">
+                  Frequently Asked Questions
+                </Link>
+              </h2>
               <ArticleFAQAccordion faqs={faqs} />
             </div>
           )}
@@ -186,7 +190,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         if (relatedPosts.length === 0) return null;
         return (
           <section className="mt-20 pt-12 border-t border-white/[0.08]">
-            <h2 className="text-2xl font-black text-white uppercase tracking-tight mb-8">Related Articles</h2>
+            <h2 className="text-2xl font-black text-white uppercase tracking-tight mb-8">
+              <Link href="/blog" className="hover:text-[#C084FC] transition-colors">
+                Related Articles
+              </Link>
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedPosts.map((relPost) => (
                 <Link href={`/blog/${relPost.slug}`} key={relPost.id}>

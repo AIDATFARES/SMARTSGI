@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Mail, MessageCircle, ArrowRight, Clock, Send, Sparkles } from "lucide-react";
 
 export default function Contact() {
@@ -19,7 +20,7 @@ export default function Contact() {
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-[#A8A0B8] leading-relaxed">
-          We are here to assist with device activation, playlist links, or technical inquiries. Connect with our dedicated support staff 24/7.
+          We are here to assist with <Link href="/installation" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">device activation</Link>, playlist links, or subscription inquiries across our <Link href="/pricing" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">plans</Link>. Check our <Link href="/faq" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">FAQ</Link> for fast answers or connect with our dedicated support staff 24/7.
         </p>
       </div>
 
@@ -30,7 +31,11 @@ export default function Contact() {
             <div className="w-12 h-12 rounded-2xl bg-[#9B3FF2]/15 border border-[#9B3FF2]/30 flex items-center justify-center mb-4">
               <Mail className="text-[#C084FC] w-6 h-6" />
             </div>
-            <h3 className="font-black text-xl text-white mb-2">Email Support</h3>
+            <h3 className="font-black text-xl text-white mb-2">
+              <Link href="/contact" className="hover:text-[#C084FC] transition-colors">
+                Email Support
+              </Link>
+            </h3>
             <p className="text-xs sm:text-sm text-[#A8A0B8] mb-4">For general inquiries and billing support.</p>
             <a
               className="text-[#C084FC] font-bold hover:text-white transition-colors text-sm"
@@ -44,7 +49,11 @@ export default function Contact() {
             <div className="w-12 h-12 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center mb-4">
               <MessageCircle className="text-[#25D366] w-6 h-6" />
             </div>
-            <h3 className="font-black text-xl text-white mb-2">WhatsApp Live Chat</h3>
+            <h3 className="font-black text-xl text-white mb-2">
+              <Link href="/contact" className="hover:text-[#25D366] transition-colors">
+                WhatsApp Live Chat
+              </Link>
+            </h3>
             <p className="text-xs sm:text-sm text-[#A8A0B8] mb-4">
               Fastest way to reach us for real-time activation assistance.
             </p>
@@ -62,7 +71,11 @@ export default function Contact() {
             <div className="w-12 h-12 rounded-2xl bg-[#FF7A00]/15 border border-[#FF7A00]/30 flex items-center justify-center mb-4">
               <Clock className="text-[#FF8A1F] w-6 h-6" />
             </div>
-            <h3 className="font-black text-xl text-white mb-2">Response Time</h3>
+            <h3 className="font-black text-xl text-white mb-2">
+              <Link href="/faq" className="hover:text-[#FF8A1F] transition-colors">
+                Response Time
+              </Link>
+            </h3>
             <p className="text-xs sm:text-sm text-[#A8A0B8]">
               We typically reply within minutes on WhatsApp and under 2 hours via email.
             </p>
@@ -73,7 +86,7 @@ export default function Contact() {
         <div className="lg:col-span-8">
           <div className="glass-card rounded-3xl p-8 sm:p-12 h-full border-[#9B3FF2]/30">
             <h2 className="text-2xl font-black text-white uppercase tracking-wide mb-8 border-b border-white/[0.08] pb-6">
-              Send a Message
+              Send a <Link href="/contact" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">Message</Link>
             </h2>
             <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

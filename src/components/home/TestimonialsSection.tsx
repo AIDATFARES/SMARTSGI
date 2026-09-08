@@ -1,4 +1,5 @@
 import { Star, ShieldCheck, MessageSquareQuote, UserCheck } from "lucide-react";
+import Link from "next/link";
 
 const testimonials = [
   {
@@ -41,10 +42,10 @@ export default function TestimonialsSection() {
             Customer Feedback
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-            What Our Customers Say
+            What Our Customers Say About <Link href="/pricing" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">SMARTSGI</Link>
           </h2>
           <p className="text-[#A8A0B8] text-base sm:text-lg">
-            Hear from cord-cutters who stream with SMARTSGI every day.
+            Hear from cord-cutters who stream with SMARTSGI every day across our <Link href="/channels" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">entertainment channels</Link> and follow our simple <Link href="/installation" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">setup instructions</Link>.
           </p>
         </div>
 

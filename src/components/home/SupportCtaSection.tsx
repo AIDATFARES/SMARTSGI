@@ -21,12 +21,12 @@ export default function SupportCtaSection() {
 
         {/* Heading */}
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.1] mb-6 max-w-3xl mx-auto">
-          Ready to Upgrade Your Entertainment?
+          Ready to Upgrade Your <Link href="/pricing" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">Entertainment</Link>?
         </h2>
 
         {/* Subheading */}
         <p className="text-base sm:text-xl text-[#A8A0B8] max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-          Choose your SMARTSGI plan and start enjoying your entertainment experience.
+          Choose your <Link href="/pricing" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">SMARTSGI plan</Link>, check out our <Link href="/channels" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">full channel lineup</Link>, and start streaming today.
         </p>
 
         {/* Dual CTA Buttons */}

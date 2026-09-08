@@ -34,9 +34,21 @@ export default function HeroSection() {
           Smart &amp; Reliable IPTV Streaming — High Performance Experience
         </p>
 
-        {/* Original Conversion Copy */}
+        {/* Original Conversion Copy with Contextual Internal Links */}
         <p className="text-sm sm:text-base md:text-lg text-[#A8A0B8] max-w-3xl leading-relaxed mb-10 font-normal">
-          Elevate your home entertainment with <strong className="text-white font-semibold">SMARTSGI</strong>. Stream crystal-clear live television, world-class sporting competitions, and on-demand entertainment libraries directly to your favorite screens with smooth anti-freeze server infrastructure and instant activation.
+          Elevate your home entertainment with <strong className="text-white font-semibold">SMARTSGI</strong>. Stream crystal-clear{" "}
+          <Link href="/channels" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 font-medium transition-colors">
+            live television channels
+          </Link>
+          , world-class{" "}
+          <Link href="/channels" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 font-medium transition-colors">
+            sporting competitions
+          </Link>
+          , and on-demand entertainment libraries directly to your{" "}
+          <Link href="/installation" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 font-medium transition-colors">
+            supported devices
+          </Link>{" "}
+          with smooth anti-freeze server infrastructure and instant activation.
         </p>
 
         {/* Dual CTA Buttons */}
@@ -69,15 +81,19 @@ export default function HeroSection() {
           </span>
           <span className="text-white font-bold">Trusted by Cord-Cutters</span>
           <span className="text-white/20">|</span>
-          <span className="flex items-center gap-1.5 text-[#C084FC]">
+          <Link href="/faq" className="flex items-center gap-1.5 text-[#C084FC] hover:text-white transition-colors">
             <ShieldCheck className="w-4 h-4 text-[#FF7A00]" />
             Fast Setup Guarantee
-          </span>
+          </Link>
         </div>
 
-        {/* Pricing Teaser */}
+        {/* Pricing Teaser with Internal Link */}
         <p className="text-xs sm:text-sm font-medium text-[#777083]">
-          Plans start at only <span className="text-[#FF7A00] font-bold">$11.66</span>/Month · Cancel anytime.
+          Our flexible{" "}
+          <Link href="/pricing" className="text-[#C084FC] hover:text-white underline decoration-[#9B3FF2]/40 font-semibold transition-colors">
+            IPTV subscription plans
+          </Link>{" "}
+          start at only <span className="text-[#FF7A00] font-bold">$11.66</span>/Month · Cancel anytime.
         </p>
 
       </div>

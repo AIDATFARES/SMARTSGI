@@ -16,7 +16,11 @@ const faqs: FAQItem[] = [
     question: "What is IPTV?",
     answer: (
       <p>
-        IPTV stands for Internet Protocol Television. Instead of delivering content through traditional terrestrial antennas, satellite dishes, or cable cables, IPTV streams television programming directly over your internet connection. With SMARTSGI, this allows you to access live broadcasts and on-demand entertainment anywhere with a broadband network.
+        IPTV stands for Internet Protocol Television. Instead of delivering content through traditional terrestrial antennas, satellite dishes, or cable cables, IPTV streams television programming directly over your internet connection. With SMARTSGI, this allows you to access live broadcasts and on-demand entertainment anywhere with a broadband network. Explore our{" "}
+        <Link href="/channels" className="text-[#C084FC] underline hover:text-white transition-colors">
+          channel directory
+        </Link>
+        .
       </p>
     ),
   },
@@ -25,7 +29,11 @@ const faqs: FAQItem[] = [
     question: "How do I receive my IPTV credentials?",
     answer: (
       <p>
-        Once your subscription is processed, your personalized access parameters (including your M3U playlist URL, Xtream Codes API server address, username, and password) are sent promptly via email or direct message. You can paste these details directly into any compatible IPTV application.
+        Once your subscription is processed, your personalized access parameters (including your M3U playlist URL, Xtream Codes API server address, username, and password) are sent promptly via email or direct message. You can paste these details directly into any compatible IPTV application following our{" "}
+        <Link href="/how-it-works" className="text-[#C084FC] underline hover:text-white transition-colors">
+          activation steps
+        </Link>
+        .
       </p>
     ),
   },
@@ -43,7 +51,11 @@ const faqs: FAQItem[] = [
     question: "How many devices can I use?",
     answer: (
       <p>
-        You can configure your subscription across multiple devices. Simultaneous streaming depends on the active connection plan you choose (1, 2, or 3 concurrent devices). If you require simultaneous viewing in multiple rooms, simply choose a multi-device plan during checkout.
+        You can configure your subscription across multiple devices. Simultaneous streaming depends on the active connection plan you choose (1, 2, or 3 concurrent devices). If you require simultaneous viewing in multiple rooms, simply choose a multi-device plan in our{" "}
+        <Link href="/pricing" className="text-[#C084FC] underline hover:text-white transition-colors">
+          pricing options
+        </Link>
+        .
       </p>
     ),
   },
@@ -65,7 +77,11 @@ const faqs: FAQItem[] = [
     question: "How long does activation take?",
     answer: (
       <p>
-        Activation is handled rapidly. In most cases, account details and playlist URLs are generated and sent within 5 to 30 minutes following confirmed payment.
+        Activation is handled rapidly. In most cases, account details and playlist URLs are generated and sent within 5 to 30 minutes following confirmed payment. If you have questions, our{" "}
+        <Link href="/contact" className="text-[#C084FC] underline hover:text-white transition-colors">
+          support team
+        </Link>{" "}
+        is ready to help.
       </p>
     ),
   },
@@ -129,10 +145,10 @@ export default function FAQSection() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-            Frequently Asked Questions
+            Frequently Asked <Link href="/faq" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">Questions</Link>
           </h2>
           <p className="text-[#A8A0B8] text-base sm:text-lg">
-            Everything you need to know about SMARTSGI subscriptions, device setup, and streaming access.
+            Everything you need to know about SMARTSGI <Link href="/pricing" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">subscriptions</Link>, <Link href="/installation" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">device setup</Link>, and <Link href="/channels" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">streaming access</Link>.
           </p>
         </div>
 

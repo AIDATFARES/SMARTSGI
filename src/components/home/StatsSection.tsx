@@ -1,10 +1,19 @@
 import { Tv, Film, MonitorSmartphone, Headphones, ShieldCheck, Zap } from "lucide-react";
+import Link from "next/link";
 
 const stats = [
   {
     title: "Extensive Channel Selection",
     subtitle: "Live Global TV",
-    detail: "Coverage spanning sports, cinema, global news, and localized entertainment feeds.",
+    href: "/channels",
+    detail: (
+      <>
+        Coverage spanning sports, cinema, global news, and localized entertainment in our{" "}
+        <Link href="/channels" className="text-white/90 hover:underline">
+          channel lineup
+        </Link>.
+      </>
+    ),
     icon: Tv,
     accent: "#9B3FF2",
     glow: "rgba(155, 63, 242, 0.2)",
@@ -12,7 +21,15 @@ const stats = [
   {
     title: "Curated VOD Library",
     subtitle: "On-Demand Catalog",
-    detail: "Rich collection of blockbuster movies and top-rated television series updated on regular cycles.",
+    href: "/pricing",
+    detail: (
+      <>
+        Rich collection of blockbuster movies and top series updated on regular cycles in our{" "}
+        <Link href="/pricing" className="text-white/90 hover:underline">
+          subscription plans
+        </Link>.
+      </>
+    ),
     icon: Film,
     accent: "#EC4899",
     glow: "rgba(236, 72, 153, 0.2)",
@@ -20,7 +37,15 @@ const stats = [
   {
     title: "Multi-Device Support",
     subtitle: "Complete Ecosystem",
-    detail: "Full compatibility across Smart TVs, Android TV, Fire TV, Apple TV, iOS, Windows, and Mac.",
+    href: "/installation",
+    detail: (
+      <>
+        Full compatibility across Smart TVs, Android TV, Fire TV, Apple TV, iOS, and PC with our{" "}
+        <Link href="/installation" className="text-white/90 hover:underline">
+          setup guides
+        </Link>.
+      </>
+    ),
     icon: MonitorSmartphone,
     accent: "#FF7A00",
     glow: "rgba(255, 122, 0, 0.2)",
@@ -28,7 +53,15 @@ const stats = [
   {
     title: "24/7 Customer Assistance",
     subtitle: "Direct Support",
-    detail: "Dedicated human assistance available around the clock via WhatsApp and email.",
+    href: "/contact",
+    detail: (
+      <>
+        Dedicated human assistance available around the clock via WhatsApp and our{" "}
+        <Link href="/contact" className="text-white/90 hover:underline">
+          support desk
+        </Link>.
+      </>
+    ),
     icon: Headphones,
     accent: "#3B82F6",
     glow: "rgba(59, 130, 246, 0.2)",
@@ -59,12 +92,14 @@ export default function StatsSection() {
                 </span>
 
                 <h3 className="text-lg font-black text-white tracking-wide mb-2">
-                  {stat.title}
+                  <Link href={stat.href} className="hover:text-white/90 transition-colors">
+                    {stat.title}
+                  </Link>
                 </h3>
 
-                <p className="text-xs sm:text-sm text-[#A8A0B8] leading-relaxed">
+                <div className="text-xs sm:text-sm text-[#A8A0B8] leading-relaxed">
                   {stat.detail}
-                </p>
+                </div>
               </div>
             );
           })}

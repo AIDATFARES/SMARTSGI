@@ -6,6 +6,7 @@ export default function IptvFeaturesSection() {
     {
       title: "Every Platform in One",
       tagline: "Centralized Streaming Hub",
+      href: "/installation",
       description: "No more switching between confusing interfaces or expensive subscriptions. Stream live TV, sports passes, and video on demand from a single unified connection.",
       icon: MonitorSmartphone,
       glow: "from-[#9B3FF2]/20 to-transparent",
@@ -14,6 +15,7 @@ export default function IptvFeaturesSection() {
     {
       title: "The Best of All TV Worlds",
       tagline: "Unmatched Content Variety",
+      href: "/channels",
       description: "From national broadcast networks to localized regional feeds and premier sports channels, experience rich cultural programming with ultra-reliable transmission.",
       icon: Globe,
       glow: "from-[#FF7A00]/20 to-transparent",
@@ -22,6 +24,7 @@ export default function IptvFeaturesSection() {
     {
       title: "Watch Everywhere",
       tagline: "Freedom of Mobility",
+      href: "/pricing",
       description: "Whether you are relaxing in front of a 4K living room television or catching up while traveling on your phone or tablet, SMARTSGI follows you anywhere.",
       icon: Zap,
       glow: "from-[#EC4899]/20 to-transparent",
@@ -47,13 +50,32 @@ export default function IptvFeaturesSection() {
               </span>
             </div>
 
+            {/* H2 with Internal Link */}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.1] mb-6">
               All The Premium TV <br className="hidden sm:inline" />
-              <span className="text-gradient-purple">You Love</span>
+              <Link 
+                href="/channels" 
+                className="text-gradient-purple hover:underline decoration-[#9B3FF2]/50 transition-all inline-block"
+              >
+                You Love
+              </Link>
             </h2>
 
+            {/* Paragraph with contextual links */}
             <p className="text-[#A8A0B8] text-base sm:text-lg leading-relaxed mb-8">
-              SMARTSGI combines high-performance server architecture with high-definition channel lineups to deliver a truly modern streaming experience tailored for sports fans, movie lovers, and modern cord-cutters.
+              SMARTSGI combines high-performance server architecture with high-definition{" "}
+              <Link href="/channels" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 font-semibold transition-colors">
+                channel lineups
+              </Link>{" "}
+              to deliver a truly modern streaming experience. Review our{" "}
+              <Link href="/pricing" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 font-semibold transition-colors">
+                flexible pricing tiers
+              </Link>{" "}
+              or see{" "}
+              <Link href="/how-it-works" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 font-semibold transition-colors">
+                how our service operates
+              </Link>{" "}
+              for sports fans, movie lovers, and modern cord-cutters.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
@@ -75,25 +97,26 @@ export default function IptvFeaturesSection() {
 
             {/* Quality indicator */}
             <div className="mt-10 flex items-center gap-4 text-xs font-semibold text-[#777083]">
-              <span className="flex items-center gap-1.5">
+              <Link href="/installation" className="flex items-center gap-1.5 hover:text-white transition-colors">
                 <ShieldCheck className="w-4 h-4 text-[#FF7A00]" />
                 Full HD &amp; 4K Support
-              </span>
+              </Link>
               <span>•</span>
-              <span>No Binding Contracts</span>
+              <Link href="/pricing" className="hover:text-white transition-colors">
+                No Binding Contracts
+              </Link>
             </div>
           </div>
 
-          {/* Right Column: 3 Feature Cards */}
+          {/* Right Column: 3 Feature Cards with H3 Links */}
           <div className="lg:col-span-7 flex flex-col gap-5">
-            {featureCards.map((card, idx) => {
+            {featureCards.map((card) => {
               const Icon = card.icon;
               return (
                 <div
                   key={card.title}
                   className="group relative p-6 sm:p-8 rounded-2xl glass-card hover:border-[#9B3FF2]/50 hover:shadow-[0_0_35px_rgba(155,63,242,0.2)] transition-all duration-300 overflow-hidden"
                 >
-                  {/* Subtle top card glow */}
                   <div className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl ${card.glow} blur-2xl pointer-events-none rounded-full group-hover:opacity-100 opacity-60 transition-opacity`} />
 
                   <div className="relative z-10 flex flex-col sm:flex-row items-start gap-5">
@@ -103,8 +126,14 @@ export default function IptvFeaturesSection() {
 
                     <div className="flex flex-col">
                       <div className="flex items-center gap-3 mb-1.5">
+                        {/* H3 with Internal Link */}
                         <h3 className="text-xl font-black text-white tracking-wide">
-                          {card.title}
+                          <Link 
+                            href={card.href} 
+                            className="hover:text-[#C084FC] underline decoration-transparent hover:decoration-[#C084FC]/50 transition-colors"
+                          >
+                            {card.title}
+                          </Link>
                         </h3>
                         <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/[0.05] text-[#A8A0B8] uppercase tracking-wider">
                           {card.tagline}
@@ -125,4 +154,3 @@ export default function IptvFeaturesSection() {
     </section>
   );
 }
-

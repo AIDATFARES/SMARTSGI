@@ -13,32 +13,52 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: "1. Satisfaction Commitment",
-    content: [
-      "At SMARTSGI, we strive to deliver consistent, high-performance streaming services. We encourage all prospective clients to test their setup using our 24-hour trial prior to committing to extended multi-month plans.",
-    ],
+    content: (
+      <p className="text-sm text-[#A8A0B8] leading-relaxed">
+        At SMARTSGI, we strive to deliver consistent, high-performance streaming services. We encourage all prospective clients to test their setup using our 24-hour trial prior to committing to extended multi-month{" "}
+        <Link href="/pricing" className="text-[#C084FC] underline hover:text-white">
+          subscription plans
+        </Link>
+        .
+      </p>
+    ),
   },
   {
     title: "2. Refund Eligibility",
-    content: [
-      "Refund requests are evaluated under the following standard criteria:",
-    ],
+    content: (
+      <p className="text-sm text-[#A8A0B8] leading-relaxed">
+        Refund requests are evaluated under the following standard criteria:
+      </p>
+    ),
     items: [
       "Technical Outages: Confirmed server-side outages exceeding 72 consecutive hours that prevent access across all compatible devices.",
       "Duplicate Charges: Accidental duplicate billing for the same plan period.",
-      "First 7 Days: New subscribers who experience verified incompatibility issues after working with technical support.",
+      "First 7 Days: New subscribers who experience verified incompatibility issues after working with technical support following our installation guides.",
     ],
   },
   {
     title: "3. How to Submit a Refund Inquiry",
-    content: [
-      "To request a refund review, please contact our team within 7 days of purchase via our Contact page or WhatsApp with your order email and description of the technical issue.",
-    ],
+    content: (
+      <p className="text-sm text-[#A8A0B8] leading-relaxed">
+        To request a refund review, please contact our team within 7 days of purchase via our{" "}
+        <Link href="/contact" className="text-[#C084FC] underline hover:text-white">
+          Contact page
+        </Link>{" "}
+        or WhatsApp with your order email and description of the technical issue.
+      </p>
+    ),
   },
   {
     title: "4. Processing Timeline",
-    content: [
-      "Approved refunds are credited to the original payment method within 5 to 10 business days, depending on your bank or payment provider.",
-    ],
+    content: (
+      <p className="text-sm text-[#A8A0B8] leading-relaxed">
+        Approved refunds are credited to the original payment method within 5 to 10 business days, depending on your bank or payment provider. For billing questions, check our{" "}
+        <Link href="/faq" className="text-[#C084FC] underline hover:text-white">
+          FAQ
+        </Link>
+        .
+      </p>
+    ),
   },
 ];
 
@@ -56,25 +76,45 @@ export default function RefundPolicyPage() {
           Refund Policy
         </h1>
         <p className="text-sm text-[#A8A0B8] mt-3">
-          Last updated: {new Date().getFullYear()} · SMARTSGI
+          Last updated: {new Date().getFullYear()} · SMARTSGI. View our{" "}
+          <Link href="/pricing" className="text-[#C084FC] underline hover:text-white">
+            pricing plans
+          </Link>{" "}
+          or get in touch on our{" "}
+          <Link href="/contact" className="text-[#C084FC] underline hover:text-white">
+            contact page
+          </Link>
+          .
         </p>
       </header>
 
       <div className="space-y-8">
         {sections.map((sec, idx) => (
           <article key={idx} className="glass-card rounded-3xl p-8 border-white/[0.08]">
-            <h2 className="text-xl font-black text-white mb-4">{sec.title}</h2>
-            {sec.content.map((p, pIdx) => (
-              <p key={pIdx} className="text-sm text-[#A8A0B8] leading-relaxed">
-                {p}
-              </p>
-            ))}
+            <h2 className="text-xl font-black text-white mb-4">
+              <Link href="/refund-policy" className="hover:text-[#C084FC] transition-colors">
+                {sec.title}
+              </Link>
+            </h2>
+            {sec.content}
             {sec.items && (
               <ul className="mt-4 space-y-2.5">
                 {sec.items.map((item, iIdx) => (
                   <li key={iIdx} className="flex items-start gap-2.5 text-sm text-[#A8A0B8]">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#9B3FF2] mt-2 shrink-0" />
-                    <span>{item}</span>
+                    <span>
+                      {item.includes("installation guides") ? (
+                        <>
+                          {item.replace("following our installation guides.", "following our ")}
+                          <Link href="/installation" className="text-[#C084FC] underline hover:text-white">
+                            installation guides
+                          </Link>
+                          .
+                        </>
+                      ) : (
+                        item
+                      )}
+                    </span>
                   </li>
                 ))}
               </ul>

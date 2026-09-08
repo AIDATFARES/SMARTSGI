@@ -71,18 +71,55 @@ const planFeatures = [
 ];
 
 const includedFeatures = [
-  { icon: Tv, title: "Extensive Channel Selection", text: "Stream sports, news, and premier entertainment channels from around the world." },
-  { icon: MonitorSmartphone, title: "Curated VOD Catalog", text: "Explore hit movies and popular television series available on demand." },
-  { icon: Zap, title: "Anti-Freeze Technology", text: "Optimized server routes designed to deliver consistent, stable stream playback." },
-  { icon: Headphones, title: "24/7 Customer Support", text: "Dedicated human support team ready to assist with playlist setup and device questions." },
-  { icon: Sparkles, title: "Instant Activation", text: "Your login credentials and playlist parameters are sent promptly following checkout." },
-  { icon: CreditCard, title: "Interactive TV Guide", text: "Browse program schedules with an integrated electronic programme guide." },
+  { 
+    icon: Tv, 
+    title: "Extensive Channel Selection", 
+    href: "/channels",
+    text: "Stream sports, news, and premier entertainment channels worldwide with our verified lineup." 
+  },
+  { 
+    icon: MonitorSmartphone, 
+    title: "Curated VOD Catalog", 
+    href: "/channels",
+    text: "Explore hit movies and popular television series available on demand in every plan." 
+  },
+  { 
+    icon: Zap, 
+    title: "Anti-Freeze Technology", 
+    href: "/how-it-works",
+    text: "Optimized server routes designed to deliver consistent, stable stream playback." 
+  },
+  { 
+    icon: Headphones, 
+    title: "24/7 Customer Support", 
+    href: "/contact",
+    text: "Dedicated human support team ready to assist with playlist setup and device questions." 
+  },
+  { 
+    icon: Sparkles, 
+    title: "Instant Activation", 
+    href: "/how-it-works",
+    text: "Your login credentials and playlist parameters are sent promptly following checkout." 
+  },
+  { 
+    icon: CreditCard, 
+    title: "Interactive TV Guide", 
+    href: "/installation",
+    text: "Browse program schedules with an integrated electronic programme guide across your devices." 
+  },
 ];
 
 const billingQuestions = [
   { 
     question: "1. Which payment methods are accepted?", 
-    answer: "We support recognized payment options including major credit/debit cards, PayPal, and cryptocurrencies (Bitcoin, USDT). For custom payment inquiries, reach out via WhatsApp." 
+    answer: (
+      <>
+        We support recognized payment options including major credit/debit cards, PayPal, and cryptocurrencies (Bitcoin, USDT). For custom payment inquiries, reach out via WhatsApp or our{" "}
+        <Link href="/contact" className="text-[#C084FC] underline hover:text-white">
+          contact page
+        </Link>.
+      </>
+    )
   },
   { 
     question: "2. Is my purchase secure?", 
@@ -90,11 +127,30 @@ const billingQuestions = [
   },
   { 
     question: "3. Will my subscription renew automatically?", 
-    answer: "No automated surprise charges. When your subscription period nears expiration, you receive a reminder allowing you to renew manually at your convenience." 
+    answer: (
+      <>
+        No automated surprise charges. When your subscription period nears expiration, you receive a reminder allowing you to renew manually at your convenience. Review our{" "}
+        <Link href="/refund-policy" className="text-[#C084FC] underline hover:text-white">
+          refund policy
+        </Link>{" "}
+        for details.
+      </>
+    )
   },
   { 
     question: "4. Can I change my active connection count?", 
-    answer: "Yes! If you need to add device connections for additional rooms in your household, contact our support team and we will assist with plan upgrades." 
+    answer: (
+      <>
+        Yes! If you need to add device connections for additional rooms in your household, contact our{" "}
+        <Link href="/contact" className="text-[#C084FC] underline hover:text-white">
+          support team
+        </Link>{" "}
+        or learn about our{" "}
+        <Link href="/reseller" className="text-[#C084FC] underline hover:text-white">
+          reseller panel
+        </Link>.
+      </>
+    )
   },
 ];
 
@@ -136,7 +192,7 @@ export default function PricingPageContent() {
             <span className="text-gradient-hero block sm:inline">Subscription Plans</span>
           </h1>
           <p className="mx-auto mt-6 text-base sm:text-lg text-[#A8A0B8] leading-relaxed max-w-2xl">
-            Select your preferred subscription period. Enjoy larger savings on longer durations and connect your whole home with multi-device options.
+            Select your preferred subscription period. Enjoy larger savings on longer durations and connect your whole home with multi-device options. Browse our <Link href="/channels" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">complete channel lineup</Link> or learn <Link href="/how-it-works" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">how it works</Link>.
           </p>
           <div className="mt-4 flex items-center justify-center gap-4 text-xs font-semibold text-[#777083]">
             <Link href="/installation" className="text-[#C084FC] hover:text-white underline transition-colors">
@@ -212,7 +268,9 @@ export default function PricingPageContent() {
 
                 <div className="text-center pt-2 pb-5 border-b border-white/[0.08]">
                   <h3 className="text-lg font-black text-white tracking-wide uppercase mb-1">
-                    {plan.name}
+                    <Link href="/pricing" className="hover:text-[#C084FC] transition-colors">
+                      {plan.name}
+                    </Link>
                   </h3>
                   <span className="text-xs font-semibold text-[#A8A0B8]">
                     {devices} Connection{devices > 1 ? "s" : ""}
@@ -271,7 +329,7 @@ export default function PricingPageContent() {
                 Want to test before subscribing?
               </h4>
               <p className="text-xs sm:text-sm text-[#A8A0B8]">
-                Request a 24-hour test line to verify stream stability on your favorite device.
+                Request a 24-hour test line to verify stream stability on your favorite device using our <Link href="/installation" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">device guides</Link>.
               </p>
             </div>
           </div>
@@ -290,10 +348,10 @@ export default function PricingPageContent() {
         <div className="mt-16 pt-16 border-t border-white/[0.08]">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <h2 className="text-3xl font-black text-white uppercase tracking-tight mb-4">
-              Everything Included in Every Plan
+              Everything Included in Every <Link href="/pricing" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">Plan</Link>
             </h2>
             <p className="text-[#A8A0B8] text-sm sm:text-base">
-              Regardless of duration, every SMARTSGI subscription includes full premium streaming capabilities.
+              Regardless of duration, every SMARTSGI subscription includes full premium streaming capabilities across our <Link href="/channels" className="text-white/90 hover:underline">channels</Link> and <Link href="/installation" className="text-white/90 hover:underline">supported hardware</Link>.
             </p>
           </div>
 
@@ -307,7 +365,9 @@ export default function PricingPageContent() {
                   </div>
                   <div>
                     <h3 className="text-base font-black text-white tracking-wide mb-1">
-                      {feat.title}
+                      <Link href={feat.href} className="hover:text-[#C084FC] transition-colors">
+                        {feat.title}
+                      </Link>
                     </h3>
                     <p className="text-xs sm:text-sm text-[#A8A0B8] leading-relaxed">
                       {feat.text}
@@ -323,7 +383,7 @@ export default function PricingPageContent() {
         <div className="mt-20 max-w-4xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
-              Pricing &amp; Billing Questions
+              Pricing &amp; Billing <Link href="/faq" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">Questions</Link>
             </h2>
           </div>
 

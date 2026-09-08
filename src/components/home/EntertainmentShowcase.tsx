@@ -1,11 +1,12 @@
 import { Trophy, Film, HeartHandshake, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const showcaseItems = [
   {
     title: "Sports & Live Events",
     tagline: "Ultra-Crisp 60 FPS",
-    description: "Follow major football leagues, championship boxing, MMA events, basketball tournaments, and motorsports live in crystal-clear high definition.",
+    description: "Follow major football leagues, championship boxing, MMA events, basketball tournaments, and motorsports live in crystal-clear high definition with our live sports channels.",
     icon: Trophy,
     accentColor: "#FF7A00",
     gradient: "from-[#FF7A00]/25 via-transparent to-transparent",
@@ -14,7 +15,7 @@ const showcaseItems = [
   {
     title: "Movies & Series",
     tagline: "VOD On-Demand Library",
-    description: "Catch up on trending cinema releases, popular episodic television series, and multi-genre films updated regularly for your entertainment.",
+    description: "Catch up on trending cinema releases, popular episodic television series, and multi-genre films updated regularly for your entertainment in our VOD library.",
     icon: Film,
     accentColor: "#B86CFF",
     gradient: "from-[#9B3FF2]/25 via-transparent to-transparent",
@@ -23,7 +24,7 @@ const showcaseItems = [
   {
     title: "Family Entertainment",
     tagline: "All-Ages Programming",
-    description: "Safe, cheerful cartoon channels for kids, documentary explorations for curious minds, and lifestyle television for the entire household.",
+    description: "Safe, cheerful cartoon channels for kids, documentary explorations for curious minds, and lifestyle television easy to set up on any supported device.",
     icon: HeartHandshake,
     accentColor: "#EC4899",
     gradient: "from-[#EC4899]/25 via-transparent to-transparent",
@@ -46,10 +47,10 @@ export default function EntertainmentShowcase() {
             Unified Streaming
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-            Sports, Movies &amp; Shows — All in One Subscription
+            Sports, Movies &amp; Shows — All in One <Link href="/pricing" className="text-white hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-4 transition-colors">Subscription</Link>
           </h2>
           <p className="text-[#A8A0B8] text-base sm:text-lg">
-            Experience premium television without paying for multiple separate streaming packages.
+            Experience premium television across our <Link href="/channels" className="text-white/90 hover:text-[#B86CFF] underline decoration-[#B86CFF]/40 underline-offset-2 transition-colors">channel directory</Link> without paying for multiple separate <Link href="/pricing" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">streaming packages</Link>.
           </p>
         </div>
 
@@ -75,7 +76,9 @@ export default function EntertainmentShowcase() {
 
                   {/* Big Stylized Title */}
                   <h3 className="text-2xl font-black text-white z-10 tracking-tight leading-snug">
-                    {item.title}
+                    <Link href="/channels" className="hover:text-white/90 transition-colors">
+                      {item.title}
+                    </Link>
                   </h3>
 
                   {/* Atmospheric decorative orb */}

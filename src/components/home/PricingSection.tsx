@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Check, Sparkles, Tv, ShieldCheck, Zap } from "lucide-react";
 
 interface Plan {
@@ -103,10 +104,10 @@ export default function PricingSection() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-            Choose Your Best IPTV Subscription Plan
+            Choose Your Best <Link href="/pricing" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">IPTV Subscription Plan</Link>
           </h2>
           <p className="text-[#A8A0B8] text-base sm:text-lg">
-            Explore SMARTSGI plans and choose the option that fits your streaming needs.
+            Explore SMARTSGI plans and choose the option that fits your streaming needs. Browse our <Link href="/channels" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">channel directory</Link> or learn <Link href="/how-it-works" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">how it works</Link>.
           </p>
         </div>
 
@@ -175,7 +176,9 @@ export default function PricingSection() {
                 {/* Plan Title & Duration */}
                 <div className="text-center pt-2 pb-5 border-b border-white/[0.08]">
                   <h3 className="text-lg font-black text-white tracking-wide uppercase mb-1">
-                    {plan.name}
+                    <Link href="/pricing" className="hover:text-[#C084FC] transition-colors">
+                      {plan.name}
+                    </Link>
                   </h3>
                   <span className="text-xs font-semibold text-[#A8A0B8]">
                     {devices} Connection{devices > 1 ? "s" : ""}
@@ -238,7 +241,7 @@ export default function PricingSection() {
                 Want to test before subscribing?
               </h4>
               <p className="text-xs sm:text-sm text-[#A8A0B8]">
-                Request a 24-hour test line to verify stream stability on your favorite device.
+                Request a 24-hour test line to verify stream stability on your favorite device with our easy <Link href="/installation" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">setup guide</Link>, or browse our <Link href="/faq" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">frequently asked questions</Link>.
               </p>
             </div>
           </div>

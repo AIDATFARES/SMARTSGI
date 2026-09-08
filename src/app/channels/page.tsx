@@ -112,7 +112,7 @@ export default function ChannelsPage() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-[#A8A0B8] leading-relaxed">
-            Browse our comprehensive selection of live sports, cinema networks, global news, and on-demand series in HD and 4K quality across supported regions.
+            Browse our comprehensive selection of live sports, cinema networks, global news, and on-demand series in HD and 4K quality across supported regions. Pair with any of our <Link href="/pricing" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">IPTV subscription plans</Link> and configure your setup using our step-by-step <Link href="/installation" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">device guides</Link>.
           </p>
         </div>
 
@@ -140,7 +140,9 @@ export default function ChannelsPage() {
                   </div>
 
                   <h2 className="text-xl font-black text-white tracking-wide mb-4">
-                    {category.title}
+                    <Link href="/pricing" className="hover:text-[#C084FC] transition-colors">
+                      {category.title}
+                    </Link>
                   </h2>
 
                   <ul className="w-full space-y-2.5 mb-6 text-left flex-grow">
@@ -173,10 +175,10 @@ export default function ChannelsPage() {
 
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-black uppercase text-white mb-4">
-              Ready to start watching?
+              Ready to <Link href="/pricing" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">start watching</Link>?
             </h2>
             <p className="text-[#A8A0B8] text-sm sm:text-base leading-relaxed mb-8">
-              Choose your subscription plan to receive your SMARTSGI access credentials and begin streaming on all your devices.
+              Choose your <Link href="/pricing" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">subscription plan</Link> to receive your SMARTSGI access credentials and learn <Link href="/how-it-works" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">how it works</Link> on all your devices.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

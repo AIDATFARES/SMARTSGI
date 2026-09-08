@@ -1,4 +1,5 @@
 import { CreditCard, MailCheck, PlayCircle, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function HowItWorksSection() {
   const steps = [
@@ -6,7 +7,16 @@ export default function HowItWorksSection() {
       num: "01",
       title: "Choose Your Plan",
       subtitle: "Flexible Durations",
-      description: "Select the subscription duration and number of device connections that match your household streaming habits.",
+      href: "/pricing",
+      description: (
+        <>
+          Select the subscription duration and number of device connections from our{" "}
+          <Link href="/pricing" className="text-white/90 hover:underline">
+            pricing tiers
+          </Link>{" "}
+          that match your household streaming habits.
+        </>
+      ),
       icon: CreditCard,
       color: "from-[#9B3FF2] to-[#9333EA]",
       border: "border-[#9B3FF2]/40",
@@ -16,7 +26,16 @@ export default function HowItWorksSection() {
       num: "02",
       title: "Receive Your Account",
       subtitle: "Fast Activation",
-      description: "Your login credentials (M3U playlist, Xtream Codes API URL, username and password) are sent promptly upon order confirmation.",
+      href: "/contact",
+      description: (
+        <>
+          Your login credentials (M3U playlist, Xtream Codes API URL, username and password) are sent promptly upon order confirmation. Reach out to our{" "}
+          <Link href="/contact" className="text-white/90 hover:underline">
+            support team
+          </Link>{" "}
+          anytime.
+        </>
+      ),
       icon: MailCheck,
       color: "from-[#EC4899] to-[#9B3FF2]",
       border: "border-[#EC4899]/40",
@@ -26,7 +45,16 @@ export default function HowItWorksSection() {
       num: "03",
       title: "Start Streaming",
       subtitle: "Instant Playback",
-      description: "Enter your credentials into your preferred IPTV player on your Smart TV, Firestick, Android box, or phone and enjoy immediate entertainment.",
+      href: "/installation",
+      description: (
+        <>
+          Enter your credentials into your preferred IPTV player using our step-by-step{" "}
+          <Link href="/installation" className="text-white/90 hover:underline">
+            setup guide
+          </Link>{" "}
+          on your Smart TV, Firestick, Android box, or phone.
+        </>
+      ),
       icon: PlayCircle,
       color: "from-[#FF7A00] to-[#FF8A1F]",
       border: "border-[#FF7A00]/40",
@@ -44,10 +72,10 @@ export default function HowItWorksSection() {
             Quick Setup
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-            How To Get Started With SMARTSGI
+            How To Get Started With <Link href="/how-it-works" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">SMARTSGI</Link>
           </h2>
           <p className="text-[#A8A0B8] text-base sm:text-lg">
-            Follow three straightforward steps to unlock seamless television on all your devices.
+            Follow three straightforward steps to unlock seamless television on all your <Link href="/installation" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">favorite devices</Link>. Learn more about our <Link href="/pricing" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">subscription options</Link>.
           </p>
         </div>
 
@@ -79,7 +107,9 @@ export default function HowItWorksSection() {
                 </div>
 
                 <h3 className="text-xl font-black text-white tracking-wide mb-1">
-                  {step.title}
+                  <Link href={step.href} className="hover:text-white/90 transition-colors">
+                    {step.title}
+                  </Link>
                 </h3>
                 
                 <span className="text-[11px] font-bold text-[#A8A0B8] uppercase tracking-wider mb-4">

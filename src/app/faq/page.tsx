@@ -14,7 +14,11 @@ const faqs: FAQItem[] = [
     question: "What is IPTV?",
     answer: (
       <p>
-        IPTV (Internet Protocol Television) delivers television programming and video content through your high-speed internet connection rather than traditional cables or satellite dishes. With SMARTSGI, this gives you access to live TV and video on demand across any compatible screen in your home or while traveling.
+        IPTV (Internet Protocol Television) delivers television programming and video content through your high-speed internet connection rather than traditional cables or satellite dishes. With SMARTSGI, this gives you access to live TV and video on demand across any compatible screen in your home or while traveling. Check our{" "}
+        <Link href="/channels" className="text-[#C084FC] underline hover:text-white transition-colors">
+          complete channel lineup
+        </Link>{" "}
+        to see what&apos;s included.
       </p>
     ),
   },
@@ -22,7 +26,11 @@ const faqs: FAQItem[] = [
     question: "How do I receive my IPTV credentials?",
     answer: (
       <p>
-        Once your order is processed, your activation details are sent immediately via email or WhatsApp. Your credentials include an M3U playlist link and Xtream Codes API parameters (Server URL, Username, Password) that can be plugged into your chosen player.
+        Once your order is processed, your activation details are sent immediately via email or WhatsApp. Your credentials include an M3U playlist link and Xtream Codes API parameters (Server URL, Username, Password) that can be plugged into your chosen player. See our{" "}
+        <Link href="/how-it-works" className="text-[#C084FC] underline hover:text-white transition-colors">
+          quick start walkthrough
+        </Link>
+        .
       </p>
     ),
   },
@@ -38,7 +46,11 @@ const faqs: FAQItem[] = [
     question: "How many devices can I use simultaneously?",
     answer: (
       <p>
-        Simultaneous streaming depends on the active connection tier you choose (1, 2, or 3 devices). You can install your playlist across multiple devices and watch concurrently according to your selected plan limit.
+        Simultaneous streaming depends on the active connection tier you choose (1, 2, or 3 devices). You can install your playlist across multiple devices and watch concurrently according to your selected plan limit in our{" "}
+        <Link href="/pricing" className="text-[#C084FC] underline hover:text-white transition-colors">
+          pricing section
+        </Link>
+        .
       </p>
     ),
   },
@@ -117,7 +129,7 @@ export default function FAQ() {
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-[#A8A0B8] leading-relaxed">
-          Find straightforward answers regarding SMARTSGI subscriptions, device compatibility, streaming quality, and activation.
+          Find straightforward answers regarding SMARTSGI <Link href="/pricing" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">subscriptions</Link>, <Link href="/installation" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">device compatibility</Link>, streaming quality across our <Link href="/channels" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">channel lineup</Link>, and activation.
         </p>
       </header>
 
@@ -160,7 +172,7 @@ export default function FAQ() {
       <section className="pt-16 border-t border-white/[0.08] max-w-4xl mx-auto">
         <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-wide">
-            Still Have Questions?
+            Still Have <Link href="/contact" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">Questions</Link>?
           </h2>
           <p className="mt-2 text-sm text-[#A8A0B8]">
             Our support team is standing by 24/7 to help you get started.
@@ -172,7 +184,11 @@ export default function FAQ() {
             <div className="w-12 h-12 rounded-2xl bg-[#9B3FF2]/15 border border-[#9B3FF2]/30 flex items-center justify-center mb-4">
               <Mail className="w-6 h-6 text-[#C084FC]" />
             </div>
-            <h3 className="text-lg font-black text-white mb-1">Email Support</h3>
+            <h3 className="text-lg font-black text-white mb-1">
+              <Link href="/contact" className="hover:text-[#C084FC] transition-colors">
+                Email Support
+              </Link>
+            </h3>
             <p className="text-xs text-[#A8A0B8] mb-4">Send us your question anytime.</p>
             <a href="mailto:support@smartsgi.net" className="text-sm font-bold text-[#C084FC] hover:text-white transition-colors">
               support@smartsgi.net
@@ -183,7 +199,11 @@ export default function FAQ() {
             <div className="w-12 h-12 rounded-2xl bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center mb-4">
               <MessageCircle className="w-6 h-6 text-[#25D366]" />
             </div>
-            <h3 className="text-lg font-black text-white mb-1">WhatsApp Live Chat</h3>
+            <h3 className="text-lg font-black text-white mb-1">
+              <Link href="/contact" className="hover:text-[#25D366] transition-colors">
+                WhatsApp Live Chat
+              </Link>
+            </h3>
             <p className="text-xs text-[#A8A0B8] mb-4">Immediate real-time technical help.</p>
             <a 
               href="https://wa.me/213552069874?text=Hello,%20I%20have%20a%20question%20about%20SMARTSGI."

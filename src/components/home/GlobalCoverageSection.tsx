@@ -1,4 +1,5 @@
 import { Globe, MapPin, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 interface RegionInfo {
   name: string;
@@ -63,10 +64,10 @@ export default function GlobalCoverageSection() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-            Premium Entertainment From Around The World
+            Premium Entertainment From <Link href="/channels" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">Around The World</Link>
           </h2>
           <p className="text-[#A8A0B8] text-base sm:text-lg">
-            Stream high-definition broadcasts from the United States, Canada, the United Kingdom, Europe, and international regions.
+            Stream high-definition broadcasts from the United States, Canada, the United Kingdom, Europe, and international regions with our versatile <Link href="/pricing" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">subscription plans</Link> or view our <Link href="/channels" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">complete channel directory</Link>.
           </p>
         </div>
 
@@ -89,7 +90,9 @@ export default function GlobalCoverageSection() {
               </div>
 
               <h3 className="text-xl font-black text-white tracking-tight mb-1">
-                {region.name}
+                <Link href="/channels" className="hover:text-white/90 transition-colors">
+                  {region.name}
+                </Link>
               </h3>
               
               <span className="text-[11px] font-bold text-[#A8A0B8] leading-tight mb-4">

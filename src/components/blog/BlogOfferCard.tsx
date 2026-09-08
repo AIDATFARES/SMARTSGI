@@ -17,11 +17,11 @@ export default function BlogOfferCard() {
           </div>
           
           <h3 className="text-2xl md:text-3xl font-black text-white mb-2">
-            Experience <span className="text-gradient-hero">SMARTSGI</span>
+            Experience <Link href="/pricing" className="text-gradient-hero hover:underline">SMARTSGI</Link>
           </h3>
           
           <p className="text-[#A8A0B8] text-sm md:text-base mb-0 max-w-2xl leading-relaxed">
-            Upgrade your entertainment with ultra-stable, anti-freeze streaming. Access premium live channels, global sports, and curated VOD across all your devices.
+            Upgrade your entertainment with ultra-stable, anti-freeze streaming. Access premium <Link href="/channels" className="text-white/90 hover:underline">live channels</Link>, global sports, and curated VOD across all your <Link href="/installation" className="text-white/90 hover:underline">supported devices</Link>.
           </p>
         </div>
         

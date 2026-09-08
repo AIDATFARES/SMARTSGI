@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { 
   Tv, 
   Smartphone, 
@@ -47,10 +48,23 @@ export default function DeviceSupport() {
             </span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
-            SMARTSGI: Effortlessly Connect Across All Your Devices
+            SMARTSGI: Effortlessly Connect Across All Your{" "}
+            <Link 
+              href="/installation" 
+              className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 transition-colors"
+            >
+              Supported Devices
+            </Link>
           </h2>
           <p className="text-[#A8A0B8] text-base sm:text-lg">
-            Enjoy your IPTV experience across your favorite devices.
+            Enjoy your IPTV streaming experience across screens with our{" "}
+            <Link href="/installation" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 font-semibold transition-colors">
+              device installation tutorials
+            </Link>{" "}
+            and flexible{" "}
+            <Link href="/pricing" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 font-semibold transition-colors">
+              multi-connection subscription plans
+            </Link>.
           </p>
         </div>
 
@@ -60,20 +74,21 @@ export default function DeviceSupport() {
             {[...devices, ...devices].map((device, idx) => {
               const Icon = device.icon;
               return (
-                <div
+                <Link
                   key={`${device.name}-${idx}`}
-                  className="flex flex-col items-center justify-center p-6 w-[170px] sm:w-[190px] h-[150px] rounded-2xl glass-card hover:border-[#9B3FF2]/60 hover:shadow-[0_0_30px_rgba(155,63,242,0.35)] transition-all duration-300 group cursor-default"
+                  href="/installation"
+                  className="flex flex-col items-center justify-center p-6 w-[170px] sm:w-[190px] h-[150px] rounded-2xl glass-card hover:border-[#9B3FF2]/60 hover:shadow-[0_0_30px_rgba(155,63,242,0.35)] transition-all duration-300 group cursor-pointer"
                 >
                   <div className="w-12 h-12 rounded-xl bg-[#10091B] border border-white/[0.08] flex items-center justify-center mb-3 group-hover:scale-110 group-hover:border-[#9B3FF2]/40 transition-all duration-300 shadow-inner">
                     <Icon className="w-6 h-6 text-[#C084FC] group-hover:text-[#FF8A1F] transition-colors" />
                   </div>
-                  <span className="text-sm font-bold text-white group-hover:text-[#F8FAFC] text-center line-clamp-1">
+                  <span className="text-sm font-bold text-white group-hover:text-[#C084FC] text-center line-clamp-1 transition-colors">
                     {device.name}
                   </span>
                   <span className="text-[10px] font-semibold text-[#777083] uppercase tracking-wider mt-1">
                     {device.tag}
                   </span>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -83,9 +98,13 @@ export default function DeviceSupport() {
         <div className="mt-10 text-center">
           <p className="text-xs sm:text-sm text-[#777083]">
             Need help configuring your specific setup? Explore our step-by-step{" "}
-            <a href="/installation" className="text-[#C084FC] hover:text-white font-semibold underline underline-offset-4 decoration-[#9B3FF2]/40 transition-colors">
+            <Link href="/installation" className="text-[#C084FC] hover:text-white font-semibold underline underline-offset-4 decoration-[#9B3FF2]/40 transition-colors">
               Device Setup Guides
-            </a>
+            </Link>{" "}
+            or check our{" "}
+            <Link href="/faq" className="text-[#C084FC] hover:text-white font-semibold underline underline-offset-4 decoration-[#9B3FF2]/40 transition-colors">
+              Streaming FAQ
+            </Link>
             .
           </p>
         </div>

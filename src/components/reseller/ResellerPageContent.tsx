@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
   Check,
   ChevronDown,
@@ -65,26 +66,54 @@ const advantages = [
   {
     icon: MonitorSmartphone,
     title: "COMPATIBLE ACROSS ALL DEVICES",
-    description:
-      "Your clients can connect using any device: Smart TVs, Android boxes, Firestick, Apple TV, iOS, and PC.",
+    href: "/installation",
+    description: (
+      <>
+        Your clients can connect using any device: Smart TVs, Android boxes, Firestick, Apple TV, iOS, and PC using our{" "}
+        <Link href="/installation" className="text-white/90 underline hover:text-[#C084FC]">
+          setup guides
+        </Link>.
+      </>
+    ),
   },
   {
     icon: Server,
     title: "HIGH-PERFORMANCE SERVERS",
-    description:
-      "Reliable streaming infrastructure equipped with anti-freeze routing technology to keep client playback stable.",
+    href: "/pricing",
+    description: (
+      <>
+        Reliable streaming infrastructure equipped with anti-freeze routing technology across all{" "}
+        <Link href="/channels" className="text-white/90 underline hover:text-[#C084FC]">
+          live channels
+        </Link>.
+      </>
+    ),
   },
   {
     icon: Headphones,
     title: "EXPERT RESELLER SUPPORT",
-    description:
-      "Our technical team is available 24/7 on WhatsApp to assist with reseller queries, line setup, and panel management.",
+    href: "/contact",
+    description: (
+      <>
+        Our technical team is available 24/7 on WhatsApp to assist with reseller queries via our{" "}
+        <Link href="/contact" className="text-white/90 underline hover:text-[#C084FC]">
+          help desk
+        </Link>.
+      </>
+    ),
   },
   {
     icon: Zap,
     title: "INTUITIVE CONTROL PANEL",
-    description:
-      "Manage customer accounts, extend lines, create test accounts, and set up sub-reseller balances with ease.",
+    href: "/how-it-works",
+    description: (
+      <>
+        Manage customer accounts, extend lines, create test accounts, and set up sub-reseller balances with ease and see{" "}
+        <Link href="/how-it-works" className="text-white/90 underline hover:text-[#C084FC]">
+          how it works
+        </Link>.
+      </>
+    ),
   },
 ];
 
@@ -156,7 +185,7 @@ export default function ResellerPageContent() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-[#A8A0B8] leading-relaxed">
-            Start your own branded IPTV business with SMARTSGI. High-capacity streaming infrastructure, flexible credit tiers, and comprehensive panel management.
+            Start your own branded IPTV business with SMARTSGI. High-capacity streaming infrastructure, flexible credit tiers, and comprehensive panel management. Check our <Link href="/channels" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">channel inventory</Link> or standard <Link href="/pricing" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">retail plans</Link>.
           </p>
         </header>
 
@@ -194,7 +223,9 @@ export default function ResellerPageContent() {
 
                 <div className="text-center pt-2 pb-5 border-b border-white/[0.08]">
                   <h3 className="text-xl font-black text-white tracking-wide uppercase mb-1">
-                    {plan.credits} CREDITS
+                    <Link href="/reseller" className="hover:text-[#C084FC] transition-colors">
+                      {plan.credits} CREDITS
+                    </Link>
                   </h3>
                   <span className="text-xs text-[#A8A0B8]">
                     ${(plan.price / plan.credits).toFixed(2)} per credit
@@ -240,10 +271,10 @@ export default function ResellerPageContent() {
         <div className="mt-20 pt-16 border-t border-white/[0.08]">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <h2 className="text-3xl font-black text-white uppercase tracking-tight mb-4">
-              Reseller Platform Advantages
+              Reseller <Link href="/reseller" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">Platform Advantages</Link>
             </h2>
             <p className="text-[#A8A0B8] text-sm sm:text-base">
-              Everything you need to operate and grow an independent IPTV streaming business.
+              Everything you need to operate and grow an independent IPTV streaming business, backed by our <Link href="/contact" className="text-white/90 hover:underline">dedicated technical support</Link>.
             </p>
           </div>
 
@@ -257,11 +288,13 @@ export default function ResellerPageContent() {
                   </div>
                   <div>
                     <h3 className="text-base font-black text-white tracking-wide uppercase mb-2">
-                      {adv.title}
+                      <Link href={adv.href} className="hover:text-[#C084FC] transition-colors">
+                        {adv.title}
+                      </Link>
                     </h3>
-                    <p className="text-sm text-[#A8A0B8] leading-relaxed">
+                    <div className="text-sm text-[#A8A0B8] leading-relaxed">
                       {adv.description}
-                    </p>
+                    </div>
                   </div>
                 </div>
               );
@@ -273,7 +306,7 @@ export default function ResellerPageContent() {
         <div className="mt-24 max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
-              Reseller Questions &amp; Answers
+              Reseller <Link href="/faq" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">Questions &amp; Answers</Link>
             </h2>
           </div>
 

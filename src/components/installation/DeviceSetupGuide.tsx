@@ -1,7 +1,8 @@
 "use client";
 
-import { Apple, Box, ChevronDown, Download, HelpCircle, Monitor, Satellite, Smartphone, Tv, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
+import { Apple, Box, ChevronDown, Download, HelpCircle, Monitor, Satellite, Smartphone, Tv, CheckCircle2 } from "lucide-react";
 
 const devices = [
   { 
@@ -127,7 +128,11 @@ export default function DeviceSetupGuide() {
               <DeviceIcon className="h-7 w-7 text-[#C084FC]" />
             </div>
             <div>
-              <h2 className="text-xl sm:text-2xl font-black text-white">{device.title}</h2>
+              <h2 className="text-xl sm:text-2xl font-black text-white">
+                <Link href="/pricing" className="hover:text-[#C084FC] transition-colors">
+                  {device.title}
+                </Link>
+              </h2>
               <p className="text-xs text-[#A8A0B8] mt-1">Recommended Apps: <span className="text-white font-semibold">{device.app}</span></p>
             </div>
           </div>
@@ -136,7 +141,9 @@ export default function DeviceSetupGuide() {
         {/* Step-by-Step Instructions */}
         <div className="space-y-4">
           <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#FF7A00] mb-4">
-            Step-by-Step Instructions
+            <Link href="/installation" className="hover:text-white transition-colors">
+              Step-by-Step Instructions
+            </Link>
           </h3>
           <ol className="space-y-3.5">
             {device.steps.map((stepText, idx) => (

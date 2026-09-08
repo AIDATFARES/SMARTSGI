@@ -29,7 +29,7 @@ export default function Installation() {
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-[#A8A0B8] leading-relaxed">
-          Comprehensive step-by-step instructions to configure SMARTSGI on all your favorite streaming devices.
+          Comprehensive step-by-step instructions to configure SMARTSGI on all your favorite streaming devices. Once configured, browse our <Link href="/channels" className="text-white/90 hover:text-[#C084FC] underline decoration-[#9B3FF2]/40 underline-offset-2 transition-colors">full channel lineup</Link> or manage your <Link href="/pricing" className="text-white/90 hover:text-[#FF8A1F] underline decoration-[#FF8A1F]/40 underline-offset-2 transition-colors">subscription plans</Link>.
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-6 text-xs sm:text-sm font-semibold text-[#A8A0B8]">
@@ -49,13 +49,22 @@ export default function Installation() {
       <section className="max-w-6xl mx-auto mb-20">
         <div className="grid gap-6 md:grid-cols-3">
           <QuickStartCard icon={Download} step="1" title="Download App" accent="#9B3FF2">
-            Install your preferred IPTV player (TiviMate, IPTV Smarters, IBO Player) from your device&apos;s app store.
+            Install your preferred IPTV player (TiviMate, IPTV Smarters, IBO Player) from your device&apos;s app store. Review our{" "}
+            <Link href="/how-it-works" className="text-white/90 underline hover:text-[#C084FC]">
+              activation steps
+            </Link>.
           </QuickStartCard>
           <QuickStartCard icon={Link2} step="2" title="Enter Credentials" accent="#EC4899">
-            Input the SMARTSGI M3U playlist URL or Xtream Codes login details provided in your activation message.
+            Input the SMARTSGI M3U playlist URL or Xtream Codes login details provided in your activation message. Need credentials? Select a{" "}
+            <Link href="/pricing" className="text-white/90 underline hover:text-[#EC4899]">
+              subscription plan
+            </Link>.
           </QuickStartCard>
           <QuickStartCard icon={PlayCircle} step="3" title="Start Streaming" accent="#FF7A00">
-            Enjoy immediate access to live channels, cinema releases, and sports broadcasts with seamless playback.
+            Enjoy immediate access to{" "}
+            <Link href="/channels" className="text-white/90 underline hover:text-[#FF8A1F]">
+              live channels
+            </Link>, cinema releases, and sports broadcasts with seamless playback.
           </QuickStartCard>
         </div>
       </section>
@@ -66,10 +75,13 @@ export default function Installation() {
       {/* Support Reassurance Card */}
       <section className="mx-auto max-w-2xl text-center mt-20 p-8 rounded-3xl glass-card border-[#9B3FF2]/30">
         <h2 className="text-2xl font-black text-white uppercase tracking-wide">
-          Need Assistance With Setup?
+          Need Assistance With <Link href="/contact" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 underline-offset-4 transition-colors">Setup</Link>?
         </h2>
         <p className="mt-3 text-sm text-[#A8A0B8]">
-          Our technical support team is available 24/7 on WhatsApp to guide you through playlist configuration.
+          Our technical support team is available 24/7 on WhatsApp to guide you through playlist configuration. You can also review our{" "}
+          <Link href="/faq" className="text-white/90 underline hover:text-[#C084FC]">
+            frequently asked questions
+          </Link>.
         </p>
         <div className="mt-6 flex justify-center">
           <Link
@@ -114,7 +126,9 @@ function QuickStartCard({
       </div>
 
       <h3 className="text-white font-black text-lg tracking-wide uppercase mt-2">
-        {title}
+        <Link href="/installation" className="hover:text-[#C084FC] transition-colors">
+          {title}
+        </Link>
       </h3>
       <p className="text-[#A8A0B8] text-sm leading-relaxed">{children}</p>
     </div>
