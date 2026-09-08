@@ -110,7 +110,7 @@ export default function Contact() {
                     className="bg-white/[0.04] border border-white/[0.1] focus:border-[#9B3FF2] focus:ring-1 focus:ring-[#9B3FF2] rounded-2xl px-5 py-3.5 text-white placeholder:text-[#777083] focus:outline-none transition-all text-sm font-medium"
                     id="email"
                     name="email"
-                    placeholder="you@example.com"
+                    placeholder="you@email.com"
                     type="email"
                   />
                 </div>

@@ -1291,7 +1291,7 @@ This section provides the procedure for configuring your [**SMARTSGI service**](
 
 ### Step 1: Locate Your SMARTSGI Access Credentials
 When subscribing to SMARTSGI, check your welcome email or account dashboard. Gather your three core Xtream API parameters:
-1. **Server URL / Host:** (e.g., http://domain-name.com:port)
+1. **Server URL / Host:** (e.g., \`http://line.smartsgi.stream:8080\`)
 2. **Username:** Your assigned account username.
 3. **Password:** Your assigned account password.
 
@@ -1896,7 +1896,7 @@ An **IPTV M3U Firestick** connection relies on a structured playlist file URL pr
 The **Xtream Codes Firestick** integration method is often preferred because it automatically organizes live channels, movies, TV series, and EPG data into clean categories.
 
 1. Launch your IPTV player and choose **Add User** or **Xtream Codes API**.
-2. Enter the **Server URL** (including the port number if required, e.g., \`http://line.smartsgistream.com:8080\`).
+2. Enter the **Server URL** (including the port number if required, e.g., \`http://line.smartsgi.stream:8080\`).
 3. Enter your assigned **Username**.
 4. Enter your assigned **Password**.
 5. Click **Add User** or **Login**. The player will connect to the provider's API servers and import your channel lineups automatically.
@@ -1929,7 +1929,7 @@ Without an EPG, channels are listed only by name. An active EPG provides timelin
 
 1. Open your player settings and select **EPG Sources** or **TV Guide**.
 2. Click **Add EPG Source**.
-3. Paste the **XMLTV EPG URL** provided by your service (e.g., \`http://line.smartsgistream.com:8080/xmltv.php?username=...\`).
+3. Paste the **XMLTV EPG URL** provided by your service (e.g., \`http://line.smartsgi.stream:8080/xmltv.php?username=...\`).
 4. Save the source and trigger an **Update EPG Data** sync.
 
 ### Troubleshooting Missing EPG Data
