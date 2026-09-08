@@ -63,20 +63,20 @@ export default function HeroSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full sm:w-auto mb-10">
           <a
             href="#pricing"
-            className="btn-primary-purple w-full sm:w-auto px-9 py-4 text-sm sm:text-base font-extrabold tracking-wider uppercase gap-2 hover:shadow-[0_0_35px_rgba(155,63,242,0.6)] group"
+            className="btn-primary-purple w-full sm:w-auto px-9 py-4 text-sm sm:text-base font-extrabold tracking-wider uppercase gap-2 group"
           >
-            <span>Subscribe Now</span>
-            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+            <span className="relative z-10">Subscribe Now</span>
+            <ArrowRight className="w-4.5 h-4.5 relative z-10 transform group-hover:translate-x-1.5 transition-transform duration-300" />
           </a>
           
           <a
             href="https://wa.me/447882781998?text=Hello,%20I%20would%20like%20to%20request%20a%20free%2024H%20trial%20for%20SMARTSGI."
             target="_blank"
             rel="noreferrer"
-            className="btn-secondary-orange w-full sm:w-auto px-9 py-4 text-sm sm:text-base font-extrabold tracking-wider uppercase gap-2 hover:shadow-[0_0_35px_rgba(255,122,0,0.6)] group"
+            className="btn-secondary-orange w-full sm:w-auto px-9 py-4 text-sm sm:text-base font-extrabold tracking-wider uppercase gap-2 group"
           >
-            <span>Free Trial 24H</span>
-            <Sparkles className="w-4 h-4 text-white" />
+            <span className="relative z-10">Free Trial 24H</span>
+            <Sparkles className="w-4.5 h-4.5 relative z-10 transform group-hover:rotate-45 group-hover:scale-125 transition-transform duration-300 text-amber-200" />
           </a>
         </div>
 
