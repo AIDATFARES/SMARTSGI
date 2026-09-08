@@ -188,7 +188,7 @@ export default function ChannelsPage() {
                 <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20free%20trial%20for%20SMARTSGI."
+                href="https://wa.me/447882781998?text=Hello,%20I%20would%20like%20to%20request%20a%20free%20trial%20for%20SMARTSGI."
                 target="_blank"
                 rel="noreferrer"
                 className="btn-outline-glass px-8 py-4 text-xs font-black uppercase tracking-wider hover:border-[#FF7A00]/60 hover:text-[#FF8A1F]"

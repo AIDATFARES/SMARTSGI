@@ -169,7 +169,7 @@ export default function PricingPageContent() {
     const message = encodeURIComponent(
       `Hello! I would like to purchase the SMARTSGI ${plan.name} plan for ${devices} device connection${devices > 1 ? "s" : ""} ($${calculateTotalPrice(plan)}).`
     );
-    window.open(`https://wa.me/213552069874?text=${message}`, "_blank", "noopener,noreferrer");
+    window.open(`https://wa.me/447882781998?text=${message}`, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -335,7 +335,7 @@ export default function PricingPageContent() {
           </div>
 
           <a
-            href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20free%2024H%20trial%20for%20SMARTSGI."
+            href="https://wa.me/447882781998?text=Hello,%20I%20would%20like%20to%20request%20a%20free%2024H%20trial%20for%20SMARTSGI."
             target="_blank"
             rel="noreferrer"
             className="btn-secondary-orange px-7 py-3 text-xs font-black tracking-wider uppercase shrink-0"

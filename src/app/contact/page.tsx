@@ -59,7 +59,7 @@ export default function Contact() {
             </p>
             <a
               className="btn-secondary-orange px-6 py-2.5 text-xs font-black uppercase tracking-wider flex items-center gap-2"
-              href="https://wa.me/213552069874?text=Hello,%20I%20need%20support%20for%20SMARTSGI."
+              href="https://wa.me/447882781998?text=Hello,%20I%20need%20support%20for%20SMARTSGI."
               target="_blank"
               rel="noreferrer"
             >

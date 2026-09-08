@@ -78,7 +78,7 @@ export default function Navbar() {
         {/* Right: CTA Button */}
         <div className="hidden sm:flex items-center gap-3 shrink-0">
           <a
-            href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20trial%20for%20SMARTSGI."
+            href="https://wa.me/447882781998?text=Hello,%20I%20would%20like%20to%20request%20a%20trial%20for%20SMARTSGI."
             target="_blank"
             rel="noreferrer"
             className="btn-primary-purple px-6 py-2.5 text-xs sm:text-sm font-bold tracking-wider uppercase gap-2 hover:shadow-[0_0_25px_rgba(155,63,242,0.6)]"
@@ -123,7 +123,7 @@ export default function Navbar() {
 
           <div className="pt-4 border-t border-white/[0.08]">
             <a
-              href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20trial%20for%20SMARTSGI."
+              href="https://wa.me/447882781998?text=Hello,%20I%20would%20like%20to%20request%20a%20trial%20for%20SMARTSGI."
               target="_blank"
               rel="noreferrer"
               onClick={() => setMobileMenuOpen(false)}

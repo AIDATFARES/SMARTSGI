@@ -206,7 +206,7 @@ export default function FAQ() {
             </h3>
             <p className="text-xs text-[#A8A0B8] mb-4">Immediate real-time technical help.</p>
             <a 
-              href="https://wa.me/213552069874?text=Hello,%20I%20have%20a%20question%20about%20SMARTSGI."
+              href="https://wa.me/447882781998?text=Hello,%20I%20have%20a%20question%20about%20SMARTSGI."
               target="_blank"
               rel="noreferrer"
               className="text-sm font-bold text-[#25D366] hover:underline"

@@ -14,7 +14,7 @@ export default function WhatsAppButton() {
       <div className="relative flex items-center justify-center">
         <div className="absolute inset-0 rounded-full bg-[#25D366]/30 animate-ping" style={{ animationDuration: '3s' }}></div>
         <a
-          href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20information%20about%20SMARTSGI."
+          href="https://wa.me/447882781998?text=Hello,%20I%20would%20like%20to%20request%20information%20about%20SMARTSGI."
           target="_blank"
           rel="noreferrer"
           aria-label="Chat on WhatsApp"

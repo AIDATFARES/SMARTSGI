@@ -155,7 +155,7 @@ export default function ResellerPageContent() {
       ? `Hello! I would like to order the SMARTSGI Reseller Panel with ${plan.credits} Credits for $${plan.price}.`
       : `Hello! I am interested in becoming a SMARTSGI Reseller and would like to request panel access.`;
     window.open(
-      `https://wa.me/213552069874?text=${encodeURIComponent(message)}`,
+      `https://wa.me/447882781998?text=${encodeURIComponent(message)}`,
       "_blank",
       "noopener,noreferrer"
     );
