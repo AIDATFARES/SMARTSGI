@@ -69,13 +69,15 @@ export default function HeroSection() {
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
           </a>
           
-          <Link
-            href="/reseller"
+          <a
+            href="https://wa.me/213552069874?text=Hello,%20I%20would%20like%20to%20request%20a%20free%2024H%20trial%20for%20SMARTSGI."
+            target="_blank"
+            rel="noreferrer"
             className="btn-secondary-orange w-full sm:w-auto px-9 py-4 text-sm sm:text-base font-extrabold tracking-wider uppercase gap-2 hover:shadow-[0_0_35px_rgba(255,122,0,0.6)] group"
           >
-            <span>Be a Reseller</span>
+            <span>Free Trial 24H</span>
             <Sparkles className="w-4 h-4 text-white" />
-          </Link>
+          </a>
         </div>
 
         {/* Trust Card */}
