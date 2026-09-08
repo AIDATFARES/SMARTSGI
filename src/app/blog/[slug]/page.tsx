@@ -23,12 +23,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${post.title} | SMARTSGI`,
-    description: post.description,
+    title: post.metaTitle || post.title,
+    description: post.metaDescription || post.excerpt,
     alternates: {
       canonical: `/blog/${post.slug}`,
     },
   };
+
 }
 
 function parseArticleContent(content: string) {
@@ -137,15 +138,15 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           <div className="flex items-center justify-center gap-4 text-[#777083] font-bold uppercase tracking-wider text-xs">
             <span>{post.date}</span>
             <span>•</span>
-            <span>{post.author}</span>
+            <span>{post.author || "SMARTSGI Team"}</span>
           </div>
         </header>
 
-        {post.coverImage && (
+        {(post.coverImage || post.image) && (
           <div className="mb-12 rounded-2xl overflow-hidden relative w-full h-[280px] sm:h-[450px] bg-[#10091B]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={post.coverImage}
+              src={post.coverImage || post.image}
               alt={post.title}
               className="w-full h-full object-cover"
             />
@@ -205,7 +206,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                       <img
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
                         alt={relPost.title}
-                        src={relPost.coverImage || "/imggt1_2.webp"}
+                        src={relPost.coverImage || relPost.image || "/imggt1_2.webp"}
                       />
                     </div>
                     <div className="p-5 flex flex-col flex-grow">

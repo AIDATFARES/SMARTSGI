@@ -46,7 +46,7 @@ export default function Blog() {
                 <img
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
                   alt={featuredPost.title}
-                  src={featuredPost.coverImage || ""}
+                  src={featuredPost.coverImage || featuredPost.image || ""}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#05030B] to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#05030B]/90"></div>
               </div>
@@ -59,7 +59,7 @@ export default function Blog() {
                   {featuredPost.title}
                 </h2>
                 <p className="text-[#A8A0B8] text-sm md:text-base mb-6 line-clamp-3 leading-relaxed">
-                  {featuredPost.description}
+                  {featuredPost.description || featuredPost.excerpt}
                 </p>
                 <div className="flex items-center gap-3 mt-auto text-xs font-black uppercase tracking-wider text-white">
                   <span>Read Article</span>
@@ -81,7 +81,7 @@ export default function Blog() {
                 <img
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100"
                   alt={post.title}
-                  src={post.coverImage || ""}
+                  src={post.coverImage || post.image || ""}
                 />
               </div>
               <div className="p-6 sm:p-8 flex flex-col flex-grow">
@@ -92,7 +92,7 @@ export default function Blog() {
                   {post.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-[#A8A0B8] line-clamp-3 mb-6 leading-relaxed flex-grow">
-                  {post.description}
+                  {post.description || post.excerpt}
                 </p>
                 <div className="flex items-center justify-between text-xs font-bold text-white pt-4 border-t border-white/[0.06] mt-auto">
                   <span>Read Guide</span>
