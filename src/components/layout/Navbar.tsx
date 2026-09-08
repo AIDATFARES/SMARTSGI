@@ -29,10 +29,12 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "Home", href: "/" },
-    { label: "IPTV Subscription", href: "/pricing" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Pricing", href: "/pricing" },
     { label: "Channel List", href: "/channels" },
     { label: "Tutorials", href: "/installation" },
+    { label: "Blog", href: "/blog" },
+    { label: "Reseller", href: "/reseller" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -51,16 +53,17 @@ export default function Navbar() {
         </Link>
 
         {/* Center: Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-1 xl:gap-2 px-3 py-1.5 rounded-full border border-white/[0.08] bg-[#10091B]/60 backdrop-blur-md">
+        <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 px-3 py-1.5 rounded-full border border-white/[0.08] bg-[#10091B]/60 backdrop-blur-md">
           {navLinks.map((link) => {
-            const isPricingHash = link.href === "#pricing";
-            const isActive = isPricingHash ? false : pathname === link.href;
+            const isActive = link.href === "/" 
+              ? pathname === "/" 
+              : pathname.startsWith(link.href);
 
             return (
               <Link
                 key={link.label}
                 href={link.href}
-                className={`px-4 py-2 rounded-full text-xs xl:text-sm font-semibold tracking-wide transition-all duration-200 ${
+                className={`px-3.5 py-1.5 rounded-full text-xs xl:text-sm font-semibold tracking-wide transition-all duration-200 ${
                   isActive
                     ? "bg-gradient-to-r from-[#9B3FF2] to-[#9333EA] text-white shadow-[0_0_15px_rgba(155,63,242,0.4)]"
                     : "text-[#A8A0B8] hover:text-white hover:bg-white/[0.05]"
@@ -100,7 +103,7 @@ export default function Navbar() {
         <div className="lg:hidden bg-[#080511]/98 backdrop-blur-2xl border-b border-white/[0.08] px-6 py-6 space-y-4 animate-in slide-in-from-top-4 duration-300 shadow-2xl">
           <nav className="flex flex-col space-y-2">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
               return (
                 <Link
                   key={link.label}
@@ -116,20 +119,6 @@ export default function Navbar() {
                 </Link>
               );
             })}
-            <Link
-              href="/reseller"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-4 py-2.5 rounded-xl text-sm font-semibold text-[#A8A0B8] hover:text-white hover:bg-white/[0.04] transition-colors"
-            >
-              Reseller Program
-            </Link>
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="px-4 py-2.5 rounded-xl text-sm font-semibold text-[#A8A0B8] hover:text-white hover:bg-white/[0.04] transition-colors"
-            >
-              Contact Support
-            </Link>
           </nav>
 
           <div className="pt-4 border-t border-white/[0.08]">
