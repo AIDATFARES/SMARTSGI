@@ -38,12 +38,11 @@ export default function MovieStrips() {
         </p>
         <Link 
           href="/channels"
-          className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-[#36a9ff]/30 text-black text-sm md:text-base font-black tracking-wide uppercase bg-gray-50 hover:bg-[#082a45] hover:border-[#36a9ff] hover:shadow-[0_0_20px_rgba(54,169,255,0.4)] transition-all duration-300 gap-2 hover:-translate-y-1"
           className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-[#9B3FF2]/30 text-white text-sm md:text-base font-black tracking-wide uppercase glass-card hover:border-[#9B3FF2] hover:shadow-[0_0_20px_rgba(155,63,242,0.4)] transition-all duration-300 gap-2 hover:-translate-y-1"
         >
-          View Realm IPTV Channel List <span aria-hidden="true">&rarr;</span>
           View SMARTSGI Channel List <span aria-hidden="true">&rarr;</span>
         </Link>
+
       </div>
 
       {/* Brand Logos Tape */}
