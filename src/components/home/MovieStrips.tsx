@@ -56,10 +56,18 @@ export default function MovieStrips() {
         <span className="block text-center text-sm font-bold tracking-widest text-slate-400 uppercase mb-2">200,000+ Latest Movies & Series</span>
       </div>
       <div className="relative flex w-max items-center">
-        <div className="flex gap-4 md:gap-6 px-2 md:px-3 animate-marquee" style={{ animationDuration: '30s' }}>
-          {[...movieImages, ...movieImages, ...movieImages].map((img, i) => (
-            <div key={i} className="flex-shrink-0 w-[160px] h-[200px] md:w-[240px] md:h-[300px] relative rounded-xl overflow-hidden shadow-xl border border-[#36a9ff]/20 hover:scale-105 hover:border-[#36a9ff] hover:shadow-[0_0_30px_rgba(54,169,255,0.3)] hover:z-10 transition-all duration-300">
-              <Image src={`/movie_new/${img}`} alt="Media Thumbnail" fill sizes="(max-width: 640px) 240px, 340px" className="object-cover" />
+        <div className="flex gap-4 md:gap-6 px-2 md:px-3 animate-marquee" style={{ animationDuration: '35s' }}>
+          {[...movieImages, ...movieImages].map((img, i) => (
+            <div key={i} className="flex-shrink-0 w-[140px] h-[190px] md:w-[220px] md:h-[280px] relative rounded-xl overflow-hidden shadow-xl border border-[#36a9ff]/20 hover:scale-105 hover:border-[#36a9ff] transition-all duration-300">
+              <Image 
+                src={`/movie_new/${img}`} 
+                alt="Media Thumbnail" 
+                fill 
+                sizes="(max-width: 640px) 140px, 220px" 
+                quality={70} 
+                loading="lazy" 
+                className="object-cover" 
+              />
             </div>
           ))}
         </div>

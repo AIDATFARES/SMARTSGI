@@ -43,6 +43,8 @@ export default function BrandMarquee({
                 alt="Channel Logo" 
                 fill
                 sizes="(max-width: 640px) 100px, (max-width: 1024px) 140px, 160px"
+                quality={70}
+                loading="lazy"
                 className={imageClassName || "object-contain drop-shadow-md rounded-lg"}
               />
             </div>
