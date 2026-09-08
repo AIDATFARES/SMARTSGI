@@ -5,11 +5,19 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32 pb-24 px-4 sm:px-6 lg:px-8">
       
+      {/* NanoBanana Hero Background Image - Relaxed Family Watching TV */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35 pointer-events-none"
+        style={{ backgroundImage: "url('/hero-bg-smartsgi.webp')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#05030B]/90 via-[#05030B]/80 to-[#05030B] pointer-events-none" />
+
       {/* Ambient Atmospheric Lighting & Gradients */}
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[500px] glow-purple blur-[140px] pointer-events-none rounded-full" />
       <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] glow-violet blur-[120px] pointer-events-none rounded-full" />
       <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] glow-orange blur-[130px] pointer-events-none rounded-full opacity-60" />
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[500px] h-[300px] glow-magenta blur-[130px] pointer-events-none rounded-full opacity-40" />
+
 
       <div className="relative z-10 w-full max-w-[1100px] mx-auto flex flex-col items-center text-center">
         
