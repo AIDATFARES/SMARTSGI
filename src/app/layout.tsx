@@ -15,14 +15,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "SMARTSGI | Smart & Reliable IPTV Subscription",
   description: "Experience premier live TV channels, sports events, movies, and international entertainment with SMARTSGI. Ultra-stable streaming infrastructure with instant activation across all your favorite devices.",
-  metadataBase: new URL("https://smartsgi.net"),
+  metadataBase: new URL("https://www.smartsgi.stream"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "SMARTSGI | Smart & Reliable IPTV",
     description: "Stream premium live TV, sports, and entertainment with SMARTSGI. Instant activation, wide device compatibility, and 24/7 dedicated support.",
-    url: "https://smartsgi.net",
+    url: "https://www.smartsgi.stream",
     siteName: "SMARTSGI",
     locale: "en_US",
     type: "website",

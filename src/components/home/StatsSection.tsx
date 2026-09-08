@@ -1,4 +1,4 @@
-import { Tv, Film, MonitorSmartphone, Headphones, ShieldCheck, Zap } from "lucide-react";
+import { Tv, Film, MonitorSmartphone, Headphones } from "lucide-react";
 import Link from "next/link";
 
 const stats = [

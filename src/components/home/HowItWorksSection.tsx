@@ -1,4 +1,4 @@
-import { CreditCard, MailCheck, PlayCircle, ArrowRight } from "lucide-react";
+import { CreditCard, MailCheck, PlayCircle } from "lucide-react";
 import Link from "next/link";
 
 export default function HowItWorksSection() {
@@ -85,7 +85,7 @@ export default function HowItWorksSection() {
           {/* Connector Line on Desktop */}
           <div className="hidden md:block absolute top-1/2 left-[18%] right-[18%] -translate-y-1/2 h-[2px] bg-gradient-to-r from-[#9B3FF2]/40 via-[#EC4899]/40 to-[#FF7A00]/40 z-0" />
 
-          {steps.map((step, idx) => {
+          {steps.map((step) => {
             const Icon = step.icon;
             return (
               <div

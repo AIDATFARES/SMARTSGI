@@ -8,8 +8,6 @@ import {
   Headphones,
   MonitorSmartphone,
   Server,
-  ShieldCheck,
-  ShoppingCart,
   Sparkles,
   Zap,
 } from "lucide-react";

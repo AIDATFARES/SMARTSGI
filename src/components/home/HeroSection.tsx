@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, ShieldCheck, Sparkles, Star, Users } from "lucide-react";
+import { ArrowRight, ShieldCheck, Sparkles, Star } from "lucide-react";
 
 export default function HeroSection() {
   return (

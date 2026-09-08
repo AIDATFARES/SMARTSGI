@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 interface BrandLogoProps {
   compact?: boolean;
   className?: string;

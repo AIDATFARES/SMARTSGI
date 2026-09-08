@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Check, Sparkles, Tv, ShieldCheck, Zap } from "lucide-react";
+import { Check, Sparkles, Tv, Zap } from "lucide-react";
 
 interface Plan {
   id: string;

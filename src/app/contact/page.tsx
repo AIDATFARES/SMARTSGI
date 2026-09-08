@@ -39,9 +39,9 @@ export default function Contact() {
             <p className="text-xs sm:text-sm text-[#A8A0B8] mb-4">For general inquiries and billing support.</p>
             <a
               className="text-[#C084FC] font-bold hover:text-white transition-colors text-sm"
-              href="mailto:support@smartsgi.net"
+              href="mailto:support@smartsgi.stream"
             >
-              support@smartsgi.net
+              support@smartsgi.stream
             </a>
           </div>
 

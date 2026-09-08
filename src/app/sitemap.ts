@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { blogPosts } from '@/data/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://smartsgi.net';
+  const baseUrl = 'https://www.smartsgi.stream';
 
   // Define static routes
   const staticRoutes: MetadataRoute.Sitemap = [

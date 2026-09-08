@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShieldCheck, Sparkles } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | SMARTSGI",

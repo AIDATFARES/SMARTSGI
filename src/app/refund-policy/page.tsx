@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Sparkles, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Refund Policy | SMARTSGI",

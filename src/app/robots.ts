@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/'],
     },
-    sitemap: 'https://smartsgi.net/sitemap.xml',
+    sitemap: 'https://www.smartsgi.stream/sitemap.xml',
   };
 }

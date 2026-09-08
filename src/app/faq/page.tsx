@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ChevronDown, HelpCircle, Sparkles, Mail, MessageCircle, Clock3 } from "lucide-react";
+import { ChevronDown, Sparkles, Mail, MessageCircle } from "lucide-react";
 
 type FAQItem = {
   question: string;
@@ -190,8 +190,8 @@ export default function FAQ() {
               </Link>
             </h3>
             <p className="text-xs text-[#A8A0B8] mb-4">Send us your question anytime.</p>
-            <a href="mailto:support@smartsgi.net" className="text-sm font-bold text-[#C084FC] hover:text-white transition-colors">
-              support@smartsgi.net
+            <a href="mailto:support@smartsgi.stream" className="text-sm font-bold text-[#C084FC] hover:text-white transition-colors">
+              support@smartsgi.stream
             </a>
           </div>
 

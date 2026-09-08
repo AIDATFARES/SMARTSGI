@@ -10,7 +10,6 @@ import {
   Newspaper, 
   Trophy, 
   Radio,
-  Sparkles,
   ArrowRight
 } from "lucide-react";
 import Link from "next/link";

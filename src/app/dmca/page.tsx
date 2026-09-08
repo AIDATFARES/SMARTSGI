@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShieldAlert, Sparkles } from "lucide-react";
+import { ShieldAlert } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Legal Disclaimer & DMCA Policy | SMARTSGI",
@@ -67,7 +67,7 @@ const sections = [
         <Link href="/contact" className="text-[#C084FC] underline hover:text-white">
           contact form
         </Link>{" "}
-        or email legal@smartsgi.net.
+        or email legal@smartsgi.stream.
       </p>
     ),
   },

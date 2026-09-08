@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Apple, Box, ChevronDown, Download, HelpCircle, Monitor, Satellite, Smartphone, Tv, CheckCircle2 } from "lucide-react";
+import { Apple, Box, Monitor, Smartphone, Tv } from "lucide-react";
 
 const devices = [
   { 

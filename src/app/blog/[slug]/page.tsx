@@ -82,30 +82,31 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   const markdownComponents = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    h2: ({ node, ...props }: any) => <h2 className="text-2xl font-black mt-12 mb-6 text-white uppercase tracking-tight" {...props} />,
+    h2: (props: any) => <h2 className="text-2xl font-black mt-12 mb-6 text-white uppercase tracking-tight" {...Object.fromEntries(Object.entries(props).filter(([k]) => k !== 'node'))} />,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    h3: ({ node, ...props }: any) => <h3 className="text-xl font-black mt-8 mb-4 text-[#C084FC] tracking-wide" {...props} />,
+    h3: (props: any) => <h3 className="text-xl font-black mt-8 mb-4 text-[#C084FC] tracking-wide" {...Object.fromEntries(Object.entries(props).filter(([k]) => k !== 'node'))} />,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    p: ({ node, ...props }: any) => <p className="mb-6 leading-relaxed text-[#A8A0B8]" {...props} />,
+    p: (props: any) => <p className="mb-6 leading-relaxed text-[#A8A0B8]" {...Object.fromEntries(Object.entries(props).filter(([k]) => k !== 'node'))} />,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ul: ({ node, ...props }: any) => <ul className="list-disc pl-6 mb-6 space-y-2 text-[#A8A0B8]" {...props} />,
+    ul: (props: any) => <ul className="list-disc pl-6 mb-6 space-y-2 text-[#A8A0B8]" {...Object.fromEntries(Object.entries(props).filter(([k]) => k !== 'node'))} />,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ol: ({ node, ...props }: any) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-[#A8A0B8]" {...props} />,
+    ol: (props: any) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-[#A8A0B8]" {...Object.fromEntries(Object.entries(props).filter(([k]) => k !== 'node'))} />,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    a: ({ node, ...props }: any) => <a className="text-[#C084FC] hover:text-white underline underline-offset-2 font-semibold transition-colors" {...props} />,
+    a: (props: any) => <a className="text-[#C084FC] hover:text-white underline underline-offset-2 font-semibold transition-colors" {...Object.fromEntries(Object.entries(props).filter(([k]) => k !== 'node'))} />,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    blockquote: ({ node, ...props }: any) => <blockquote className="border-l-4 border-[#9B3FF2] pl-4 py-2 mb-6 italic bg-white/[0.03] rounded-r text-[#A8A0B8]" {...props} />,
+    blockquote: (props: any) => <blockquote className="border-l-4 border-[#9B3FF2] pl-4 py-2 mb-6 italic bg-white/[0.03] rounded-r text-[#A8A0B8]" {...Object.fromEntries(Object.entries(props).filter(([k]) => k !== 'node'))} />,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    table: ({ node, ...props }: any) => <div className="overflow-x-auto mb-8"><table className="w-full text-left border-collapse glass-card rounded-xl" {...props} /></div>,
+    table: (props: any) => <div className="overflow-x-auto mb-8"><table className="w-full text-left border-collapse glass-card rounded-xl" {...Object.fromEntries(Object.entries(props).filter(([k]) => k !== 'node'))} /></div>,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    th: ({ node, ...props }: any) => <th className="border-b border-white/[0.08] py-3 px-4 font-bold text-white bg-white/[0.05]" {...props} />,
+    th: (props: any) => <th className="border-b border-white/[0.08] py-3 px-4 font-bold text-white bg-white/[0.05]" {...Object.fromEntries(Object.entries(props).filter(([k]) => k !== 'node'))} />,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    td: ({ node, ...props }: any) => <td className="border-b border-white/[0.05] py-3 px-4 text-[#A8A0B8]" {...props} />,
+    td: (props: any) => <td className="border-b border-white/[0.05] py-3 px-4 text-[#A8A0B8]" {...Object.fromEntries(Object.entries(props).filter(([k]) => k !== 'node'))} />,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    img: ({ node, alt, src, ...props }: any) => (
+    img: (props: any) => (
       <span className="my-8 flex flex-col items-center">
-        <img src={src} alt={alt} className="rounded-2xl max-w-full shadow-2xl border border-white/[0.08]" {...props} />
-        {alt && <span className="text-xs text-center block mt-2 text-[#777083]">{alt}</span>}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={props.src} alt={props.alt} className="rounded-2xl max-w-full shadow-2xl border border-white/[0.08]" />
+        {props.alt && <span className="text-xs text-center block mt-2 text-[#777083]">{props.alt}</span>}
       </span>
     ),
     cta: () => <div className="not-prose my-12"><BlogOfferCard /></div>,

@@ -1,4 +1,4 @@
-import { Globe, MapPin, Sparkles } from "lucide-react";
+import { Globe, MapPin } from "lucide-react";
 import Link from "next/link";
 
 interface RegionInfo {
