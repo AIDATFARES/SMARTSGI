@@ -1,1 +1,0 @@
-"export interface BlogPost {\n  id: string;\n  slug: string;\n  title: string;\n  description: string;\n  date: string;\n  author: string;\n  category: string;\n  coverImage?: string;\n  content: string;\n}\n\nexport const blogPosts: BlogPost[] = [];"
