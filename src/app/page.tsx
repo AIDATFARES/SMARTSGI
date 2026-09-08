@@ -12,6 +12,8 @@ import FAQSection from "@/components/home/FAQSection";
 import SupportCtaSection from "@/components/home/SupportCtaSection";
 
 export const metadata = {
+  title: "SMARTSGI | Best IPTV Subscription USA, Canada & Europe",
+  description: "Stream 4K live TV, sports, movies & international channels with SMARTSGI. Anti-freeze server, 99.9% uptime, instant setup & 24h free trial.",
   alternates: {
     canonical: "/",
   },

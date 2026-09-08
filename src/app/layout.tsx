@@ -13,8 +13,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "SMARTSGI | Smart & Reliable IPTV Subscription",
-  description: "Experience premier live TV channels, sports events, movies, and international entertainment with SMARTSGI. Ultra-stable streaming infrastructure with instant activation across all your favorite devices.",
+  title: "SMARTSGI | Best IPTV Subscription USA, Canada & Europe",
+  description: "Stream 4K live TV, sports, movies & international channels with SMARTSGI. Anti-freeze server, 99.9% uptime, instant setup & 24h free trial.",
   metadataBase: new URL("https://www.smartsgi.stream"),
   icons: {
     icon: "/icon.png",
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "SMARTSGI | Smart & Reliable IPTV",
-    description: "Stream premium live TV, sports, and entertainment with SMARTSGI. Instant activation, wide device compatibility, and 24/7 dedicated support.",
+    title: "SMARTSGI | Best IPTV Subscription USA, Canada & Europe",
+    description: "Stream 4K live TV, sports, movies & international channels with SMARTSGI. Anti-freeze server, 99.9% uptime, instant setup & 24h free trial.",
     url: "https://www.smartsgi.stream",
     siteName: "SMARTSGI",
     locale: "en_US",
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SMARTSGI | Smart & Reliable IPTV",
-    description: "Stream premium live TV, sports, and entertainment with SMARTSGI. Instant activation, wide device compatibility, and 24/7 dedicated support.",
+    title: "SMARTSGI | Best IPTV Subscription USA, Canada & Europe",
+    description: "Stream 4K live TV, sports, movies & international channels with SMARTSGI. Anti-freeze server, 99.9% uptime, instant setup & 24h free trial.",
   },
 };
 
