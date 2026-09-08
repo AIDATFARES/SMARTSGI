@@ -5,12 +5,12 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32 pb-24 px-4 sm:px-6 lg:px-8">
       
-      {/* NanoBanana Hero Background Image - Relaxed Family Watching TV */}
+      {/* NanoBanana Hero Background Image - Clear & Crisp Family Watching TV */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35 pointer-events-none"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-75 pointer-events-none"
         style={{ backgroundImage: "url('/hero-bg-smartsgi.webp')" }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#05030B]/90 via-[#05030B]/80 to-[#05030B] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#05030B]/75 via-[#05030B]/45 to-[#05030B] pointer-events-none" />
 
       {/* Ambient Atmospheric Lighting & Gradients */}
       <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[500px] glow-purple blur-[140px] pointer-events-none rounded-full" />
@@ -30,7 +30,7 @@ export default function HeroSection() {
         </div>
 
         {/* Main H1 */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-tight leading-[1.08] max-w-5xl mb-6">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black tracking-tight leading-[1.08] max-w-5xl mb-6 drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
           <span className="text-white block sm:inline">The Best IPTV Provider </span>
           <span className="text-gradient-hero block sm:inline">
             USA, Canada &amp; Europe
@@ -38,12 +38,12 @@ export default function HeroSection() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-lg sm:text-2xl font-extrabold text-[#F8FAFC] tracking-wide mb-6">
+        <p className="text-lg sm:text-2xl font-extrabold text-[#F8FAFC] tracking-wide mb-6 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
           Smart &amp; Reliable IPTV Streaming — High Performance Experience
         </p>
 
         {/* Original Conversion Copy with Contextual Internal Links */}
-        <p className="text-sm sm:text-base md:text-lg text-[#A8A0B8] max-w-3xl leading-relaxed mb-10 font-normal">
+        <p className="text-sm sm:text-base md:text-lg text-[#E2E8F0] max-w-3xl leading-relaxed mb-10 font-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
           Elevate your home entertainment with <strong className="text-white font-semibold">SMARTSGI</strong>. Stream crystal-clear{" "}
           <Link href="/channels" className="text-white hover:text-[#C084FC] underline decoration-[#9B3FF2]/50 font-medium transition-colors">
             live television channels
