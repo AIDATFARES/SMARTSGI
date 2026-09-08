@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   title: "SMARTSGI | Smart & Reliable IPTV Subscription",
   description: "Experience premier live TV channels, sports events, movies, and international entertainment with SMARTSGI. Ultra-stable streaming infrastructure with instant activation across all your favorite devices.",
   metadataBase: new URL("https://www.smartsgi.stream"),
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
   alternates: {
     canonical: "/",
   },
