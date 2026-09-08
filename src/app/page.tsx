@@ -26,17 +26,17 @@ export default function Home() {
       {/* 2. Device Compatibility Section (Immediately after hero) */}
       <DeviceSupport />
 
-      {/* 3. Entertainment Categories (Entertainment For Everyone) */}
+      {/* 3. High-Converting Pricing Section (Choose Your Best IPTV Subscription Plan) */}
+      <PricingSection />
+
+      {/* 4. Entertainment Categories (Entertainment For Everyone) */}
       <CategorySection />
 
-      {/* 4. IPTV Features (All The Premium TV You Love - Two Columns) */}
+      {/* 5. IPTV Features (All The Premium TV You Love - Two Columns) */}
       <IptvFeaturesSection />
 
-      {/* 5. Sports, Movies & Shows Showcase */}
+      {/* 6. Sports, Movies & Shows Showcase */}
       <EntertainmentShowcase />
-
-      {/* 6. High-Converting Pricing Section (5 tiers + Device count) */}
-      <PricingSection />
 
       {/* 7. How To Get Started With SMARTSGI (01, 02, 03) */}
       <HowItWorksSection />
